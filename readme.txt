@@ -7,6 +7,7 @@ Donate Link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=99WUG
 Stable tag: trunk
 
 Integrate and automate Doubleclick for Publishers (DFP) with WordPress.
+https://www.google.com/dfp/
 
 == Description ==
 

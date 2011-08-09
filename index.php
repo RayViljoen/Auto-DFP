@@ -8,3 +8,4 @@ Author: Ray Viljoen
 Author URI: http://fubra.com
 */
 
+require_once 'api/Dfp/Lib/DfpUser.php';
