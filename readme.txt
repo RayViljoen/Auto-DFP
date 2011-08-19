@@ -11,7 +11,7 @@ https://www.google.com/dfp/
 
 == Description ==
 
-DESCRIPTION ----1111
+DESCRIPTION
 
 Developed by <a href="http://www.catn.com">PHP Hosting Experts CatN</a>
 
