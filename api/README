@@ -1,0 +1,440 @@
+Google's DoubleClick for Publishers API PHP Client Library
+==========================================================
+
+Google's DoubleClick for Publishers (DFP) API service lets developers design
+computer programs that interact directly with the DFP platform. With these
+applications, advertisers and third parties can more efficiently -- and
+creatively -- manage their large or complex DFP accounts.
+
+The DFP API PHP Client Library makes it easy to write PHP clients to
+programmatically access DFP accounts. All client library classes and utilities
+are in the directory or sub-directory of "src/Google/Api/Ads/Dfp/".
+
+The client library is compatible with all standard PHP 5.2.x and 5.3.x
+distributions. The library uses the native SoapClient class
+[http://us3.php.net/manual/en/book.soap.php], which needs to be enabled with the
+--enable-soap flag if building PHP from source. More information about
+compatibility can be found in the PHP Compatibility section of this README.
+
+What's in the client library?
+-----------------------------
+
+The client library provides full access to all the functionality of the DFP API
+web services plus more. It includes:
+
+  - Data classes: The client library provides all the necessary data classes.
+    For example, it provides the AdUnit data class for encapsulating ad unit
+    data. These classes are generated automatically from WSDLs.
+
+  - DfpUser class: The DfpUser class provides methods for setting credentials
+    for accessing DFP accounts as well as for creating instances of the DFP
+    Service classes.
+
+  - Helpful utilities: The utilities located under
+    "src/Google/Api/Ads/Common/Util" help you manage XML and import images into
+    the client library.
+
+  - Logger class: This class provides simple methods for logging the SOAP XML
+    messages of all requests and responses.
+
+  - Examples: The PHP client library comes with code examples in the "examples/"
+    directory. We encourage you to use code examples to get started writing your
+    own application. All the code examples are runnable out of the box, but you
+    will have to set your credentials in "src/Google/Api/Ads/Dfp/auth.ini" and
+    you may be required to insert object IDs where you see "INSERT_***_HERE".
+
+
+Basic usage
+-----------
+
+For those of you who have already built PHP clients without using the client
+library, the DfpUser class has methods for setting username, password,
+networkCode, and applicationName so that you don't have to write the code to
+set the request headers. The methods for creating new instances of service
+classes takes the place of the code for instantiating the stubs that connect
+to the web services.
+
+In the following example for using the default constructor:
+
+    $user = new DfpUser();
+
+the credentials are loaded from the "src/Google/Api/Ads/Dfp/auth.ini" file.
+
+The credentials can also be loaded in one of two ways: supplying an alternative
+authentication INI file, or supplying credentials via the constructor's
+parameters.
+
+If an authentication INI file is provided and successfully loaded, those values
+will be used unless a corresponding parameter overwrites them. If the
+authentication INI file is not provided (e.g. it is null) the class will
+attempt to load the default authentication file at the path of "../auth.ini"
+relative to this file's directory. Any corresponding parameter which is not
+null will, however, overwrite any parameter loaded from the default INI.
+
+    $user = new DfpUser(NULL, $email, $password, $applicationName,
+        $networkCode);
+
+    or
+
+    // Used if user only has one network (most cases) and does not need to
+    // supply the network code.
+    $user = new DfpUser(NULL, $email, $password, $applicationName);
+
+
+How do I start?
+---------------
+If you haven't yet done so, you'll need to request sandbox access to the API as
+directed on this page:
+
+http://code.google.com/apis/dfp/docs/signup.html
+
+There is no need to worry about accessing the WSDLs for the web services; the
+classes in the client library do it for you. You can use the demo programs in
+the  "examples/" directory to get started writing your own client. The
+examples should work out of the box if you provide the right credentials. The
+default behavior is to use credentials from "../auth.ini" relative to the
+DfpUser.php file's directory.
+
+To write a program that accesses DFP accounts using the client
+library, do the following:
+
+  1) Set the include path and require the following PHP file:
+
+     // You can set the include path to the src directory or reference
+     // DfpUser.php directly via require_once.
+     // $path = '/path/to/dfp_api_php_lib/src';
+     $path = dirname(__FILE__) . '/../../../src';
+     set_include_path(get_include_path() . PATH_SEPARATOR . $path);
+
+     require_once 'Google/Api/Ads/Dfp/Lib/DfpUserUser.php';
+
+  2) Create a DfpUser instance, specifying the credentials at
+     creation time. Alternately, you can use the default constructor after
+     completing the INI file as described above.
+
+     $user = new DfpUser(NULL, $email, $password, $applicationName);
+
+  3) Optionally, enable logging to capture the content of the requests and
+     responses. This example sends the information to a file:
+
+     $user->LogDefaults();
+
+  4) Instantiate the desired service class by calling the getXService method on
+     the DfpUser instance. Getting the service will "require"
+     the proper PHP file, so that all classes needed for that service
+     will be loaded.
+
+     $inventoryService =
+         $user->getInventoryService('v201010', 'https://sandbox.google.com');
+
+  5) Create data objects and invoke methods on the service class instance. The
+     data objects and methods map directly to the data objects and requests for
+     the corresponding web service.
+
+     // Create the local ad unit object.
+     $adUnit = new AdUnit();
+     $adUnit->name = 'Ad_Unit_' . $i;
+     $adUnit->parentId = $parentAdUnitId;
+
+     // Set the size of possible creatives that can match this ad unit.
+     $adUnit->sizes = array(new Size(300, 250));
+
+     // Create the ad unit on the server.
+     $adUnit = $inventoryService->createAdUnit($adUnit);
+
+
+Running demo programs
+---------------------
+
+You can run the demo programs by executing the following on the command line
+from a sub-directory of the "examples/" directory:
+
+    $ php Example.php
+
+
+Authentication Options
+----------------------
+
+Authentication in the client library is handled by the DfpUser object, which
+has the following options.
+
+  - Email and Password: The email and password of the DFP account is used.
+    When the first service is created an AuthToken is generated using the
+    ClientLogin API using these credentials. The email and password can be be
+    stored in the auth.ini file, passed into the DfpUser constructor, or set
+    individually using the SetEmail() and SetPassword() methods. If the
+    AuthToken expires (they are valid for up to two weeks) it can be
+    regenerated using the RegenerateAuthToken() method.
+
+  - AuthToken: An existing AuthToken is used. It is recommended to reuse
+    AuthTokens since too many requests to the ClientLogin API can lead to
+    errors. You can pass the authToken in the contructor or set it using the
+    SetAuthToken() method.
+
+  - OAuth: The OAuth protocol is used. This protocol provides a way to access
+    an DFP account without needing possesion of the email or password.
+    Instead a permanent OAuth token is requested, authorized by the user
+    in their browser, and then upgraded for full access. The DfpUser
+    provides the RequestOAuthToken(), GetOAuthAuthorizationUrl(), and
+    UpgradeOAuthToken() methods to help simplify the process. Existing OAuth
+    tokens can be used by passing them into the contructor or by using the
+    SetOAuthInfo() method. See the example UseOAuth.php for an example of
+    how to use these methods.
+
+
+How do I enable logging?
+------------------------
+
+The client library uses a custom class for all logging purposes and is exposed
+through the Logger.php file. There are two loggers within this class described
+below.
+
+  - REQUEST_INFO_LOG: Logs all requests from the client library along
+    with information such as the timestamp, email, service, method,
+    request Id, response time and which server was used. The default
+    behavior is to log this information to "logs/request_info.log" relative to
+    your project's home directory.
+
+  - SOAP_XML_LOG: Logs all incoming and outgoing SOAP requests/responses. The
+    default behavior is to log this information to "logs/soap_xml.log" relative
+    to your project's home directory. Sensitive information, such as
+    authentication tokens, will be stripped.
+
+Logging can be enabled using the following methods.
+
+  - $user->LogDefaults(): Logs request information for all requests, but only
+    logs SOAP XML for requests that resulted in an error.
+
+  - $user->LogErrors(): Only logs request information and SOAP XML for requests
+    that resulted in an error.
+
+  - $user->LogAll(): Logs request information and SOAP XML for all requests.
+
+You can use the methods of the Logger class directly for even more control over
+how requests are logged.
+
+
+Encoding special characters
+---------------------------
+
+The DFP API requires that all requests are UTF-8 encoded. Because UTF-8 is
+backwards compatible with ASCII, alphanumeric and punctuation characters from
+other ASCII based encodings (such as ISO 8859-1 or Windows-1252) are compatible
+and don't request any conversion. However, many special characters are not
+compatible between encodings and need to be manually converted before being
+passed in to the client library. This can be done using the PHP function
+iconv().
+
+For example, to convert a Windows-1252 encoded string containing the euro sign
+to UTF-8 you could use the following code:
+
+  $price = iconv('WINDOWS-1252', 'UTF-8', '€40');
+
+Alternatively you can choose to represent the special characters as XML
+character entities. For example, the euro sign (€) is represented as the XML
+entity "&#x20AC;". The format of the XML entity is "&#x" followed by the Unicode
+hex code point for the character. You can look up the code point for a given
+character using the charts on unicode.org (http://www.unicode.org/charts/).
+
+The PHP SoapClient class, and hence the PHP client library, assumes
+that the values passed in to the services are unescaped and will
+automatically escape them. For XML entities like the one above this can have
+the unintended consequence of escaping the ampersand, breaking the entity. To
+work around this issue we recommend that you use the PHP function
+html_entity_decode() to to unescape these entities before passing them in to
+the client library.
+
+For example, to unescape a string containing the XML character entity for
+the euro sign to a UTF-8 string you could use the following code:
+
+  $price = html_entity_decode('&#x20AC;40', ENT_QUOTES, 'UTF-8');
+
+
+Error messages about timezones
+------------------------------
+
+If you are getting warnings about setting your default timezone, you will
+need to do so in your php.ini file by setting the field as follows:
+
+    date.timezone=America/Los_Angeles
+
+More information is available here: http://www.php.net/manual/en/timezones.php
+
+
+Already defined classes
+-----------------------
+
+Since PHP 5.2 does not have namespaces, there is the possibility that one
+of the automatically generated classes used by the API has the same name as an
+existing class in your environment. Classes that were found to conflict with
+PHP native classes have already been renamed:
+
+  'DateTime' => 'DfpDateTime'
+  'Location' => 'DfpLocation'
+  'OAuth' => 'DfpOAuth'
+
+If you find that there are additional conflicts in your environment you have
+the following options:
+
+  1) Rename the class in the corresponding *Service.php file and update the
+     mapping in *Service::$classmap to reference the new class name. Be aware
+     that the same type can be defined in multiple services.
+
+  2) Rename the conflicting class in your system. This will likely not be
+     possible if the class is part of another library.
+
+  3) Regenerate the classes from the WSDLs using pseudo-namespace support. See
+     the section "Pseudo-namespace support" for more information.
+
+
+Pseudo-namespace support
+------------------------
+
+Pseudo-namespaces can be used to help avoid class or function name conflicts
+due to PHP 5.2's lack of native namespace support. This involves prepending
+all class names with a unique string. When generating classes from the WSDLs
+you have the option to enable pseudo-namespaces, so for example the type
+"Size" would produce a class called "GoogleApiAdsDfp_Size".
+
+For the sake of backwards compatibility this feature is not enabled by default.
+It can be enabled by setting wsdl2php.enablePseudoNamespaces to "true" in the
+build.properties file and running the "generate" target in build.xml. This
+requires the source build of the library.
+
+Enabling pseudo-namespaces for an existing application make cause your code to
+break, as class names have changed. To avoid this you should use the following
+practices when writing your application:
+
+  - Instead of calling the constructor directly, use the service's Create()
+    method to construct new objects. This method only requires that you enter
+    the original type name, and it takes an optional array or parameters which
+    can be flat or associative.
+
+      $size1 = $service->Create('Size');
+      $size2 = $service->Create('Size', array(200, 200));
+      $size3 = $service->Create('Size', array('width' => 200, 'height' => 200));
+
+  - Instead of using "instanceof" to determine the type of an object returned
+    by the API, test the value of its *Type field. All classes that extend
+    a base class have this field available.
+
+      if ($creative->CreativeType == 'ImageCreative') { ... }
+
+
+PHP Suhosin patch
+-----------------
+
+With some PHP installations, it has been found that the Suhosin patch prevents
+correct usage of the DFP API PHP Client Library. It is believed that the patch
+is catching memory leaks caused by an underlying library, but we are still
+investigating the root cause. Errors caught by the Suhosin patch may look like
+the following:
+
+  ALERT - canary mismatch on efree() - heap overflow detected
+  (attacker 'REMOTE_ADDR not set', file '...', line ...)
+
+At this time we recommend using versions of PHP that do not have the Suhosin
+patch applied. More information about the Suhosin patch can be found here:
+
+  http://www.hardened-php.net/suhosin/index.html
+
+Note: This patch is applied by default to many standard distributions, including
+the current Ubuntu distribution - 5.2.4-2ubuntu5.7.
+
+
+PHP Compatiblity
+-----------------
+
+The PHP client library supports most 5.2.x and 5.3.x distributions. If you find
+the library is not compatible with your setup, please let us know here:
+
+http://code.google.com/p/google-api-dfp-php/
+
+
+General best practices
+----------------------
+
+  1) Reuse services during the course of a PHP execution.
+
+     Creating a new service has a marginal cost associated with fetching the
+     WSDL and allocating resources. If possible, create the services once at
+     the beginning of an execution and make them available to classes and
+     functions as needed.
+
+  2) Use paging when fetching objects.
+
+     All of the services support a get*ByStatement() method, which allows for
+     the filtering of results using PQL syntax. The LIMIT and OFFSET clauses can
+     be used to split large result sets into pages, preventing time outs and
+     keeping the response under the maximum size limit of 500. An example of
+     paging can be found in the following class:
+
+     src/Google/Api/Ads/Dfp/Util/ServiceUtils.php
+
+  3) Batch update requests.
+
+     When changing multiple objects of the same type, you can get better
+     performance by sending all of the objects in the same update*() request.
+     There is a marginal overhead on the client and the server for each request,
+     and batching can be an effective means of reducing the number of requests.
+
+
+Web application best practices
+------------------------------
+
+  1) Store the DfpUser in the session, when appropriate.
+
+     When creating a DfpUser, an authToken is automatically requested from the
+     ClientLogin service. This process has some overhead, and excessive requests
+     to the ClientLogin service can lead to a temporary lock on your account.
+     For these reasons, we recommend storing the DfpUser object in the PHP
+     session, so that it can be reused across multiple requests.
+
+  2) Don't store services in the session.
+
+     Individual services, generated by the DfpUser, cannot be stored in the
+     session. These services extend the internal SoapClient class, which is not
+     serializable. When retrieved from the session, a service is returned as
+     an instance of __PHP_Incomplete_Class.
+
+
+External dependencies
+---------------------
+
+Run environment:
+  - PHP 5.2.x-5.3.x [http://php.net]
+  - Required PHP extensions:
+    - SoapClient [http://us3.php.net/manual/en/book.soap.php] (--enable-soap)
+    - OpenSSL [http://php.net/manual/en/book.openssl.php] (--with-ssl)
+    - cURL [http://php.net/manual/en/book.curl.php] (--with-curl)
+  - Optional PHP extensions:
+    - OAuth [http://pecl.php.net/package/oauth]  (pecl install oauth)
+
+Build environment:
+  - PHPUnit [http://www.phpunit.de/]
+  - Phing [http://phing.info/trac/]
+  - Modified wsdl2php-interpreter [included in this project]
+    - Original: [http://code.google.com/p/wsdl2php-interpreter/]
+  - Required PHP extensions:
+    - XSLTProcessor [http://php.net/manual/en/class.xsltprocessor.php]
+        (--with-xsl)
+
+
+Where do I submit bug reports and feature requests?
+---------------------------------------------------
+
+Bug reports and feature requests can be submitted to the issue tracker
+
+  http://code.google.com/p/google-api-dfp-php/issues/list
+
+Questions can be posted to the DFP API forum:
+
+  http://groups.google.com/group/google-doubleclick-for-publishers-api/
+
+Authors:
+  api.ekoleda@gmail.com (Eric Koleda)
+  api.arogal@gmail.com (Adam Rogal)
+
+Maintainers:
+  api.ekoleda@gmail.com (Eric Koleda)
+  api.arogal@gmail.com (Adam Rogal)

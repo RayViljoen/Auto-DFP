@@ -1,0 +1,67 @@
+2.7.0:
+- Added support, tests, and examples for v201107.
+- Replaced Get*Servce() methods with a single GetService() method. Maintained
+  backwards compatibility using the magic method __call.
+- Updated the logging functionality to support filtering for levels. Changed the
+  default logging behavior to only log SOAP XML if an error occurred. Added new
+  methods to DfpUser for additional logging configuration.
+- Updated OAuth mechanism, allowing for different OAuth libraries to be used.
+- Updated OAuth implementation to version 1.0a.
+- Moved WSDL2PHP settings into build.properties.
+- Added pseudo-namespace support for generated classes.
+- Added better support for long value serialization and deserialization.
+- Added features and fixed bugs for the sample webapp. Fixes for issues #9, #10,
+  #11, and #13.
+
+2.6.0:
+- Added support, examples, and tests for v201104.
+- Updated build system and endpoint URL handling.
+
+2.5.1:
+- Fixed xsi:types in headers for some versions of PHP.  Issue #7.
+
+2.5.0:
+- Added support for v201103, including examples and tests.
+- Fixed bug in webapp that resulted in duplicate HTML ids.
+- Updated code generation script for better documentation.
+- Changed documentation format to use frames.
+
+2.4.0:
+- Added support for version v201101, including examples and tests.
+- Added support for SSL peer validation.
+- Updated auth token and report utilities to use common cURL utility.
+- Fixed problem of duplicate xsi:type attributes in some environments.
+
+2.3.0:
+- Added support for version v201010, including examples and tests.
+- Updated CreateLineItemsExample.php to include geographical targeting.
+- Removed v201004 dependency from DateTimeUtils.php.
+
+2.2.0:
+- Added support for the NetworkService, with examples.
+- Added tests for ForecastService, NetworkService, and ReportService.
+- Updated tests and examples for compatiblity with DFP Small Business.
+
+2.1.0:
+- Added support for ForecastService and ReportService, with examples.
+- Removed API dependency from ErrorUtils.
+- Added MapUtils for converting between maps and map entry arrays.
+- Added ReportUtils for downloading reports.
+- Improved error handling for AuthToken requests.
+- Added proxy support to wsdl2php library.
+
+2.0.0:
+- Add support for v201004
+  - Filter replaced by Statement
+- Removed support for v201002
+- Added utility classes for working with Errors and OGNL paths.
+
+1.1.0:
+- Addition to README, unicode characters and escaping.
+- Added PHP 5.3 support.
+- HTTP proxy and WSDL caching settings.
+- Bug fix for custom class loaders.
+- Casting ids to floats in examples.
+
+1.0.0:
+- Initial release of library.

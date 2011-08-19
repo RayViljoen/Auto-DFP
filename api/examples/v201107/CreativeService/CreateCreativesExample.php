@@ -1,0 +1,104 @@
+<?php
+/**
+ * This example creates new image creatives for a given advertiser. To
+ * determine which companies are advertisers, run
+ * GetCompaniesByStatementExample.php. To determine which creatives already exist,
+ * run GetAllCreativesExample.php.
+ *
+ * Tags: CreativeService
+ *
+ * PHP version 5
+ *
+ * Copyright 2011, Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @package    GoogleApiAdsDfp
+ * @subpackage v201107
+ * @category   WebServices
+ * @copyright  2011, Google Inc. All Rights Reserved.
+ * @license    http://www.apache.org/licenses/LICENSE-2.0 Apache License,
+ *             Version 2.0
+ * @author     Adam Rogal <api.arogal@gmail.com>
+ * @author     Eric Koleda <api.ekoleda@gmail.com>
+ */
+
+error_reporting(E_STRICT | E_ALL);
+
+// You can set the include path to src directory or reference
+// DfpUser.php directly via require_once.
+// $path = '/path/to/dfp_api_php_lib/src';
+$path = dirname(__FILE__) . '/../../../src';
+set_include_path(get_include_path() . PATH_SEPARATOR . $path);
+
+require_once 'Google/Api/Ads/Dfp/Lib/DfpUser.php';
+require_once 'Google/Api/Ads/Common/Util/MediaUtils.php';
+
+try {
+  // Get DfpUser from credentials in "../auth.ini"
+  // relative to the DfpUser.php file's directory.
+  $user = new DfpUser();
+
+  // Log SOAP XML request and response.
+  $user->LogDefaults();
+
+  // Get the CreativeService.
+  $creativeService = $user->GetService('CreativeService', 'v201107');
+
+  // Set the ID of the advertiser (company) that all creatives will be
+  // assigned to.
+  $advertiserId = (float) 'INSERT_ADVERTISER_COMPANY_ID_HERE';
+
+  // Create an array to store local image creative objects.
+  $imageCreatives = array();
+
+  for ($i = 0; $i < 5; $i++) {
+    $imageCreative = new ImageCreative();
+    $imageCreative->name = 'Image creative #' . $i;
+    $imageCreative->advertiserId = $advertiserId;
+    $imageCreative->destinationUrl = 'http://google.com';
+    $imageCreative->imageName = 'image.jpg';
+    $imageCreative->imageByteArray =
+        MediaUtils::GetBase64Data('http://www.google.com/intl/en/adwords/'
+            . 'select/images/samples/inline.jpg');
+    $imageCreative->size = new Size(300, 250);
+
+    $imageCreatives[] = $imageCreative;
+  }
+
+  // Create the image creatives on the server.
+  $imageCreatives = $creativeService->createCreatives($imageCreatives);
+
+  // Display results.
+  if (isset($imageCreatives)) {
+    foreach ($imageCreatives as $creative) {
+      // Use instanceof to determine what type of creative was returned.
+      if ($creative instanceof ImageCreative) {
+        print 'An image creative with ID "' . $creative->id
+            . '", name "' . $creative->name
+            . '", and size {' . $creative->size->width
+            . ', ' . $creative->size->height . "} was created and\n"
+            . ' can be previewed at: ' . $creative->previewUrl . "\n";
+      } else {
+        print 'A creative with ID "' . $creative->id
+            . '", name "' . $creative->name
+            . '", and type "' . $creative->CreativeType
+            . "\" was created.\n";
+      }
+    }
+  } else {
+    print "No creatives created.\n";
+  }
+} catch (Exception $e) {
+  print $e->getMessage() . "\n";
+}
