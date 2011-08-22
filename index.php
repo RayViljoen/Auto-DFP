@@ -8,6 +8,9 @@ Author: Ray Viljoen
 Author URI: http://fubra.com
 */
 
+session_start();
+session_regenerate_id();
+
 require_once 'api/src/Google/Api/Ads/Dfp/Lib/DfpUser.php';
 require 'lib/DFP/Core.php';
 require 'lib/DFP/Admin.php';
@@ -19,6 +22,6 @@ add_action('admin_menu', function(){
   	'Auto DFP',
   	'manage_options',
   	'dfp-options',
-  	function(){ Auto_DFP_Admin::menu(); });
+  	function(){ new Auto_DFP_Admin(); });
 });
 

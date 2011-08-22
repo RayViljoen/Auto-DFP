@@ -1,6 +1,10 @@
 <?php
 
-// HANDLES ADMIN MENU.
+/**
+ * Outputs and processes admin menu.
+ * @package Auto DFP
+ * @author Ray Viljoen
+ */
 class Auto_DFP_Admin extends Auto_DFP
 {
 	
@@ -9,22 +13,38 @@ class Auto_DFP_Admin extends Auto_DFP
 	 * @var bool
 	 */
 	private $saved = FALSE;
+	
+	
+	//=============================================================
+	//       					METHODS
+	//=============================================================
 
-	
+
 	// Called from admin hook.
-	// Creates new instance of self & processes and outputs admin menu.
-	public static function menu()
+	// Processes and outputs admin menu.
+	public function __construct()
 	{	
-		// Create new Auto DFP instance
-		$dfp = new self();
+		if(isset($_POST['dfplogout'])){
+			self::logout();
+			// set message to confirm logout - TODO --------------------
+		}else{
+			// Try Login
+			$this->loggedIn = ($this->login()) ? TRUE : FALSE;
+		}
 		
-		// Show Admin Menu
-		$dfp->getMenuPage();
+		//========= OUTPUT ADMIN PAGE =========
+		
+		// Print Admin Stylesheet
+		echo '<link rel="stylesheet" type="text/css" href="' .Auto_DFP::pluginPath().'/lib/Admin/style.css">';
+		// Check if user is logged in and display appropriate admin page.
+		if( $this->loggedIn ){
+			include dirname(__FILE__) . '/../Admin/settings.php';
+		}else{
+			include dirname(__FILE__) . '/../Admin/login.php';
+		}
+
 	}
 	
-	private function getMenuPage()
-	{
-		include dirname(__FILE__) . '/../Admin/page.php';
-	}
+	
 	
 }
