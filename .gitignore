@@ -1,4 +1,4 @@
 .DS_Store
 .Project
 lib/dev_config.php
-logs/.
+logs/*
