@@ -17,12 +17,13 @@ class Auto_DFP_AdUnit extends Auto_DFP
 	
 	public static function adUnit($size = FALSE)
 	{
-		if(!$size){
-			return '<a href="'.$inst->plugin_url.'" target="_blank" style="padding:3px 5px; background:red; color:#000; font-weight:bold;">Please provide a ad size. e.g. 300x250</a> ';
-		}
-		
 		// Create instance of self
 		$inst = new self();
+
+		if(!$size){
+			return '<a href="'.$inst->pluginURL.'" target="_blank" style="padding:3px 5px; background:red; color:#000; font-weight:bold;">Please provide a ad size. e.g. 300x250</a> ';
+		}
+		
 		return 'HELLO';
 	}
 
