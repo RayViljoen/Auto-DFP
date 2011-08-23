@@ -8,6 +8,8 @@ Author: Ray Viljoen
 Author URI: http://fubra.com
 */
 
+error_reporting(E_STRICT | E_ALL);
+
 session_start();
 session_regenerate_id();
 

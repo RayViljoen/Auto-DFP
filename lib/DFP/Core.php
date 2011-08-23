@@ -33,10 +33,10 @@ class Auto_DFP
 	protected $loggedIn = FALSE;
 	
 
-
 	//=============================================================
 	//       					METHODS
 	//=============================================================
+
 
 	/**
 	 * Handles DFP api access auth & account login.
@@ -45,59 +45,74 @@ class Auto_DFP
 	 */
 	protected function login()
 	{	
-		
 		// Get user Info
 		$wpUser = wp_get_current_user();
 		$wpUser = $wpUser->ID;
 		
-		// Check if user id already authenticated through session.
-		if(isset($_SESSION['DFP']['authToken']) && isset($_SESSION['DFP']['userID'])){
-			if( $wpUser == $_SESSION['DFP']['userID'] ){
-				$authToken = $_SESSION['DFP']['authToken'];
-				$password = NULL;
-			}
-		}else{ 
+		// Get wp url
+		$wpURL = get_bloginfo('url');
+		
+		if(isset($_POST['dfp_password']) && isset($_POST['dfp_username']) ){
 			$password = $_POST['dfp_password'];
-			$authToken = NULL;			
-		}
-		
-		if(isset($_POST['dfp_username'])){
-		
 			$username = $_POST['dfp_username'];
-			update_option('dfp_user', $username);
+			// Optional Network ID
+			$networkid = (isset($_POST['dfp_network'])) ? $_POST['dfp_network'] : NULL;
+			$authToken = NULL;
 			
-		}else{	$username = get_option('dfp_user'); }
-		
-		$networkid = get_option('dfp_network');
-			
-		// Check minimum login requirements
-		if( !$username || ( !$password && !$authToken ) ){
+		// Check if user id already authenticated through session.
+		}elseif(isset($_SESSION['DFP']['authToken']) && isset($_SESSION['DFP']['userID'])){
+			// Make sure of session
+			if( ($wpUser == $_SESSION['DFP']['userID']) && ($wpURL == $_SESSION['DFP']['url']) ){
+				$username = $_SESSION['DFP']['username'];
+				$authToken = $_SESSION['DFP']['authToken'];
+				// Optional Network ID
+				$networkid = isset($_SESSION['DFP']['networkID']) ? $_SESSION['DFP']['networkID'] : NULL;
+				$password = NULL;		
+			}
+		}else{
+			// Log exception
+			self::log('BLANK LOGIN: wp_user '.$wpUser);
 			return FALSE;
 		}
-		
 		// Try Login
 		try {
 			// Create new user
 			$this->user = new DfpUser( NULL, $username, $password, $this->name, $networkid, NULL, $authToken );			
 			
+			// Get authtoken
 			$authToken = $this->user->GetAuthToken();
-
-			$_SESSION['DFP']['authToken'] = $authToken;
-			$_SESSION['DFP']['userID'] = $wpUser;
+			
+			// Update session
+			$this->setSession($username, $networkid, $authToken, $wpUser, $wpURL);
 			
 			// Log successful user login
 			if($password != NULL){
 				self::log('SUCCESSFUL LOGIN: '.'wp_user '.$wpUser );
 			}
-			
 			return $authToken;
 
 		} catch (Exception $e) {
+			// Remove Session data
+			self::logout();
 			// Log exception
 			self::log('LOGIN ERROR: '.$e->GetMessage());
 			return FALSE;
 		}
-		
+	}
+	
+	
+	/**
+	 * Updates session vars.
+	 * @param string $username, string $networkid, string $authToken, number $wpUser, string $wpURL
+	 * @return void
+	 */
+	private function setSession($username, $networkid, $authToken, $wpUser, $wpURL)
+	{
+		$_SESSION['DFP']['username'] = $username;
+		$_SESSION['DFP']['authToken'] = $authToken;
+		$_SESSION['DFP']['userID'] = $wpUser;
+		$_SESSION['DFP']['networkID'] = $networkid;
+		$_SESSION['DFP']['url'] = $wpURL;
 	}
 	
 	
@@ -109,10 +124,13 @@ class Auto_DFP
 	{ 
 		return( plugins_url('/', dirname(__DIR__)) );
 	}
+	
 
-
-
-
+	/**
+	 * Get all dfp ad units.
+	 * @param void
+	 * @return object
+	 */
 	private function GetAllAdUnits() {
 		// Get the InventoryService.
 		$inventoryService = $this->user->GetService('InventoryService', $this->api);
@@ -142,11 +160,23 @@ class Auto_DFP
 		return $adUnits;
 	}
 	
+	
+	/**
+	 * Log user out by destroying session.
+	 * @param void
+	 * @return BOOL
+	 */
 	protected static function logout()
 	{
 		return session_destroy();
 	}
 	
+	
+	/**
+	 * Logs message to daily log with timestamp.
+	 * @param string $message
+	 * @return void
+	 */
 	protected static function log($message = NULL)
 	{	
 		$path = dirname(__FILE__) . '/../../logs/'.date( "d-m-y" );

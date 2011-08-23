@@ -7,7 +7,6 @@
  */
 class Auto_DFP_Admin extends Auto_DFP
 {
-	
 	/**
 	 * Whether to display the 'settings saved' message on the admin page.
 	 * @var bool
@@ -30,8 +29,11 @@ class Auto_DFP_Admin extends Auto_DFP
 	//=============================================================
 
 
-	// Called from admin hook.
-	// Processes and outputs admin menu.
+	/**
+	 * Called from admin hook. Processes and outputs admin menu. 
+	 * @param void
+	 * @return void
+	 */
 	public function __construct()
 	{	
 		// Get user Info
@@ -48,8 +50,9 @@ class Auto_DFP_Admin extends Auto_DFP
 			// Try Login
 			$this->loggedIn = ($this->login()) ? TRUE : FALSE;
 		}
-		
-		//========= OUTPUT ADMIN PAGE =========
+		//=====================================
+		//			 OUTPUT ADMIN PAGE
+		//=====================================
 		
 		// Print Admin Stylesheet
 		echo '<link rel="stylesheet" type="text/css" href="' .Auto_DFP::pluginPath().'/lib/UI/style.css">';
@@ -59,10 +62,14 @@ class Auto_DFP_Admin extends Auto_DFP
 		}else{
 			include dirname(__FILE__) . '/../UI/pages/login.php';
 		}
-
 	}
 	
 	
+	/**
+	 * Called from admin page. Prints page header and menu.
+	 * @param void
+	 * @return void
+	 */
 	protected function adminHeader()
 	{
 		echo '<div id="dfp" class="wrap">';
@@ -76,13 +83,13 @@ class Auto_DFP_Admin extends Auto_DFP
 		};
 		echo '<div class="dfp settings">';
 		
-		$default = (!isset($_GET[dfp_menu])) ? 'class="active"' : NULL;
+		$default = (!isset($_GET['dfp_menu'])) ? 'class="active"' : NULL;
 		
 		echo '<ul id="dfp_menu">';
 		echo '<li '.$default.'><a href="?page=dfp_options" >Default</a></li>';
 
 		foreach($this->menu_items as $tab){
-			$active = ($_GET['dfp_menu'] == strtolower($tab)) ? 'class="active"' : NULL;
+			$active = (isset($_GET['dfp_menu']) && $_GET['dfp_menu'] == strtolower($tab)) ? 'class="active"' : NULL;
 			echo '<li '.$active.'><a href="?page=dfp_options&dfp_menu='.strtolower($tab).'" >'.$tab.'</a></li>';
 		}
 		echo '<li class="logout" ><a href="?page=dfp_options&dfp_logout=1" >Log Out</a></li>';
@@ -91,6 +98,11 @@ class Auto_DFP_Admin extends Auto_DFP
 	}
 	
 	
+	/**
+	 * Called from admin page. Prints page footer.
+	 * @param void
+	 * @return void
+	 */
 	protected function adminFooter(){
 		echo '</div></div>';
 	}

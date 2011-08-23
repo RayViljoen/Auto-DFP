@@ -25,6 +25,14 @@ form {
 	padding: 20px 10px 0 0;
 }
 
+#login p label span{
+	color: #afafaf;
+	font-size: 12px;
+	font-style: italic;
+	display: inline-block;
+	padding-left: 10px;
+}
+
 .dfp_logo{
 	background: url(logo.png) no-repeat center center;
 	padding: 20px 10px;
