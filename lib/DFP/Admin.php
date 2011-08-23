@@ -14,6 +14,16 @@ class Auto_DFP_Admin extends Auto_DFP
 	 */
 	private $saved = FALSE;
 	
+	/**
+	 * List of admin pages.
+	 * @var array
+	 */
+	private $menu_items = array(
+		'Inventory',
+		'Ads',
+		'Users'
+	);
+		
 	
 	//=============================================================
 	//       					METHODS
@@ -24,7 +34,14 @@ class Auto_DFP_Admin extends Auto_DFP
 	// Processes and outputs admin menu.
 	public function __construct()
 	{	
-		if(isset($_POST['dfplogout'])){
+		// Get user Info
+		$wpUser = wp_get_current_user();
+		$wpUser = $wpUser->ID;
+		
+		// Check if user requested logout
+		if(isset($_GET['dfp_logout'])){
+			// Record Logout
+			self::log('USER LOGOUT: '.'wp_user '.$wpUser );
 			self::logout();
 			// set message to confirm logout - TODO --------------------
 		}else{
@@ -35,16 +52,46 @@ class Auto_DFP_Admin extends Auto_DFP
 		//========= OUTPUT ADMIN PAGE =========
 		
 		// Print Admin Stylesheet
-		echo '<link rel="stylesheet" type="text/css" href="' .Auto_DFP::pluginPath().'/lib/Admin/style.css">';
+		echo '<link rel="stylesheet" type="text/css" href="' .Auto_DFP::pluginPath().'/lib/UI/style.css">';
 		// Check if user is logged in and display appropriate admin page.
 		if( $this->loggedIn ){
-			include dirname(__FILE__) . '/../Admin/settings.php';
+			include dirname(__FILE__) . '/../UI/pages/settings.php';
 		}else{
-			include dirname(__FILE__) . '/../Admin/login.php';
+			include dirname(__FILE__) . '/../UI/pages/login.php';
 		}
 
 	}
 	
 	
+	protected function adminHeader()
+	{
+		echo '<div id="dfp" class="wrap">';
+		echo '<div class="icon32 dfp_logo"><br></div>';
+		echo '<h2>'.__( 'Auto DFP', 'menu-test' ).'</h2>';
+		
+		if($this->saved){
+			echo '<div class="updated"><p><strong>';
+			_e('settings saved.', 'menu-test' );
+			echo '</strong></p></div>';
+		};
+		echo '<div class="dfp settings">';
+		
+		$default = (!isset($_GET[dfp_menu])) ? 'class="active"' : NULL;
+		
+		echo '<ul id="dfp_menu">';
+		echo '<li '.$default.'><a href="?page=dfp_options" >Default</a></li>';
+
+		foreach($this->menu_items as $tab){
+			$active = ($_GET['dfp_menu'] == strtolower($tab)) ? 'class="active"' : NULL;
+			echo '<li '.$active.'><a href="?page=dfp_options&dfp_menu='.strtolower($tab).'" >'.$tab.'</a></li>';
+		}
+		echo '<li class="logout" ><a href="?page=dfp_options&dfp_logout=1" >Log Out</a></li>';
+		echo '</ul>';
+
+	}
 	
+	
+	protected function adminFooter(){
+		echo '</div></div>';
+	}
 }

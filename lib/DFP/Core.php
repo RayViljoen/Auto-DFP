@@ -8,7 +8,6 @@
 
 class Auto_DFP
 {
-
 	/**
 	 * Application Name.
 	 * @var string
@@ -27,6 +26,12 @@ class Auto_DFP
 	 */
 	protected $user;
 	
+	/**
+	 * User logged in status.
+	 * @var BOOL
+	 */
+	protected $loggedIn = FALSE;
+	
 
 
 	//=============================================================
@@ -40,10 +45,17 @@ class Auto_DFP
 	 */
 	protected function login()
 	{	
-		// Check user if user id already authenticated through session.
-		if(isset($_SESSION['DFP']['authToken'])){
-			$authToken = $_SESSION['DFP']['authToken'];
-			$password = NULL;
+		
+		// Get user Info
+		$wpUser = wp_get_current_user();
+		$wpUser = $wpUser->ID;
+		
+		// Check if user id already authenticated through session.
+		if(isset($_SESSION['DFP']['authToken']) && isset($_SESSION['DFP']['userID'])){
+			if( $wpUser == $_SESSION['DFP']['userID'] ){
+				$authToken = $_SESSION['DFP']['authToken'];
+				$password = NULL;
+			}
 		}else{ 
 			$password = $_POST['dfp_password'];
 			$authToken = NULL;			
@@ -69,13 +81,20 @@ class Auto_DFP
 			$this->user = new DfpUser( NULL, $username, $password, $this->name, $networkid, NULL, $authToken );			
 			
 			$authToken = $this->user->GetAuthToken();
-			if(isset($_POST['dfp_rememberme'])){
-				$_SESSION['DFP']['authToken'] = $authToken;
+
+			$_SESSION['DFP']['authToken'] = $authToken;
+			$_SESSION['DFP']['userID'] = $wpUser;
+			
+			// Log successful user login
+			if($password != NULL){
+				self::log('SUCCESSFUL LOGIN: '.'wp_user '.$wpUser );
 			}
+			
 			return $authToken;
 
 		} catch (Exception $e) {
-			// LOG ERROR HERE $e->GetMessage(); TODO --------------------
+			// Log exception
+			self::log('LOGIN ERROR: '.$e->GetMessage());
 			return FALSE;
 		}
 		
@@ -128,13 +147,13 @@ class Auto_DFP
 		return session_destroy();
 	}
 	
-/* TODO --------------------
-	protected static function logError()
-	{
-		//$logFile = fopen('../../logs/auth_errors.txt', 'a');
-		
-		//fclose($logFile);
+	protected static function log($message = NULL)
+	{	
+		$path = dirname(__FILE__) . '/../../logs/'.date( "d-m-y" );
+		$logFile = fopen($path, 'a');
+		$message = '('.time().') '.$message."\n";
+		fwrite($logFile, $message);
+		fclose($logFile);
 	}
-*/
 
 }

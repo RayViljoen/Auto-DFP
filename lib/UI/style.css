@@ -20,6 +20,26 @@ form {
 */
 }
 
+#login .login{
+	background: url(logo_sm.png) no-repeat center center;
+	padding: 20px 10px 0 0;
+}
+
+.dfp_logo{
+	background: url(logo.png) no-repeat center center;
+	padding: 20px 10px;
+}
+
+#login h2{
+	padding: 20px 0;
+}
+
+#dfp h2{
+	padding-top: 30px;
+	display: inline-block;
+	margin-bottom: 15px;
+}
+
 form .forgetmenot {
 	font-weight:400;
 	float:left;
@@ -109,4 +129,51 @@ p.submit{
 	margin:12px 0 6px;
 	padding:6px 5px;
 	text-align:center
+}
+
+#dfp form{
+	border: none;
+}
+
+#dfp .dfp{
+	border:1px solid #e5e5e5;
+	margin-top: 15px;
+	overflow: auto;
+}
+#dfp_menu{
+	overflow: auto;
+	padding-bottom: 15px;
+}
+#dfp_menu li{
+	padding: 7px 10px;
+	width: 100px;
+	background: #f3f3f3;
+	float: left;
+	text-align: center;
+	display: inline-block;
+	border-right:1px solid #e5e5e5;
+	border-bottom:1px solid #e5e5e5;
+}
+
+#dfp_menu .logout{
+	float: right;
+	font-weight: bold;
+	padding: 3px 10px;
+	width: 80px;
+	margin: 5px 5px 0 0;
+	border:1px solid #e5e5e5;
+	-moz-border-radius:3px;
+	-khtml-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px
+
+}
+
+#dfp_menu li a{
+	text-decoration: none;
+	cursor: pointer;
+}
+#dfp_menu li.active{
+	border-bottom: none;
+	background: transparent;
 }

@@ -21,7 +21,7 @@ add_action('admin_menu', function(){
   	'Auto DFP Settings',
   	'Auto DFP',
   	'manage_options',
-  	'dfp-options',
+  	'dfp_options',
   	function(){ new Auto_DFP_Admin(); });
 });
 
