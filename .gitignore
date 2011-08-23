@@ -1,3 +1,5 @@
 .DS_Store
 .Project
 lib/dev_config.php
+!logs/.empty_for_git
+logs/[^.]*
