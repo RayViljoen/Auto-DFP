@@ -145,6 +145,7 @@ p.submit{
 
 #dfp .dfp{
 	border:1px solid #e5e5e5;
+	background: #fff;
 	margin-top: 15px;
 	overflow: auto;
 }
@@ -154,7 +155,7 @@ p.submit{
 }
 #dfp_menu li{
 	padding: 7px 10px;
-	width: 100px;
+	width: 10%;
 	background: #f3f3f3;
 	float: left;
 	text-align: center;
@@ -184,4 +185,11 @@ p.submit{
 #dfp_menu li.active{
 	border-bottom: none;
 	background: transparent;
+}
+
+a.props{
+	float: right;
+	text-decoration: none;
+	display: inline-block;
+	padding: 3px;
 }

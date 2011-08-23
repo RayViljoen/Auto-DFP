@@ -13,6 +13,12 @@ class Auto_DFP
 	 * @var string
 	 */
 	private $name = 'Auto-DFP';
+	
+	/**
+	 * Plugin URL links errors to help pages etc.
+	 * @var string
+	 */
+	protected $pluginURL = 'http://wordpress.org/extend/plugins/Auto-DFP/';
 
 	/**
 	 * DFP API Version.
@@ -25,6 +31,14 @@ class Auto_DFP
 	 * @var object
 	 */
 	protected $user;
+
+	
+	/**
+	 * DFP service being used.
+	 * @var object
+	 */
+	protected $service;
+
 	
 	/**
 	 * User logged in status.
@@ -41,9 +55,10 @@ class Auto_DFP
 	/**
 	 * Handles DFP api access auth & account login.
 	 * Creates autorised service object.
+	 * @param [string DFP Service]
 	 * @return object
 	 */
-	protected function login()
+	protected function login($service = FALSE)
 	{	
 		// Get user Info
 		$wpUser = wp_get_current_user();
@@ -89,6 +104,12 @@ class Auto_DFP
 			if($password != NULL){
 				self::log('SUCCESSFUL LOGIN: '.'wp_user '.$wpUser );
 			}
+			
+			// Create requested service			
+			if($service){
+				$this->getService($service);
+			}
+			
 			return $authToken;
 
 		} catch (Exception $e) {
@@ -98,6 +119,30 @@ class Auto_DFP
 			self::log('LOGIN ERROR: '.$e->GetMessage());
 			return FALSE;
 		}
+	}
+	
+	
+	/**
+	 * Accesses one of the DFP Services.
+	 * @param string $serviceType options:
+			CompanyService
+			CreativeService
+			CustomTargetingService
+			ForecastService
+			InventoryService
+			LabelService
+			LineItemCreativeAssoci...
+			LineItemService
+			NetworkService
+			OrderService
+			PlacementService
+			PublisherQueryLanguage...
+			ReportService
+			UserService
+	 */
+	protected function getService($serviceType)
+	{
+		$this->service = $this->user->GetService($serviceType, $this->api);
 	}
 	
 	
@@ -114,6 +159,8 @@ class Auto_DFP
 		$_SESSION['DFP']['networkID'] = $networkid;
 		$_SESSION['DFP']['url'] = $wpURL;
 	}
+	
+	
 	
 	
 	/**

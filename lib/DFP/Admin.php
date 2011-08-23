@@ -19,7 +19,7 @@ class Auto_DFP_Admin extends Auto_DFP
 	 */
 	private $menu_items = array(
 		'Inventory',
-		'Ads',
+		'Orders',
 		'Users'
 	);
 		
@@ -50,6 +50,7 @@ class Auto_DFP_Admin extends Auto_DFP
 			// Try Login
 			$this->loggedIn = ($this->login()) ? TRUE : FALSE;
 		}
+				
 		//=====================================
 		//			 OUTPUT ADMIN PAGE
 		//=====================================
@@ -58,10 +59,29 @@ class Auto_DFP_Admin extends Auto_DFP
 		echo '<link rel="stylesheet" type="text/css" href="' .Auto_DFP::pluginPath().'/lib/UI/style.css">';
 		// Check if user is logged in and display appropriate admin page.
 		if( $this->loggedIn ){
-			include dirname(__FILE__) . '/../UI/pages/settings.php';
+			
+			// Show selected admin page
+			$this->getAdminPage();
+
 		}else{
 			include dirname(__FILE__) . '/../UI/pages/login.php';
 		}
+	}
+	
+	
+	/**
+	 * Creates and Outputs selected admin page.
+	 * @param void
+	 * @return void
+	 */
+	private function getAdminPage()
+	{
+		$path = dirname(__FILE__) . '/../UI/pages/';
+		$page = (isset($_GET['dfp_menu'])) ? $_GET['dfp_menu'] : 'overview';
+		
+		$this->adminHeader();
+		include $path.$page.'.php';
+		$this->adminFooter();
 	}
 	
 	
@@ -83,10 +103,10 @@ class Auto_DFP_Admin extends Auto_DFP
 		};
 		echo '<div class="dfp settings">';
 		
-		$default = (!isset($_GET['dfp_menu'])) ? 'class="active"' : NULL;
+		$default = (!isset($_GET['dfp_menu'])) ? 'active' : NULL;
 		
 		echo '<ul id="dfp_menu">';
-		echo '<li '.$default.'><a href="?page=dfp_options" >Default</a></li>';
+		echo '<li class="default '.$default.'"><a href="?page=dfp_options" >Overview</a></li>';
 
 		foreach($this->menu_items as $tab){
 			$active = (isset($_GET['dfp_menu']) && $_GET['dfp_menu'] == strtolower($tab)) ? 'class="active"' : NULL;
@@ -104,6 +124,6 @@ class Auto_DFP_Admin extends Auto_DFP
 	 * @return void
 	 */
 	protected function adminFooter(){
-		echo '</div></div>';
+		echo '</div><a class="props" href="http://catn.com">Created by the experts at CatN</a></div>';
 	}
 }
