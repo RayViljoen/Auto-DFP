@@ -31,10 +31,12 @@ add_action('admin_menu', function(){
 
 // Shortcode calls Auto_DFP_AdUnit to output ad.
 add_shortcode( 'DFP_AD', function($size){
-	return Auto_DFP_AdUnit::adUnit($size);
+	return Auto_DFP_AdUnit::adUnit($size['size']);
 });
 
 // Alternitive to shortcode for use in themes
 function DFP_AD($size){
 	Auto_DFP_AdUnit::adUnit($size);
 }
+
+add_action('wp_footer', function(){ the_permalink(); });

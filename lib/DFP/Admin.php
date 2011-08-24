@@ -79,9 +79,12 @@ class Auto_DFP_Admin extends Auto_DFP
 		$path = dirname(__FILE__) . '/../UI/pages/';
 		$page = (isset($_GET['dfp_menu'])) ? $_GET['dfp_menu'] : 'overview';
 		
+		// Admin Page Header
 		$this->adminHeader();
+		// Specific Admin Page Body
 		include $path.$page.'.php';
-		$this->adminFooter();
+		// Footer. Could later be moved to getFooter.
+		echo '</div><a class="props" href="http://catn.com">Created by the experts at CatN</a></div>';
 	}
 	
 	
@@ -116,14 +119,5 @@ class Auto_DFP_Admin extends Auto_DFP
 		echo '</ul>';
 
 	}
-	
-	
-	/**
-	 * Called from admin page. Prints page footer.
-	 * @param void
-	 * @return void
-	 */
-	protected function adminFooter(){
-		echo '</div><a class="props" href="http://catn.com">Created by the experts at CatN</a></div>';
-	}
+
 }

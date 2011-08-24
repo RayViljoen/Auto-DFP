@@ -1,0 +1,239 @@
+[Aug 24 2011 11:26:58.000000 - ERROR] POST /apis/ads/publisher/v201107/UserService HTTP/1.1
+Host: sandbox.google.com
+Connection: Keep-Alive
+User-Agent: PHP-SOAP/5.3.6, gzip
+Accept-Encoding: gzip, deflate
+Content-Encoding: gzip
+Content-Type: text/xml; charset=utf-8
+SOAPAction: ""
+Content-Length: 761
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="https://www.google.com/apis/ads/publisher/v201107" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SOAP-ENV:Header>
+    <ns1:RequestHeader xmlns:ns1="https://www.google.com/apis/ads/publisher/v201107" xsi:type="ns1:SoapRequestHeader">
+      <ns1:applicationName>DfpApi-PHP-2.7.0-INSERT_APPLICATION_NAME_HERE</ns1:applicationName>
+      <ns1:authentication xmlns:ns1="https://www.google.com/apis/ads/publisher/v201107" xsi:type="ns1:ClientLogin">*****</ns1:authentication>
+    </ns1:RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns1:createUsers>
+      <ns1:users xmlns:ns1="https://www.google.com/apis/ads/publisher/v201107" xsi:type="ns1:User">
+        <ns1:name>INSERT_NAME_HERE</ns1:name>
+        <ns1:email>INSERT_EMAIL_ADDRESS_HERE</ns1:email>
+        <ns1:roleId>0</ns1:roleId>
+        <ns1:preferredLocale>en_US</ns1:preferredLocale>
+      </ns1:users>
+      <ns1:users xmlns:ns1="https://www.google.com/apis/ads/publisher/v201107" xsi:type="ns1:User">
+        <ns1:name>INSERT_ANOTHER_NAME_HERE</ns1:name>
+        <ns1:email>INSERT_ANOTHER_EMAIL_ADDRESS_HERE</ns1:email>
+        <ns1:roleId>0</ns1:roleId>
+        <ns1:preferredLocale>en_US</ns1:preferredLocale>
+      </ns1:users>
+    </ns1:createUsers>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+HTTP/1.1 500 Internal Server Error
+Content-Type: text/xml; charset=UTF-8
+Content-Encoding: gzip
+Date: Wed, 24 Aug 2011 11:26:58 GMT
+Expires: Wed, 24 Aug 2011 11:26:58 GMT
+Cache-Control: private, max-age=0
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+Content-Length: 504
+Server: GSE
+
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <ResponseHeader xmlns="https://www.google.com/apis/ads/publisher/v201107">
+      <requestId>2c4ed10d1146194d9c4abc4b21d32878</requestId>
+      <responseTime>573</responseTime>
+    </ResponseHeader>
+  </soap:Header>
+  <soap:Body>
+    <soap:Fault>
+      <faultcode>soap:Server</faultcode>
+      <faultstring>[AuthenticationError.INVALID_EMAIL @ email; trigger:'INSERT_EMAIL_ADDRESS_HERE', AuthenticationError.INVALID_EMAIL @ email; trigger:'INSERT_ANOTHER_EMAIL_ADDRESS_HERE']</faultstring>
+      <detail>
+        <ApiExceptionFault xmlns="https://www.google.com/apis/ads/publisher/v201107">
+          <message>[AuthenticationError.INVALID_EMAIL @ email; trigger:'INSERT_EMAIL_ADDRESS_HERE', AuthenticationError.INVALID_EMAIL @ email; trigger:'INSERT_ANOTHER_EMAIL_ADDRESS_HERE']</message>
+          <ApplicationException.Type>ApiException</ApplicationException.Type>
+          <errors xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AuthenticationError">
+            <fieldPath>email</fieldPath>
+            <trigger>INSERT_EMAIL_ADDRESS_HERE</trigger>
+            <errorString>AuthenticationError.INVALID_EMAIL</errorString>
+            <ApiError.Type>AuthenticationError</ApiError.Type>
+            <reason>INVALID_EMAIL</reason>
+          </errors>
+          <errors xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AuthenticationError">
+            <fieldPath>email</fieldPath>
+            <trigger>INSERT_ANOTHER_EMAIL_ADDRESS_HERE</trigger>
+            <errorString>AuthenticationError.INVALID_EMAIL</errorString>
+            <ApiError.Type>AuthenticationError</ApiError.Type>
+            <reason>INVALID_EMAIL</reason>
+          </errors>
+        </ApiExceptionFault>
+      </detail>
+    </soap:Fault>
+  </soap:Body>
+</soap:Envelope>
+
+[Aug 24 2011 11:28:03.000000 - ERROR] POST /apis/ads/publisher/v201107/UserService HTTP/1.1
+Host: sandbox.google.com
+Connection: Keep-Alive
+User-Agent: PHP-SOAP/5.3.6, gzip
+Accept-Encoding: gzip, deflate
+Content-Encoding: gzip
+Content-Type: text/xml; charset=utf-8
+SOAPAction: ""
+Content-Length: 753
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="https://www.google.com/apis/ads/publisher/v201107" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SOAP-ENV:Header>
+    <ns1:RequestHeader xmlns:ns1="https://www.google.com/apis/ads/publisher/v201107" xsi:type="ns1:SoapRequestHeader">
+      <ns1:applicationName>DfpApi-PHP-2.7.0-Auto-DFP</ns1:applicationName>
+      <ns1:authentication xmlns:ns1="https://www.google.com/apis/ads/publisher/v201107" xsi:type="ns1:ClientLogin">*****</ns1:authentication>
+    </ns1:RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns1:createUsers>
+      <ns1:users xmlns:ns1="https://www.google.com/apis/ads/publisher/v201107" xsi:type="ns1:User">
+        <ns1:name>INSERT_NAME_HERE</ns1:name>
+        <ns1:email>INSERT_EMAIL_ADDRESS_HERE</ns1:email>
+        <ns1:roleId>0</ns1:roleId>
+        <ns1:preferredLocale>en_US</ns1:preferredLocale>
+      </ns1:users>
+      <ns1:users xmlns:ns1="https://www.google.com/apis/ads/publisher/v201107" xsi:type="ns1:User">
+        <ns1:name>INSERT_ANOTHER_NAME_HERE</ns1:name>
+        <ns1:email>INSERT_ANOTHER_EMAIL_ADDRESS_HERE</ns1:email>
+        <ns1:roleId>0</ns1:roleId>
+        <ns1:preferredLocale>en_US</ns1:preferredLocale>
+      </ns1:users>
+    </ns1:createUsers>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+HTTP/1.1 500 Internal Server Error
+Content-Type: text/xml; charset=UTF-8
+Content-Encoding: gzip
+Date: Wed, 24 Aug 2011 11:28:03 GMT
+Expires: Wed, 24 Aug 2011 11:28:03 GMT
+Cache-Control: private, max-age=0
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+Content-Length: 502
+Server: GSE
+
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <ResponseHeader xmlns="https://www.google.com/apis/ads/publisher/v201107">
+      <requestId>a0a260d2c2f922fd0c58d3937aff1dd3</requestId>
+      <responseTime>683</responseTime>
+    </ResponseHeader>
+  </soap:Header>
+  <soap:Body>
+    <soap:Fault>
+      <faultcode>soap:Server</faultcode>
+      <faultstring>[AuthenticationError.INVALID_EMAIL @ email; trigger:'INSERT_EMAIL_ADDRESS_HERE', AuthenticationError.INVALID_EMAIL @ email; trigger:'INSERT_ANOTHER_EMAIL_ADDRESS_HERE']</faultstring>
+      <detail>
+        <ApiExceptionFault xmlns="https://www.google.com/apis/ads/publisher/v201107">
+          <message>[AuthenticationError.INVALID_EMAIL @ email; trigger:'INSERT_EMAIL_ADDRESS_HERE', AuthenticationError.INVALID_EMAIL @ email; trigger:'INSERT_ANOTHER_EMAIL_ADDRESS_HERE']</message>
+          <ApplicationException.Type>ApiException</ApplicationException.Type>
+          <errors xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AuthenticationError">
+            <fieldPath>email</fieldPath>
+            <trigger>INSERT_EMAIL_ADDRESS_HERE</trigger>
+            <errorString>AuthenticationError.INVALID_EMAIL</errorString>
+            <ApiError.Type>AuthenticationError</ApiError.Type>
+            <reason>INVALID_EMAIL</reason>
+          </errors>
+          <errors xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AuthenticationError">
+            <fieldPath>email</fieldPath>
+            <trigger>INSERT_ANOTHER_EMAIL_ADDRESS_HERE</trigger>
+            <errorString>AuthenticationError.INVALID_EMAIL</errorString>
+            <ApiError.Type>AuthenticationError</ApiError.Type>
+            <reason>INVALID_EMAIL</reason>
+          </errors>
+        </ApiExceptionFault>
+      </detail>
+    </soap:Fault>
+  </soap:Body>
+</soap:Envelope>
+
+[Aug 24 2011 11:30:01.000000 - ERROR] POST /apis/ads/publisher/v201107/UserService HTTP/1.1
+Host: sandbox.google.com
+Connection: Keep-Alive
+User-Agent: PHP-SOAP/5.3.6, gzip
+Accept-Encoding: gzip, deflate
+Content-Encoding: gzip
+Content-Type: text/xml; charset=utf-8
+SOAPAction: ""
+Content-Length: 738
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="https://www.google.com/apis/ads/publisher/v201107" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SOAP-ENV:Header>
+    <ns1:RequestHeader xmlns:ns1="https://www.google.com/apis/ads/publisher/v201107" xsi:type="ns1:SoapRequestHeader">
+      <ns1:applicationName>DfpApi-PHP-2.7.0-Auto-DFP</ns1:applicationName>
+      <ns1:authentication xmlns:ns1="https://www.google.com/apis/ads/publisher/v201107" xsi:type="ns1:ClientLogin">*****</ns1:authentication>
+    </ns1:RequestHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns1:createUsers>
+      <ns1:users xmlns:ns1="https://www.google.com/apis/ads/publisher/v201107" xsi:type="ns1:User">
+        <ns1:name>Reinherdt Viljoen</ns1:name>
+        <ns1:email>viljoen8504@yahoo.co.uk</ns1:email>
+        <ns1:roleId>0</ns1:roleId>
+        <ns1:preferredLocale>en_US</ns1:preferredLocale>
+      </ns1:users>
+    </ns1:createUsers>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+HTTP/1.1 500 Internal Server Error
+Content-Type: text/xml; charset=UTF-8
+Content-Encoding: gzip
+Date: Wed, 24 Aug 2011 11:30:01 GMT
+Expires: Wed, 24 Aug 2011 11:30:01 GMT
+Cache-Control: private, max-age=0
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+Content-Length: 426
+Server: GSE
+
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <ResponseHeader xmlns="https://www.google.com/apis/ads/publisher/v201107">
+      <requestId>2d833b3150fee0b261b359b19e31beeb</requestId>
+      <responseTime>907</responseTime>
+    </ResponseHeader>
+  </soap:Header>
+  <soap:Body>
+    <soap:Fault>
+      <faultcode>soap:Server</faultcode>
+      <faultstring>ServerError.SERVER_ERROR @ </faultstring>
+      <detail>
+        <ApiExceptionFault xmlns="https://www.google.com/apis/ads/publisher/v201107">
+          <message>ServerError.SERVER_ERROR @ </message>
+          <ApplicationException.Type>ApiException</ApplicationException.Type>
+          <errors xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ServerError">
+            <fieldPath/>
+            <trigger/>
+            <errorString>ServerError.SERVER_ERROR</errorString>
+            <ApiError.Type>ServerError</ApiError.Type>
+            <reason>SERVER_ERROR</reason>
+          </errors>
+        </ApiExceptionFault>
+      </detail>
+    </soap:Fault>
+  </soap:Body>
+</soap:Envelope>
+

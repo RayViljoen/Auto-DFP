@@ -18,7 +18,7 @@ class Auto_DFP
 	 * Plugin URL links errors to help pages etc.
 	 * @var string
 	 */
-	protected $pluginURL = 'http://wordpress.org/extend/plugins/Auto-DFP/';
+	protected static $pluginURL = 'http://wordpress.org/extend/plugins/Auto-DFP/';
 
 	/**
 	 * DFP API Version.
@@ -232,5 +232,6 @@ class Auto_DFP
 		fwrite($logFile, $message);
 		fclose($logFile);
 	}
+
 
 }
