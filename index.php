@@ -13,6 +13,8 @@ error_reporting( E_ALL);
 // Make sure session is started
 @session_start();
 
+
+
 // Regenerate Session ID if user is logged in.
 if(isset($_SESSION['DFP'])){
 	session_regenerate_id();
@@ -43,11 +45,3 @@ add_shortcode( 'DFP_AD', function($size){
 function DFP_AD($size){
 	Auto_DFP_AdUnit::adUnit($size);
 }
-
-// PRINT ANY DEV WORK HERE
-add_action('wp_footer', function(){ 
-	echo '<pre>';
-
-
-	echo '</pre>';
-});

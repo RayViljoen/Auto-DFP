@@ -227,10 +227,12 @@ class Auto_DFP
 	protected static function log($message = NULL)
 	{	
 		$path = dirname(__FILE__) . '/../../logs/'.date( "d-m-y" );
-		$logFile = fopen($path, 'a');
-		$message = '('.time().') '.$message."\n";
-		fwrite($logFile, $message);
-		fclose($logFile);
+		if(file_exists($path)){
+			$logFile = fopen($path, 'a');
+			$message = '('.time().') '.$message."\n";
+			fwrite($logFile, $message);
+			fclose($logFile);
+		}
 	}
 
 

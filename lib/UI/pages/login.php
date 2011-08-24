@@ -1,12 +1,11 @@
 
 <!-- Login Page. -->
 
-<div class="wrap">
+<div class="wrap login">
+	<div class="icon32 dfp_logo"><br></div>
+	<h2>Google DFP Login:</h2><br />
 
-<div id="login">
-	<form name="dfplogin" id="loginform" action="?page=dfp_options" method="post">
-	<div class="icon32 login"><br></div>
-	<h2><?php echo __( 'Google DFP Login:', 'menu-test' ) ?></h2><br />
+	<form name="dfplogin" id="dfplogin" action="?page=dfp_options" method="post">
 	<p>
 		<label>Email<br>
 		<input type="text" name="dfp_username" id="user_login" class="input" value="" size="20" tabindex="10"></label>
@@ -17,7 +16,7 @@
 	</p>
 	<p>
 		<label>Password<br>
-		<input type="password" name="dfp_password" id="user_pass" class="input" value="" size="20" tabindex="20"></label>
+		<input type="password" name="dfp_password" id="user_pass" class="input" value="" size="20" tabindex="30"></label>
 	</p>
 
 
@@ -26,5 +25,4 @@
 		<input type="submit" name="dfplogin" id="wp-submit" class="button-primary" value="Log In" tabindex="100">
 	</p>
 	</form>
-</div>	
 </div>
