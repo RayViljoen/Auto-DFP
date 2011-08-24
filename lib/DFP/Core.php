@@ -215,7 +215,7 @@ class Auto_DFP
 	 */
 	protected static function logout()
 	{
-		return session_destroy();
+		unset( $_SESSION['DFP'] );
 	}
 	
 	
