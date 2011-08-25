@@ -10,20 +10,19 @@ Author URI: http://fubra.com
 
 error_reporting( E_ALL);
 
-// Make sure session is started
-@session_start();
-
-
-
-// Regenerate Session ID if user is logged in.
-if(isset($_SESSION['DFP'])){
-	session_regenerate_id();
-}
-
 require_once 'api/src/Google/Api/Ads/Dfp/Lib/DfpUser.php';
-require 'lib/DFP/Core.php';
-require 'lib/DFP/Admin.php';
-require 'lib/DFP/AdUnit.php';
+require 'DFP/Data.php';
+require 'DFP/Admin.php';
+require 'DFP/Ads.php';
+
+
+// Plugin setup on activation
+register_activation_hook( __FILE__, function(){
+
+	
+	
+});
+
 
 // Create DFP Admin Menu
 add_action('admin_menu', function(){
@@ -38,10 +37,11 @@ add_action('admin_menu', function(){
 
 // Shortcode calls Auto_DFP_AdUnit to output ad.
 add_shortcode( 'DFP_AD', function($size){
-	return Auto_DFP_AdUnit::adUnit($size['size']);
+	return Auto_DFP_Ads::adUnit($size['size']);
 });
+
 
 // Alternitive to shortcode for use in themes
 function DFP_AD($size){
-	Auto_DFP_AdUnit::adUnit($size);
+	Auto_DFP_Ads::adUnit($size);
 }

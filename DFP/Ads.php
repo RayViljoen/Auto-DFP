@@ -7,7 +7,7 @@
  * @author Ray Viljoen
  */
 
-class Auto_DFP_AdUnit extends Auto_DFP
+class Auto_DFP_Ads
 {
 	/**
 	 * Size of adUnit eg. 250x100.
@@ -20,6 +20,13 @@ class Auto_DFP_AdUnit extends Auto_DFP
 	 * @var string
 	 */
 	private $adTag;
+	
+	/**
+	 * Plugin URL links errors to help pages etc.
+	 * @var string
+	 */
+	private static $pluginURL = 'http://wordpress.org/extend/plugins/Auto-DFP/';
+
 	
 
 	//=============================================================

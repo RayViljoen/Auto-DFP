@@ -1,64 +1,115 @@
 <?php
 
 /**
- * Main class for handling services, login etc.
+ * Only class that interacts with API, so login etc. is only done from here.
+ * Responsible for all administrative tasks.
  * @package Auto DFP
  * @author Ray Viljoen
  */
-
-class Auto_DFP
+class Auto_DFP_Admin
 {
 	/**
 	 * Application Name.
 	 * @var string
 	 */
 	private $name = 'Auto-DFP';
-	
-	/**
-	 * Plugin URL links errors to help pages etc.
-	 * @var string
-	 */
-	protected static $pluginURL = 'http://wordpress.org/extend/plugins/Auto-DFP/';
-
+		
 	/**
 	 * DFP API Version.
 	 * @var string
 	 */
 	private $api = 'v201107';
-
+	
+	/**
+	 * Whether to display the 'settings saved' message on the admin page.
+	 * @var bool
+	 */
+	private $saved = FALSE;
+	
 	/**
 	 * DFP User Instance.
 	 * @var object
 	 */
-	protected $user;
-
+	private $user;
 	
 	/**
 	 * DFP service being used.
 	 * @var object
 	 */
-	protected $service;
-
+	private $service;
 	
 	/**
 	 * User logged in status.
 	 * @var BOOL
 	 */
-	protected $loggedIn = FALSE;
+	private $loggedIn = FALSE;
 	
-
+	/**
+	 * List of admin pages.
+	 * @var array
+	 */
+	private $menu_items = array(
+		'Inventory',
+		'Orders',
+		'Users'
+	);
+		
+	
 	//=============================================================
 	//       					METHODS
 	//=============================================================
 
 
 	/**
+	 * Called from admin hook. Processes and outputs admin menu. 
+	 * @param void
+	 * @return void
+	 */
+	public function __construct()
+	{	
+		// Make sure session is started
+		@session_start();
+		
+		// Get user Info
+		$wpUser = wp_get_current_user();
+		$wpUser = $wpUser->ID;
+		
+		// Check if user requested logout
+		if(isset($_GET['dfp_logout'])){
+			// Record Logout
+			self::log('USER LOGOUT: '.'wp_user '.$wpUser );
+			$this->logout();
+			// set message to confirm logout - TODO --------------------
+		}else{
+			// Try Login
+			$this->loggedIn = ($this->login()) ? TRUE : FALSE;
+		}
+				
+		//=====================================
+		//			 OUTPUT ADMIN PAGE
+		//=====================================
+		
+		// Print Admin Stylesheet
+		echo '<link rel="stylesheet" type="text/css" href="' .plugins_url('/', dirname(__FILE__)).'DFP/pages/admin.css">';
+		// Check if user is logged in and display appropriate admin page.
+		if( $this->loggedIn ){
+			
+			// Show selected admin page
+			$this->getAdminPage();
+
+		}else{
+			include 'pages/login.php';
+		}
+	}
+	
+	
+	/**
 	 * Handles DFP api access auth & account login.
 	 * Creates autorised service object.
 	 * @param [string DFP Service]
 	 * @return object
 	 */
-	protected function login($service = FALSE)
+	private function login($service = FALSE)
 	{	
 		// Get user Info
 		$wpUser = wp_get_current_user();
@@ -140,9 +191,20 @@ class Auto_DFP
 			ReportService
 			UserService
 	 */
-	protected function getService($serviceType)
+	private function getService($serviceType)
 	{
 		$this->service = $this->user->GetService($serviceType, $this->api);
+	}
+	
+	
+	/**
+	 * Log user out by unsetting session.
+	 * @param void
+	 * @return BOOL
+	 */
+	private function logout()
+	{
+		unset( $_SESSION['DFP'] );
 	}
 	
 	
@@ -161,18 +223,75 @@ class Auto_DFP
 	}
 	
 	
+	/**
+	 * Logs message to daily log with timestamp.
+	 * @param string $message
+	 * @return void
+	 */
+	private static function log($message = NULL)
+	{	
+		$path = dirname(__FILE__) . '/../logs/'.date( "d-m-y" );
+		if(file_exists($path)){
+			$logFile = fopen($path, 'a');
+			$message = '('.time().') '.$message."\n";
+			fwrite($logFile, $message);
+			fclose($logFile);
+		}
+	}
+
+	
+	/**
+	 * Creates and Outputs selected admin page.
+	 * @param void
+	 * @return void
+	 */
+	private function getAdminPage()
+	{
+		$path = dirname(__FILE__) . '/pages/';
+		$page = (isset($_GET['dfp_menu'])) ? $_GET['dfp_menu'] : 'overview';
+		
+		// Admin Page Header
+		$this->adminHeader();
+		// Specific Admin Page Body
+		include $path.$page.'.php';
+		// Footer. Could later be moved to getFooter.
+		echo '</div><a class="props" href="http://catn.com">Created by the experts at CatN</a></div>';
+	}
 	
 	
 	/**
-	 * Return path to plugin.
-	 * @return string
+	 * Called from admin page. Prints page header and menu.
+	 * @param void
+	 * @return void
 	 */
-	public static function pluginPath()
-	{ 
-		return( plugins_url('/', dirname(__DIR__)) );
+	private function adminHeader()
+	{
+		echo '<div id="dfp" class="wrap">';
+		echo '<div class="icon32 dfp_logo"><br></div>';
+		echo '<h2>'.__( 'Auto DFP', 'menu-test' ).'</h2>';
+		
+		if($this->saved){
+			echo '<div class="updated"><p><strong>';
+			_e('settings saved.', 'menu-test' );
+			echo '</strong></p></div>';
+		};
+		echo '<div class="dfp settings">';
+		
+		$default = (!isset($_GET['dfp_menu'])) ? 'active' : NULL;
+		
+		echo '<ul id="dfp_menu">';
+		echo '<li class="default '.$default.'"><a href="?page=dfp_options" >Overview</a></li>';
+
+		foreach($this->menu_items as $tab){
+			$active = (isset($_GET['dfp_menu']) && $_GET['dfp_menu'] == strtolower($tab)) ? 'class="active"' : NULL;
+			echo '<li '.$active.'><a href="?page=dfp_options&dfp_menu='.strtolower($tab).'" >'.$tab.'</a></li>';
+		}
+		echo '<li class="logout" ><a href="?page=dfp_options&dfp_logout=1" >Log Out</a></li>';
+		echo '</ul>';
+
 	}
 	
-
+	
 	/**
 	 * Get all dfp ad units.
 	 * @param void
@@ -205,34 +324,6 @@ class Auto_DFP
 		} while ($offset < $page->totalResultSetSize);
 
 		return $adUnits;
-	}
-	
-	
-	/**
-	 * Log user out by destroying session.
-	 * @param void
-	 * @return BOOL
-	 */
-	protected static function logout()
-	{
-		unset( $_SESSION['DFP'] );
-	}
-	
-	
-	/**
-	 * Logs message to daily log with timestamp.
-	 * @param string $message
-	 * @return void
-	 */
-	protected static function log($message = NULL)
-	{	
-		$path = dirname(__FILE__) . '/../../logs/'.date( "d-m-y" );
-		if(file_exists($path)){
-			$logFile = fopen($path, 'a');
-			$message = '('.time().') '.$message."\n";
-			fwrite($logFile, $message);
-			fclose($logFile);
-		}
 	}
 
 
