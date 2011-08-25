@@ -41,28 +41,38 @@ class Auto_DFP_Ads
 	 * @param string $size eg. 250x100.
 	 * @return string
 	 */
-	public static function adUnit($size)
+	public static function adUnit( $name, $size )
 	{
-		if( $size ){
-		// Format size param.
-		$size = explode('x', strtolower($size), 2);
-		if(isset($size[0])){ $adSize[] = intval($size[0]); }
-		if(isset($size[1])){ $adSize[] = intval($size[1]); }
+
+		if( $size && $name ){
+			
+			// Remove spaces for use as string in adUnit name.
+			$size = str_replace( ' ', '', $size );
+			
+			// Prepare name for adUnit
+			$name = str_replace( ' ', '_', $name );
+						
+			// Format size param.
+			$sizeSplit = explode('x', strtolower($size), 2);
+			if(isset($size[0])){ $adSize[] = intval($size[0]); }
+			if(isset($size[1])){ $adSize[] = intval($size[1]); }
 		
-		// If size is valid, create an instance of self and return unit content.
+			// If size is valid, create an instance of self and return unit content.
 			if(count($adSize) == 2){
-				
+
 				// Instance of self
-				$inst = new self($adSize);
+				$inst = new self();
 				
 				// Reference instance of Auto_DFP_Data
 				$inst->data = new Auto_DFP_Data();
 				
-				return 'YES'; // RETURN AD CODE HERE ----- 
+				// Return JS tag to display ad
+				return $inst->generateTag( $name, $size );
+
 			}
 		}
-		// If Size didn't match and ad content wasn't returned, display error in tag.
-		return '<a href="'.self::$pluginURL.'" target="_blank" style="padding:3px 7px; background:red; color:#fff; font-weight:bold;">Please provide a ad size. e.g. 300x250</a> ';
+		// If Size or Name is invalid, display error in tag.
+		return '<p style="padding:3px 7px; text-align:center; background:red; color:#fff;">Please provide a valid ad name & size. <a style="color:#fff; font-weight:bold" href="'.self::$pluginURL.'" target="_blank" >See Instructions</a></p>';
 	}
 	
 	
@@ -76,6 +86,34 @@ class Auto_DFP_Ads
 		
 		
 		
+	}
+	
+	
+	/**
+	 * Creates the ad output tag if slot already exists,
+	 * otherwise creates pending slot and ads default tag.
+	 * @param string $name, string $size.
+	 * @return string
+	 */
+	private function generateTag( $name, $size )
+	{
+		
+		return "Individual tags will be generated from here.";
+	}
+	
+	
+	/**
+	 * Creates head tag for all existing page adUnits.
+	 * Also used to reference existing page adUnits to check for changes.
+	 * @param void.
+	 * @return string
+	 */
+	private function generateHeadTags()
+	{
+		$url = get_permalink();
+		$slots = $this->data->getPageSlots($url);
+		
+		return "Head tags are generate from here.";
 	}
 
 }

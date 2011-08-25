@@ -37,7 +37,7 @@ class Auto_DFP_Data
 	 * @param  string $adUnit, array $size (width, height), string $url, [BOOL $approved]
 	 * @return void
 	 */
-	public function dfpCreateSlot( $adUnit, $size, $url, $approved = FALSE )
+	public function createSlot( $adUnit, $size, $url, $approved = FALSE )
 	{
 		global $wpdb;
 
@@ -54,18 +54,21 @@ class Auto_DFP_Data
 			
 		 ), array( '%s', '%d', '%d', '%s', '%s' ));
 
-		 return $wpdb;
+		 return $affected;
 	}
-
-
-	/**
-	 * Checks adUnit slot in DB. 
-	 * @param void
-	 * @return void
-	 */
-	public function dfpCheckSlot()
-	{
 	
+	
+	/**
+	 * Return adUnit slots for given page(url). 
+	 * @param string $url
+	 * @return object
+	 */
+	public function getPageSlots($url)
+	{
+		global $wpdb;
+			
+		$result = $wpdb->get_row("SELECT `id` FROM {$this->tableName} WHERE `url` = {$url}");
+		return $result;
 	}
 
 
@@ -74,7 +77,7 @@ class Auto_DFP_Data
 	 * @param void
 	 * @return void
 	 */
-	public function dfpRemoveSlot()
+	public function removeSlot()
 	{
 	
 	}
@@ -85,7 +88,7 @@ class Auto_DFP_Data
 	 * @param void
 	 * @return void
 	 */
-	public function dfpUpdateSlot()
+	public function updateSlot()
 	{
 	
 	}
