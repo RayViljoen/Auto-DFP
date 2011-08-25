@@ -17,11 +17,7 @@ require 'DFP/Ads.php';
 
 
 // Plugin setup on activation
-register_activation_hook( __FILE__, function(){
-
-	
-	
-});
+register_activation_hook( __FILE__, array('Auto_DFP_Data', 'setup'));
 
 
 // Create DFP Admin Menu

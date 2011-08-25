@@ -1,8 +1,9 @@
 <?php
 
 /**
- * Class get called from either an ad shortcode or a themed template_tag.
- * Handles output/creation of new adUnits.
+ * Client side ad handling.
+ * Called from either theme function DFP_AD() or shortcode DFP_AD.
+ * Requires 'size' param.
  * @package Auto DFP
  * @author Ray Viljoen
  */
@@ -14,6 +15,12 @@ class Auto_DFP_Ads
 	 * @var string
 	 */
 	private $adSize;
+	
+	/**
+	 * Reference to Auto_DFP_Data instance.
+	 * @var object
+	 */
+	private $data;
 	
 	/**
 	 * DFP tag for outputting ad.

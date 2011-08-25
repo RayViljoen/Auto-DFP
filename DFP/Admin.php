@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Only class that interacts with API, so login etc. is only done from here.
- * Responsible for all administrative tasks.
+ * Interacts with API, so login etc. is only done from here.
+ * Responsible for all administrative tasks & only class capable of accessing DFP account.
  * @package Auto DFP
  * @author Ray Viljoen
  */
@@ -25,6 +25,12 @@ class Auto_DFP_Admin
 	 * @var bool
 	 */
 	private $saved = FALSE;
+	
+	/**
+	 * Reference to Auto_DFP_Data instance.
+	 * @var object
+	 */
+	private $data;
 	
 	/**
 	 * DFP User Instance.
