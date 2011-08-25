@@ -9,13 +9,7 @@
  */
 
 class Auto_DFP_Ads
-{
-	/**
-	 * Size of adUnit eg. 250x100.
-	 * @var string
-	 */
-	private $adSize;
-	
+{	
 	/**
 	 * Reference to Auto_DFP_Data instance.
 	 * @var object
@@ -47,24 +41,25 @@ class Auto_DFP_Ads
 	 * @param string $size eg. 250x100.
 	 * @return string
 	 */
-	public static function adUnit($size = FALSE)
+	public static function adUnit($size)
 	{
-		// Format size.
-		$size = str_replace(' ', '', $size);
-		preg_match('/[0-9]{1,4}x[0-9]{1,4}/', $size, $validSize);
-		$validSize = $validSize[0];
+		if( $size ){
+		// Format size param.
+		$size = explode('x', strtolower($size), 2);
+		if(isset($size[0])){ $adSize[] = intval($size[0]); }
+		if(isset($size[1])){ $adSize[] = intval($size[1]); }
 		
-		// If a valid size, create an instance of self and return unit content.
-		if(isset($validSize)){
-			
-			// Instance of self
-			$inst = new self($validSize);
-			
-			
-			// RETURN AD CONTENT HERE ---------------- TODO ---------------- FINAL
-			/* TEMP */ return $inst->adSize; /* TEMP */
-			
-			
+		// If size is valid, create an instance of self and return unit content.
+			if(count($adSize) == 2){
+				
+				// Instance of self
+				$inst = new self($adSize);
+				
+				// Reference instance of Auto_DFP_Data
+				$inst->data = new Auto_DFP_Data();
+				
+				return 'YES'; // RETURN AD CODE HERE ----- 
+			}
 		}
 		// If Size didn't match and ad content wasn't returned, display error in tag.
 		return '<a href="'.self::$pluginURL.'" target="_blank" style="padding:3px 7px; background:red; color:#fff; font-weight:bold;">Please provide a ad size. e.g. 300x250</a> ';
@@ -76,9 +71,11 @@ class Auto_DFP_Ads
 	 * @param string $size.
 	 * @return string
 	 */
-	private function __construct($size)
+	private function __construct()
 	{
-		$this->adSize = $size;
+		
+		
+		
 	}
 
 }

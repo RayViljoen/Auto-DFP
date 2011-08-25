@@ -174,3 +174,7 @@ a.props{
 	display: inline-block;
 	padding: 3px;
 }
+
+.settings .page{
+	padding: 15px;
+}

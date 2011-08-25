@@ -33,11 +33,12 @@ add_action('admin_menu', function(){
 
 // Shortcode calls Auto_DFP_AdUnit to output ad.
 add_shortcode( 'DFP_AD', function($size){
+	if( !isset($size['size']) ){ $size['size'] = FALSE; }
 	return Auto_DFP_Ads::adUnit($size['size']);
 });
 
 
 // Alternitive to shortcode for use in themes
-function DFP_AD($size){
+function DFP_AD($size = FALSE){
 	Auto_DFP_Ads::adUnit($size);
 }
