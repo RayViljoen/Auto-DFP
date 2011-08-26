@@ -1,12 +1,15 @@
-<?php if (isset($_GET['createAd'])){
+<?php
 		
 	//	$this->dfpCreateAdUnit();
 	
-	
+		// Get the NetworkService.
+		//$testService = $this->dfpGetService('NetworkService');
+		
+		echo get_option('dfp_prop_code');
+
 /*
 	echo '<pre>';
 	print_r(
-	$res
+	$testService->getCurrentNetwork()
 	); echo '</pre>';
 */
-}

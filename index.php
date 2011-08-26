@@ -31,28 +31,21 @@ add_action('admin_menu', function(){
 });
 
 
-/*
-// Shortcode calls Auto_DFP_AdUnit to output ad.
-add_shortcode( 'DFP_AD', function($atts){
-	if( !isset($atts['size']) || !isset($atts['name']) ){
-		$atts['size'] = FALSE;
-		$atts['name'] = FALSE;
-	}
-	return Auto_DFP_Ads::adUnit( $atts['name'], $atts['size'] );
+// ========================================
+// 		TRY CALLING THE NEXT 2 functions WITH 1 INSATNCE ( add_action scope issue )
+// ========================================
+
+// Load JS to load and create ads. - HEADER
+add_action('wp_head', function(){	
+	$inst = new Auto_DFP_Ads();
+	$inst->adLoaderHeader();
 });
 
 
-// Alternitive to shortcode for use in themes
-function DFP_AD($name = FALSE, $size = FALSE){
-	Auto_DFP_Ads::adUnit($name, $size);
-}
-*/
-
-
-// Load JS to load and create ads.
-add_action('init', function(){
+// Load JS to load and create ads. - FOOTER
+add_action('wp_footer', function(){	
 	$inst = new Auto_DFP_Ads();
-	$inst->jsAdLoader();
+	$inst->adLoaderFooter();
 });
 
 

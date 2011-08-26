@@ -16,11 +16,6 @@ class Auto_DFP_Ads
 	 */
 	private $data;
 	
-	/**
-	 * DFP tag for outputting ad.
-	 * @var string
-	 */
-/* 	private $adTag; */
 	
 	/**
 	 * Plugin URL links errors to help pages etc.
@@ -29,53 +24,10 @@ class Auto_DFP_Ads
 	private static $pluginURL = 'http://wordpress.org/extend/plugins/Auto-DFP/';
 
 	
-
 	//=============================================================
 	//       					METHODS
 	//=============================================================
 
-
-	/**
-	 * Handles site adUnit.
-	 * Either creates slot or outputs existing ad.
-	 * @param string $size eg. 250x100.
-	 * @return string
-	 */
-/*
-	public static function adUnit( $name, $size )
-	{
-
-		if( $size && $name ){
-			
-			// Remove spaces for use as string in adUnit name.
-			$size = str_replace( ' ', '', $size );
-			
-			// Prepare name for adUnit
-			$name = str_replace( ' ', '_', $name );
-						
-			// Format size param.
-			$sizeSplit = explode('x', strtolower($size), 2);
-			if(isset($size[0])){ $adSize[] = intval($size[0]); }
-			if(isset($size[1])){ $adSize[] = intval($size[1]); }
-		
-			// If size is valid, create an instance of self and return unit content.
-			if(count($adSize) == 2){
-
-				// Instance of self
-				$inst = new self();
-				
-				// Reference instance of Auto_DFP_Data
-				$inst->data = new Auto_DFP_Data();
-				
-				// Return JS tag to display ad
-				return $inst->generateTag( $name, $size );
-			}
-		}
-		// If Size or Name is invalid, display error in tag.
-		return '<p style="padding:3px 7px; text-align:center; background:red; color:#fff;">Please provide a valid ad name & size. <a style="color:#fff; font-weight:bold" href="'.self::$pluginURL.'" target="_blank" >See Instructions</a></p>';
-	}
-*/
-	
 	
 	/**
 	 * adUnit constructor.
@@ -97,60 +49,121 @@ class Auto_DFP_Ads
 	 */
 	public static function tagNewSlot()
 	{
+		// Data instance
+		$data = new Auto_DFP_Data();
+				
+		$page = intval($_GET['new_dfp_tag']);
 		
-		$page = $_GET['dfp_tag_page'];
-		$size = $_GET['new_dfp_tag'];
+		$size = $_GET['dfp_tag_size'];
+		
+		$pageAtts = get_page( $page );
+		
+		$adUnit = get_bloginfo('name');
+		
+		$ancestors = $pageAtts->ancestors;
+		
+		if(count($ancestors)){
+			$ancestors = array_reverse($ancestors);
+			foreach($ancestors as $id){
+				$adUnit .= '_'.get_page($id)->post_name;
+			}
+		}
+		
+		$adUnit .= '_'.$pageAtts->post_name;
+		
+		$adUnit = str_replace(' ', '_', $adUnit);
+		
+// --------------------------------------------------------------------
+//					create size to add to slot create here    --  TODO
+// --------------------------------------------------------------------				
+		$data->createSlot( $adUnit, $page, array(300, 175) );
 	
 	}
 	
 	
 	/**
-	 * Creates head tag for all existing page adUnits.
-	 * Also used to reference existing page adUnits to check for changes.
+	 * Creates array of adSlots for a specific page ID.
+	 * @param number $id.
+	 * @return array
+	 */
+	private function getSlots($id)
+	{	
+		// Request all existing adSlots for curretn page
+		$slotsObj = $this->data->getPageSlots($id);
+		
+		// Create adUnit array - also used as object in js
+		$adSlots = array();
+		foreach( $slotsObj as $slot ){
+			$adSlots[$slot->size_w.'x'.$slot->size_h] = array(
+				'name'  => $slot->adunit,
+				'status' => $slot->status
+			);
+		}		
+		return $adSlots;
+	}
+	
+	
+	/**
+	 * Loads in header javascript.
 	 * @param void.
 	 * @return string
 	 */
-	public function jsAdLoader()
+	public function adLoaderHeader()
 	{			
-		// HEADER JS
-		add_action('wp_head', function(){
-			
-			global $post;
-			
-			// Request all existing adSlots
-			
-				
-			$adUnitName = NULL;
-			$publisherID = 'ca-pub-5419175785675578';
-			
-			// Load dfp Scripts and include global $post variables as JS
-			echo("
-				<script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'></script>
-				<script type='text/javascript'>
-					GS_googleAddAdSenseService('".$publisherID."');
-					GS_googleEnableAllServices();
-					GA_googleAddSlot('".$publisherID."', '".$adUnitName."');
-					GA_googleFetchAds();
-					var wpPageID = ".$post->ID.";
-					var wpPageName = '".$post->post_name."';
-				</script>
-			");
-		});
+		global $post;
+					
+		echo '<pre>'; $xx = get_page( $post->ID );
+		var_dump($xx);
+		echo '</pre>';
+					
+		$adUnitName = NULL;
+		$publisherID = get_option('dfp_prop_code');
 		
-		// FOOTER JS
-		add_action('wp_footer', function(){
-			global $post;
-			
-			// jsLoader script path
-			$jsLoaderScript = plugins_url( '/js/adLoader.js', __FILE__ );
-			
-			// Load jQuery if not already
-			wp_enqueue_script( 'jquery' );
-			
-			// Create JS client script
-			echo "<script type='text/javascript' src='".$jsLoaderScript."' ></script>";
+		// HEADER JS
+		
+		// Get all ad slots for page
+		$adSlots = $this->getSlots($post->ID);
+				
+		// Load dfp Scripts and include global $post variables as JS
+		echo "<script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'></script>";
+		echo "<script type='text/javascript'>GS_googleAddAdSenseService('".$publisherID."'); GS_googleEnableAllServices();</script>";
+		echo "<script type='text/javascript'>";
+		// print individual slot loaders
+		foreach( $adSlots as $slot ){
+			// Check slot has been approved & print hedaer unit
+			if( $slot['status'] == 'approved' ){
+				echo "GA_googleAddSlot('".$publisherID."', '".$slot['name']."');";
+			}
+		}
+		echo "</script>";
+		echo "<script type='text/javascript'>GA_googleFetchAds();</script>";
+	}
 	
-		});
+	
+	/**
+	 * Loads in footer javascript.
+	 * @param void.
+	 * @return string
+	 */
+	public function adLoaderFooter()
+	{
+		global $post;
+		
+		// Get all ad slots for page
+		$adSlots = $this->getSlots($post->ID);
+		
+		// ready array for use in js
+		$jsAdSlots = json_encode($adSlots);
+		
+		// Auto DFP JS path
+		$jsPath = plugins_url( '/js/', __FILE__ );
+				
+		// Load jQuery if not already
+		wp_enqueue_script( 'jquery' );
+		
+		// Include jsLoader & call with page id
+		echo "<script type='text/javascript' src='".$jsPath."adLoader.js' ></script>";
+		echo "<script type='text/javascript'>jQuery(function(){ jsLoader(".$post->ID.", ".$jsAdSlots."); });</script>";
 	}
 
 }

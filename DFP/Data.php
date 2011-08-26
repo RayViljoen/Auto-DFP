@@ -66,8 +66,9 @@ class Auto_DFP_Data
 	public function getPageSlots($id)
 	{
 		global $wpdb;
-			
-		$result = $wpdb->get_row("SELECT * FROM {$this->tableName} WHERE `page` = {$id}");
+		
+		// Return adUnit slots as object and include default slot.
+		$result = $wpdb->get_results("SELECT * FROM {$this->tableName} WHERE `page` = {$id}");
 		return $result;
 	}
 
@@ -117,6 +118,7 @@ class Auto_DFP_Data
 		// Check table was created or throw error
 		if($setupSuccess){
 			
+/*
 			$adUnit = str_replace( ' ', '_', get_bloginfo('name')).'_default';
 			$page = 0;
 			$size = array( '', '' );
@@ -125,10 +127,14 @@ class Auto_DFP_Data
 			// Create placeholder adUnit to display while slot is pending
 			$dbResult = $inst->createSlot( $adUnit, $page, $size, $approved );
 			
+			// Create DFP Property Code option
+			update_option('dfp_prop_code', '');
+			
 			// Make sure slot was created successfully
 			if( !$dbResult ){
 				throw new Exception('Error: Cannot create database entry.');
 			}
+*/
 		}else{
 			throw new Exception('Error: Cannot create database table.');
 		}

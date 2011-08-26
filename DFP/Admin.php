@@ -157,18 +157,23 @@ class Auto_DFP_Admin
 
 			// Get authtoken
 			$authToken = $this->user->GetAuthToken();
-
+						
 			// Update session
 			$this->setSession($username, $networkid, $authToken, $wpUser, $wpURL);
 
 			// Log successful user login
 			if($password != NULL){
 				self::log('SUCCESSFUL LOGIN: '.'wp_user '.$wpUser );
+				
+				// if user logged in manually - Update DFP Property Code
+				$NetworkService = $this->dfpGetService('NetworkService');
+				$propCode = $NetworkService->getCurrentNetwork();
+				update_option('dfp_prop_code', $propCode->propertyCode);
 			}
 
 			// Create requested service
 			if($service){
-				$this->getService($service);
+				$this->dfpGetService($service);
 			}
 
 			return $authToken;
