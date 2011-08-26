@@ -31,6 +31,7 @@ add_action('admin_menu', function(){
 });
 
 
+/*
 // Shortcode calls Auto_DFP_AdUnit to output ad.
 add_shortcode( 'DFP_AD', function($atts){
 	if( !isset($atts['size']) || !isset($atts['name']) ){
@@ -44,4 +45,18 @@ add_shortcode( 'DFP_AD', function($atts){
 // Alternitive to shortcode for use in themes
 function DFP_AD($name = FALSE, $size = FALSE){
 	Auto_DFP_Ads::adUnit($name, $size);
+}
+*/
+
+
+// Load JS to load and create ads.
+add_action('init', function(){
+	$inst = new Auto_DFP_Ads();
+	$inst->jsAdLoader();
+});
+
+
+// Check for AJAX notification of unlisted adUnit
+if(isset($_GET['new_dfp_tag'])){
+	Auto_DFP_Ads::tagNewSlot();
 }

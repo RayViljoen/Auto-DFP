@@ -37,7 +37,7 @@ class Auto_DFP_Data
 	 * @param  string $adUnit, array $size (width, height), string $url, [BOOL $approved]
 	 * @return void
 	 */
-	public function createSlot( $adUnit, $size, $url, $approved = FALSE )
+	public function createSlot( $adUnit, $page, $size, $approved = FALSE )
 	{
 		global $wpdb;
 
@@ -47,9 +47,9 @@ class Auto_DFP_Data
 		$affected = $wpdb->insert( $this->tableName, array( 
 			
 			'adunit' => $adUnit,
+			'page' => $page,
 			'size_w' => $size[0],
 			'size_h' => $size[1],
-			'url' => $url,
 			'status' => $status
 			
 		 ), array( '%s', '%d', '%d', '%s', '%s' ));
@@ -63,11 +63,11 @@ class Auto_DFP_Data
 	 * @param string $url
 	 * @return object
 	 */
-	public function getPageSlots($url)
+	public function getPageSlots($id)
 	{
 		global $wpdb;
 			
-		$result = $wpdb->get_row("SELECT `id` FROM {$this->tableName} WHERE `url` = {$url}");
+		$result = $wpdb->get_row("SELECT * FROM {$this->tableName} WHERE `page` = {$id}");
 		return $result;
 	}
 
@@ -107,9 +107,9 @@ class Auto_DFP_Data
 		$createTableQuery = "CREATE TABLE IF NOT EXISTS `{$inst->tableName}` (
 							`id` INT( 11 ) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 							`adunit` VARCHAR( 255 ) NOT NULL COMMENT 'DFP Ad Unit Name',
+							`page` INT( 11 ) NOT NULL ,
 							`size_w` INT( 11 ) NOT NULL ,
 							`size_h` INT( 11 ) NOT NULL ,
-							`url` VARCHAR( 255 ) NOT NULL ,
 							`status` VARCHAR( 255 ) NOT NULL
 							) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;";
 		$setupSuccess = $wpdb->query($createTableQuery);
@@ -117,13 +117,13 @@ class Auto_DFP_Data
 		// Check table was created or throw error
 		if($setupSuccess){
 			
-			$adUnit = str_replace( ' ', '_', get_bloginfo('name'));
+			$adUnit = str_replace( ' ', '_', get_bloginfo('name')).'_default';
+			$page = 0;
 			$size = array( '', '' );
-			$url = get_bloginfo('url');
 			$approved = TRUE;
 			
 			// Create placeholder adUnit to display while slot is pending
-			$dbResult = $inst->dfpCreateSlot( $adUnit, $size, $url, $approved );
+			$dbResult = $inst->createSlot( $adUnit, $page, $size, $approved );
 			
 			// Make sure slot was created successfully
 			if( !$dbResult ){

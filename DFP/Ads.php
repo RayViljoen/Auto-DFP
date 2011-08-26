@@ -20,7 +20,7 @@ class Auto_DFP_Ads
 	 * DFP tag for outputting ad.
 	 * @var string
 	 */
-	private $adTag;
+/* 	private $adTag; */
 	
 	/**
 	 * Plugin URL links errors to help pages etc.
@@ -41,6 +41,7 @@ class Auto_DFP_Ads
 	 * @param string $size eg. 250x100.
 	 * @return string
 	 */
+/*
 	public static function adUnit( $name, $size )
 	{
 
@@ -68,12 +69,12 @@ class Auto_DFP_Ads
 				
 				// Return JS tag to display ad
 				return $inst->generateTag( $name, $size );
-
 			}
 		}
 		// If Size or Name is invalid, display error in tag.
 		return '<p style="padding:3px 7px; text-align:center; background:red; color:#fff;">Please provide a valid ad name & size. <a style="color:#fff; font-weight:bold" href="'.self::$pluginURL.'" target="_blank" >See Instructions</a></p>';
 	}
+*/
 	
 	
 	/**
@@ -81,24 +82,25 @@ class Auto_DFP_Ads
 	 * @param string $size.
 	 * @return string
 	 */
-	private function __construct()
+	public function __construct()
 	{
-		
-		
-		
+		// Reference instance of Auto_DFP_Data
+		$this->data = new Auto_DFP_Data();
 	}
 	
 	
 	/**
-	 * Creates the ad output tag if slot already exists,
-	 * otherwise creates pending slot and ads default tag.
-	 * @param string $name, string $size.
-	 * @return string
+	 * Called remotely via AJAX notification.
+	 * Creates new pending ad slot.
+	 * @param void.
+	 * @return void
 	 */
-	private function generateTag( $name, $size )
+	public static function tagNewSlot()
 	{
 		
-		return "Individual tags will be generated from here.";
+		$page = $_GET['dfp_tag_page'];
+		$size = $_GET['new_dfp_tag'];
+	
 	}
 	
 	
@@ -108,12 +110,47 @@ class Auto_DFP_Ads
 	 * @param void.
 	 * @return string
 	 */
-	private function generateHeadTags()
-	{
-		$url = get_permalink();
-		$slots = $this->data->getPageSlots($url);
+	public function jsAdLoader()
+	{			
+		// HEADER JS
+		add_action('wp_head', function(){
+			
+			global $post;
+			
+			// Request all existing adSlots
+			
+				
+			$adUnitName = NULL;
+			$publisherID = 'ca-pub-5419175785675578';
+			
+			// Load dfp Scripts and include global $post variables as JS
+			echo("
+				<script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'></script>
+				<script type='text/javascript'>
+					GS_googleAddAdSenseService('".$publisherID."');
+					GS_googleEnableAllServices();
+					GA_googleAddSlot('".$publisherID."', '".$adUnitName."');
+					GA_googleFetchAds();
+					var wpPageID = ".$post->ID.";
+					var wpPageName = '".$post->post_name."';
+				</script>
+			");
+		});
 		
-		return "Head tags are generate from here.";
+		// FOOTER JS
+		add_action('wp_footer', function(){
+			global $post;
+			
+			// jsLoader script path
+			$jsLoaderScript = plugins_url( '/js/adLoader.js', __FILE__ );
+			
+			// Load jQuery if not already
+			wp_enqueue_script( 'jquery' );
+			
+			// Create JS client script
+			echo "<script type='text/javascript' src='".$jsLoaderScript."' ></script>";
+	
+		});
 	}
 
 }
