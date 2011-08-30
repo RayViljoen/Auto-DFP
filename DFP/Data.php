@@ -33,7 +33,7 @@ class Auto_DFP_Data
 
 
 	/**
-	 * Creates adUnit slot in DB. 
+	 * Creates adUnit slot in DB.
 	 * @param  string $adUnit, array $size (width, height), string $url, [BOOL $approved]
 	 * @return void
 	 */
@@ -50,25 +50,38 @@ class Auto_DFP_Data
 			'page' => $page,
 			'size_w' => $size[0],
 			'size_h' => $size[1],
-			'status' => $status
+			'local_status' => $status,
+			'dfp_status' => 0
 			
-		 ), array( '%s', '%d', '%d', '%s', '%s' ));
+		 ), array( '%s', '%d', '%d', '%s', '%s', '%d' ));
 
 		 return $affected;
 	}
 	
 	
 	/**
-	 * Return adUnit slots for given page(url). 
-	 * @param string $url
+	 * Return adUnit slots. Can be limited to page or status.
+	 * @param number $id, string $status
 	 * @return object
 	 */
-	public function getPageSlots($id)
+	public function getPageSlots($id = NULL, $status = NULL)
 	{
 		global $wpdb;
 		
+		// Check if limited to page or status.
+		
+		if( $id && $status ){
+			$limit = "WHERE `page` = {$id} AND `status` = '{$status}'";
+		}elseif( $id ){
+			$limit = "WHERE `page` = {$id}";
+		}elseif( $status ){
+			$limit = "WHERE `status` = '{$status}'";
+		}
+				
+		$query = "SELECT * FROM {$this->tableName} ".$limit;
+				
 		// Return adUnit slots as object and include default slot.
-		$result = $wpdb->get_results("SELECT * FROM {$this->tableName} WHERE `page` = {$id}");
+		$result = $wpdb->get_results($query);
 		return $result;
 	}
 
@@ -111,31 +124,13 @@ class Auto_DFP_Data
 							`page` INT( 11 ) NOT NULL ,
 							`size_w` INT( 11 ) NOT NULL ,
 							`size_h` INT( 11 ) NOT NULL ,
-							`status` VARCHAR( 255 ) NOT NULL
+							`local_status` VARCHAR( 255 ) NOT NULL,
+							`dfp_status` INT( 11 ) NOT NULL
 							) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;";
 		$setupSuccess = $wpdb->query($createTableQuery);
 		
 		// Check table was created or throw error
-		if($setupSuccess){
-			
-/*
-			$adUnit = str_replace( ' ', '_', get_bloginfo('name')).'_default';
-			$page = 0;
-			$size = array( '', '' );
-			$approved = TRUE;
-			
-			// Create placeholder adUnit to display while slot is pending
-			$dbResult = $inst->createSlot( $adUnit, $page, $size, $approved );
-			
-			// Create DFP Property Code option
-			update_option('dfp_prop_code', '');
-			
-			// Make sure slot was created successfully
-			if( !$dbResult ){
-				throw new Exception('Error: Cannot create database entry.');
-			}
-*/
-		}else{
+		if(!$setupSuccess){
 			throw new Exception('Error: Cannot create database table.');
 		}
 	}

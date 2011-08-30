@@ -178,3 +178,71 @@ a.props{
 .settings .page{
 	padding: 15px;
 }
+
+#dfpSync{
+	font-size: 1.7em;
+	font-weight: 100;
+	padding: 15px 30px;
+	margin: 0 30px 15px;
+	overflow: auto;
+	background: #91f27d;
+	border: 1px solid #7fd16c;
+	float: left;
+	line-height: 1em;
+	float: left;
+}
+#dfpSync span{
+	font-size: 0.5em;
+	text-shadow: none;
+	color: #444;
+}
+
+#dfpSync button{
+	margin: 0 0  0 50px;
+}
+
+.inventSlots{
+	background: #f0f0f0;
+	margin: 0 0 15px 30px;
+	display: inline-block;
+	float: left;
+	width: 380px;
+	padding: 10px 15px;
+}
+
+.inventSlots h4{
+	margin: 0;
+	color: #777;
+	font-size: 1.1em;
+	padding: 5px;
+}
+
+.liveSlots{
+	clear: left;
+}
+
+.inventSlots li{
+	padding: 5px 10px;
+	font-weight: bold;
+	margin: 5px 0;
+	color: #333;
+	-moz-border-radius:3px;
+	-khtml-border-radius:3px;
+	-webkit-border-radius:3px;
+	background: #efbd7c;
+	border: 1px #d8a970 solid;
+	
+}
+
+.liveSlots li{
+	background: #fff;
+	border: 1px #DEDEDE solid;
+}
+
+.inventSlots li a{
+	float: right;
+	display: inline-block;
+	background: url(close.png) no-repeat center center;
+	height: 15px;
+	width: 15px;
+}

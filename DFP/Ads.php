@@ -51,33 +51,40 @@ class Auto_DFP_Ads
 	{
 		// Data instance
 		$data = new Auto_DFP_Data();
-				
+		
+		// Create size for adUnit
+		$size = $_GET['dfp_tag_size'];
+		$size = str_replace( ' ', '',  explode( 'x', $size ));
+
+		// Make sure there's no spaces
+		$adUnit = str_replace(' ', '_', $adUnit);
+
+		// Get page id
 		$page = intval($_GET['new_dfp_tag']);
 		
-		$size = $_GET['dfp_tag_size'];
+		// Check slot can be created
+		if( !$page || !$size ){
+			
+			Auto_DFP_Admin::log('Invalid new adUnit with: size='.$_GET['dfp_tag_size'].'&new_dfp_tag='.$_GET['new_dfp_tag']);
+			return FALSE;
+		}
 		
+		// Build adUnit name
 		$pageAtts = get_page( $page );
-		
 		$adUnit = get_bloginfo('name');
-		
 		$ancestors = $pageAtts->ancestors;
 		
+		// If page is not top level, build ad name based on ancestors
 		if(count($ancestors)){
 			$ancestors = array_reverse($ancestors);
 			foreach($ancestors as $id){
 				$adUnit .= '_'.get_page($id)->post_name;
 			}
 		}
+		$adUnit .= '_'.$pageAtts->post_name.'_'.$_GET['dfp_tag_size'];		
 		
-		$adUnit .= '_'.$pageAtts->post_name;
-		
-		$adUnit = str_replace(' ', '_', $adUnit);
-		
-// --------------------------------------------------------------------
-//					create size to add to slot create here    --  TODO
-// --------------------------------------------------------------------				
-		$data->createSlot( $adUnit, $page, array(300, 175) );
-	
+		// Create slot
+		$data->createSlot( $adUnit, $page, $size );
 	}
 	
 	
@@ -111,11 +118,7 @@ class Auto_DFP_Ads
 	public function adLoaderHeader()
 	{			
 		global $post;
-					
-		echo '<pre>'; $xx = get_page( $post->ID );
-		var_dump($xx);
-		echo '</pre>';
-					
+										
 		$adUnitName = NULL;
 		$publisherID = get_option('dfp_prop_code');
 		
