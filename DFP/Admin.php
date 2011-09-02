@@ -9,6 +9,12 @@
 class Auto_DFP_Admin
 {
 	/**
+	 * Switche between production and sandbox account.
+	 * @var BOOL
+	 */
+	private $production = FALSE;
+	
+	/**
 	 * Application Name.
 	 * @var string
 	 */
@@ -37,7 +43,13 @@ class Auto_DFP_Admin
 	 * @var object
 	 */
 	private $user;
-
+	
+	/**
+	 * Adunits in live account.
+	 * @var array
+	 */
+	private $dfpAccountAdUnits = array();
+	
 	/**
 	 * DFP service being used.
 	 * @var object
@@ -57,6 +69,17 @@ class Auto_DFP_Admin
 	private $menu_items = array(
 		'Inventory',
 		'Users'
+	);
+	
+	/**
+	 * Default ad unit description.
+	 * @var string
+	 */
+	private $adDescription = 'Auto DFP generated ad unit for '; /* Site name appended in dfpAdUnit() */
+		
+	private $menu_slugs = array(
+		'Inventory' => '?page=dfp_options&dfp_menu=inventory',
+		'Users' => '?page=dfp_options&dfp_menu=users'
 	);
 
 
@@ -91,8 +114,15 @@ class Auto_DFP_Admin
 
 			// Create Auto_DFP_Data instance
 			$this->data = new Auto_DFP_Data();
+			
 			// Set logged in True
 			$this->loggedIn = TRUE;
+			
+			// Create array of ad units in actual dfp account
+			$dfpAccountSlots = $this->dfpGetAdUnits();
+			foreach( $dfpAccountSlots as $unit){
+				$this->dfpAccountAdUnits[] = $unit->name;
+			}
 		}
 
 		//=====================================
@@ -103,7 +133,9 @@ class Auto_DFP_Admin
 		echo '<link rel="stylesheet" type="text/css" href="' .plugins_url('/', dirname(__FILE__)).'DFP/pages/admin.css">';
 		// Check if user is logged in and display appropriate admin page.
 		if( $this->loggedIn ){
-
+						
+			// Check for any slot actions.
+			$this->checkActions();
 			// Show selected admin page
 			$this->getAdminPage();
 
@@ -207,8 +239,10 @@ class Auto_DFP_Admin
 	 UserService
 	 */
 	private function dfpGetService($serviceType)
-	{
-		return( $this->user->GetService($serviceType, $this->api) );
+	{	
+		// Check if sandbox enironment is being used else set server url to production.
+		$server = ( $this->production ) ? $server = 'https://www.google.com/' : NULL;
+		return( $this->user->GetService($serviceType, $this->api, $server) );
 	}
 
 
@@ -243,15 +277,13 @@ class Auto_DFP_Admin
 	 * @param string $message
 	 * @return void
 	 */
-	private static function log($message = NULL)
+	public static function log($message = NULL)
 	{
 		$path = dirname(__FILE__) . '/../logs/'.date( "d-m-y" );
-		if(file_exists($path)){
 			$logFile = fopen($path, 'a');
 			$message = '('.time().') '.$message."\n";
 			fwrite($logFile, $message);
 			fclose($logFile);
-		}
 	}
 
 
@@ -311,7 +343,7 @@ class Auto_DFP_Admin
 	 * @param string $name, array( $size['w'], $size['h'] ), string $description, [string $target]
 	 * @return void
 	 */
-	private function dfpAdUnit( $name, $size, $description, $target = 'BLANK'  )
+	private function dfpAdUnit( $name, $size, $target = 'BLANK'  )
 	{
 		// Get the NetworkService.
 		$networkService = $this->dfpGetService('NetworkService');
@@ -323,10 +355,10 @@ class Auto_DFP_Admin
 		$adUnit = new AdUnit();
 		$adUnit->name = $name;
 		$adUnit->parentId = $effectiveRootAdUnitId;
-		$adUnit->description = $description;
+		$adUnit->description = $this->adDescription.get_bloginfo('name');
 		$adUnit->targetWindow = $target;
 		// Set the size of possible creatives that can match this ad unit.
-		$adUnit->sizes = array(new Size( $size['w'],  $size['h']));
+		$adUnit->sizes = array(new Size( $size[0],  $size[1]));
 		
 		return $adUnit;
 	}
@@ -384,6 +416,73 @@ class Auto_DFP_Admin
 		} while ($offset < $page->totalResultSetSize);
 
 		return $adUnits;
+	}
+	
+	
+	/**
+	 * Checks GET for any new admin actions before loading page.
+	 * @param void
+	 * @return void
+	 */
+	private function checkActions()
+	{
+		// Check Approve Slots
+		if(isset($_POST['dfp_approve'])){
+			$this->approveSlots();
+		}
+		if(isset($_POST['dfp_merge'])){
+			$this->mergeSlots();
+		}
+	}
+	
+	
+	/**
+	 * Approve all new slots and create in DFP account.
+	 * @param void
+	 * @return object
+	 */
+	private function approveSlots()
+	{
+		// Update pending slots to active
+		$this->data->approvePendingLocal();		
+	}
+	
+	
+	/**
+	 * Add all locally live slots to dfp account and set account status to live.
+	 * @param void
+	 * @return object
+	 */
+	private function mergeSlots()
+	{
+		// Get approved slots not yet on live account
+		$localLiveSlots = $this->data->getPageSlots( NULL, 'active' );
+		
+		$adUnits = array();
+		
+/*
+		echo '<pre>';
+		print_r($localLiveSlots);
+		echo '</pre>';
+*/
+		
+		foreach( $localLiveSlots as $slot ){
+			if( !$slot->dfp_status ){
+			
+				$size = array( $slot->size_w, $slot->size_h );
+				// Create ad unit object
+				$adUnits[] = $this->dfpAdUnit( $slot->adunit, $size  );
+				
+				// Set new status to avoid trying to create duplicate in future.
+				$result = $this->data->updateMergedLocal($slot->adunit);
+				// Make sure slot was updated.
+				if(!$result){ throw new Exception('Error: Cannot update '.$slot->adunit.' status.'); }
+			}
+		}
+		
+		
+		
+		$this->dfpCreateAdUnit($adUnits);
 	}
 
 

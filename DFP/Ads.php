@@ -42,58 +42,11 @@ class Auto_DFP_Ads
 	
 	
 	/**
-	 * Called remotely via AJAX notification.
-	 * Creates new pending ad slot.
-	 * @param void.
-	 * @return void
-	 */
-	public static function tagNewSlot()
-	{
-		// Data instance
-		$data = new Auto_DFP_Data();
-		
-		// Create size for adUnit
-		$size = $_GET['dfp_tag_size'];
-		$size = str_replace( ' ', '',  explode( 'x', $size ));
-
-		// Make sure there's no spaces
-		$adUnit = str_replace(' ', '_', $adUnit);
-
-		// Get page id
-		$page = intval($_GET['new_dfp_tag']);
-		
-		// Check slot can be created
-		if( !$page || !$size ){
-			
-			Auto_DFP_Admin::log('Invalid new adUnit with: size='.$_GET['dfp_tag_size'].'&new_dfp_tag='.$_GET['new_dfp_tag']);
-			return FALSE;
-		}
-		
-		// Build adUnit name
-		$pageAtts = get_page( $page );
-		$adUnit = get_bloginfo('name');
-		$ancestors = $pageAtts->ancestors;
-		
-		// If page is not top level, build ad name based on ancestors
-		if(count($ancestors)){
-			$ancestors = array_reverse($ancestors);
-			foreach($ancestors as $id){
-				$adUnit .= '_'.get_page($id)->post_name;
-			}
-		}
-		$adUnit .= '_'.$pageAtts->post_name.'_'.$_GET['dfp_tag_size'];		
-		
-		// Create slot
-		$data->createSlot( $adUnit, $page, $size );
-	}
-	
-	
-	/**
 	 * Creates array of adSlots for a specific page ID.
 	 * @param number $id.
 	 * @return array
 	 */
-	private function getSlots($id)
+	private function getSlotsFormatted($id)
 	{	
 		// Request all existing adSlots for curretn page
 		$slotsObj = $this->data->getPageSlots($id);
@@ -103,7 +56,7 @@ class Auto_DFP_Ads
 		foreach( $slotsObj as $slot ){
 			$adSlots[$slot->size_w.'x'.$slot->size_h] = array(
 				'name'  => $slot->adunit,
-				'status' => $slot->status
+				'status' => $slot->local_status
 			);
 		}		
 		return $adSlots;
@@ -122,10 +75,8 @@ class Auto_DFP_Ads
 		$adUnitName = NULL;
 		$publisherID = get_option('dfp_prop_code');
 		
-		// HEADER JS
-		
 		// Get all ad slots for page
-		$adSlots = $this->getSlots($post->ID);
+		$adSlots = $this->getSlotsFormatted($post->ID);
 				
 		// Load dfp Scripts and include global $post variables as JS
 		echo "<script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'></script>";
@@ -153,7 +104,7 @@ class Auto_DFP_Ads
 		global $post;
 		
 		// Get all ad slots for page
-		$adSlots = $this->getSlots($post->ID);
+		$adSlots = $this->getSlotsFormatted($post->ID);
 		
 		// ready array for use in js
 		$jsAdSlots = json_encode($adSlots);

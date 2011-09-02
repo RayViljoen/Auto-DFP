@@ -30,6 +30,80 @@ class Auto_DFP_Data
 		global $wpdb;
 		$this->tableName = 	$wpdb->prefix.$this->tableName;
 	}
+	
+	
+	/**
+	 * Called remotely via AJAX notification.
+	 * Creates new pending ad slot.
+	 * @param void.
+	 * @return void
+	 */
+	public static function createSlotAsync()
+	{
+		// Data instance
+		$data = new self();
+		
+		// Compare tokens
+		$clientToken = $_GET['dfp_token'];
+		$serverToken = get_option('dfpSyncToken');
+		
+		if( $clientToken !== $serverToken ){
+			Auto_DFP_Admin::log( '"CREATE SLOT" FAILED: TOKENS DID NOT MATCH.' );
+			return FALSE;
+		}
+		
+		// Create size for adUnit
+		$size = $_GET['dfp_tag_size'];
+		$size = str_replace( ' ', '',  explode( 'x', $size ));
+
+		// Make sure there's no spaces
+		$adUnit = str_replace(' ', '_', $adUnit);
+
+		// Get page id
+		$page = intval($_GET['new_dfp_tag']);
+		
+		// Check slot can be created
+		if( !$page || !$size ){
+			
+			Auto_DFP_Admin::log('Invalid new adUnit with: size='.$_GET['dfp_tag_size'].'&new_dfp_tag='.$_GET['new_dfp_tag']);
+			return FALSE;
+		}
+		
+		// Build adUnit name
+		$pageAtts = get_page( $page );
+		$adUnit = get_bloginfo('name');
+		$ancestors = $pageAtts->ancestors;
+		
+		// If page is not top level, build ad name based on ancestors
+		if(count($ancestors)){
+			$ancestors = array_reverse($ancestors);
+			foreach($ancestors as $id){
+				$adUnit .= '_'.get_page($id)->post_name;
+			}
+		}
+		$adUnit .= '_'.$pageAtts->post_name.'_'.$_GET['dfp_tag_size'];
+		
+		// Make sure there's no spaces
+		$adUnit = str_replace(' ', '_', $adUnit);
+
+		// Create slot
+		$data->createSlot( $adUnit, $page, $size );
+	}
+	
+	
+	/**
+	 * Check single slot exists.
+	 * @param  string $adUnit
+	 * @return BOOL
+	 */
+	public function checkSlot($adUnit)
+	{
+		global $wpdb;
+		
+		$query = "SELECT `adunit` FROM {$this->tableName} WHERE `adunit` = '{$adUnit}'";
+		$result = $wpdb->get_row($query);
+		return $result;
+	}
 
 
 	/**
@@ -40,7 +114,12 @@ class Auto_DFP_Data
 	public function createSlot( $adUnit, $page, $size, $approved = FALSE )
 	{
 		global $wpdb;
-
+		
+		// Check slot does not already exist.
+		if($this->checkSlot( $adUnit )){
+			return FALSE;
+		}
+		
 		// Check if default add status has been changed
 		$status = $approved ? 'approved' : 'pending';
 		// Create pending slot in DB ( unless $status )
@@ -71,11 +150,11 @@ class Auto_DFP_Data
 		// Check if limited to page or status.
 		
 		if( $id && $status ){
-			$limit = "WHERE `page` = {$id} AND `status` = '{$status}'";
+			$limit = "WHERE `page` = {$id} AND `local_status` = '{$status}'";
 		}elseif( $id ){
 			$limit = "WHERE `page` = {$id}";
 		}elseif( $status ){
-			$limit = "WHERE `status` = '{$status}'";
+			$limit = "WHERE `local_status` = '{$status}'";
 		}
 				
 		$query = "SELECT * FROM {$this->tableName} ".$limit;
@@ -88,23 +167,64 @@ class Auto_DFP_Data
 
 	/**
 	 * Removes adUnit slot in DB. 
-	 * @param void
-	 * @return void
+	 * @param string $aduit
+	 * @return number
 	 */
-	public function removeSlot()
+	public function removeSlot($adunit)
 	{
-	
+		$result = $wpdb->query("DELETE FROM {$this->tableName} WHERE `adunit` = '{$adunit}'");
+		return $result;
+	}
+
+	/**
+	 * Removes adUnit slot in DB from ajax call. 
+	 * @param string $aduit
+	 * @return number
+	 */
+	public function removeSlotAsync()
+	{	
+		global $wpdb;
+		
+		$data = new self();
+		
+		// Compare tokens
+		$clientToken = $_GET['dfp_token'];
+		$serverToken = get_option('dfpSyncToken');
+		
+		if( $clientToken !== $serverToken ){
+			Auto_DFP_Admin::log( '"REMOVE SLOT" FAILED: TOKENS DID NOT MATCH.' );
+			return FALSE;
+		}
+
+		// Get adunit name
+		$adunit = $_GET['dfp_remove_slot'];
+		
+		$query = "DELETE FROM {$data->tableName} WHERE `adunit` = '{$adunit}'";
+		$result = $wpdb->query($query);
+		
+		return $result;
 	}
 
 
 	/**
-	 * Updates adUnit slot in DB. 
+	 * Updates locally aproved adUnit slot once added to lic=ve account.
 	 * @param void
 	 * @return void
 	 */
-	public function updateSlot()
+	public function updateMergedLocal( $slot = NULL )
 	{
-	
+		global $wpdb;
+		
+		if(!$slot){ throw new Exception('Error: Cannot update unknown slot.'); }
+		
+		$result = $wpdb->update( 
+			$this->tableName, 
+			array( 'dfp_status' => 1 ),
+			array( 'adunit' => $slot ),
+			array( '%d' ),
+			array( '%s' )
+		);
+		return $result;
 	}
 
 	
@@ -133,6 +253,24 @@ class Auto_DFP_Data
 		if(!$setupSuccess){
 			throw new Exception('Error: Cannot create database table.');
 		}
+	}
+	
+	/**
+	 * Updates all pening slots to live status. 
+	 * @param void
+	 * @return void
+	 */
+	public function approvePendingLocal()
+	{
+		global $wpdb;
+		
+		$result = $wpdb->update( 
+						$this->tableName,
+						array( 'local_status' => 'active' ),
+						array( 'local_status' => 'pending' ),
+						array( '%s' ), array( '%s' )
+					);
+		return $result;
 	}
 
 

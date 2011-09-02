@@ -51,5 +51,10 @@ add_action('wp_footer', function(){
 
 // Check for AJAX notification of unlisted adUnit
 if(isset($_GET['new_dfp_tag'])){
-	Auto_DFP_Ads::tagNewSlot();
+	Auto_DFP_Data::createSlotAsync();
+}
+
+// Check for AJAX delete adunit.
+if(isset($_GET['dfp_remove_slot'])){
+	Auto_DFP_Data::removeSlotAsync();
 }

@@ -24,7 +24,7 @@
 }
 
 .dfp_logo{
-	background: url(logo.png) no-repeat center center;
+	background: url(img/logo.png) no-repeat center center;
 	padding: 20px 10px;
 }
 
@@ -81,7 +81,7 @@ form p {
 	-moz-border-radius:3px;
 	-khtml-border-radius:3px;
 	-webkit-border-radius:3px;
-	border-radius:3px
+	border-radius:3px;
 }
 
 body form .input {
@@ -182,23 +182,14 @@ a.props{
 #dfpSync{
 	font-size: 1.7em;
 	font-weight: 100;
-	padding: 15px 30px;
-	margin: 0 30px 15px;
+	padding: 15px 15px 10px;
+	margin: 0 0 15px;
+	-moz-border-radius:3px;
+	-khtml-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
 	overflow: auto;
 	background: #91f27d;
-	border: 1px solid #7fd16c;
-	float: left;
-	line-height: 1em;
-	float: left;
-}
-#dfpSync span{
-	font-size: 0.5em;
-	text-shadow: none;
-	color: #444;
-}
-
-#dfpSync button{
-	margin: 0 0  0 50px;
 }
 
 .inventSlots{
@@ -220,6 +211,9 @@ a.props{
 .liveSlots{
 	clear: left;
 }
+.inventSlots ul{
+	margin: 0 0 15px;
+}
 
 .inventSlots li{
 	padding: 5px 10px;
@@ -229,6 +223,7 @@ a.props{
 	-moz-border-radius:3px;
 	-khtml-border-radius:3px;
 	-webkit-border-radius:3px;
+	border-radius:3px;
 	background: #efbd7c;
 	border: 1px #d8a970 solid;
 	
@@ -239,10 +234,16 @@ a.props{
 	border: 1px #DEDEDE solid;
 }
 
+.inventSlots .button{
+	float: right;
+	margin: 0;
+	color: #444;
+}
+
 .inventSlots li a{
 	float: right;
 	display: inline-block;
-	background: url(close.png) no-repeat center center;
+	background: url(img/close.png) no-repeat center center;
 	height: 15px;
 	width: 15px;
 }

@@ -2,7 +2,7 @@
 	// Get all ad slots.
 	$pendSlots = $this->data->getPageSlots( NULL, 'pending' );
 	$liveSlots = $this->data->getPageSlots( NULL, 'active' );
-	
+		
 	$sitePages = get_pages(array(
 		'post_type' => 'page',
 		'hierarchical' => 0,
@@ -19,14 +19,8 @@
 	update_option( 'dfpSyncToken', $dfpSyncID );
 	echo '<span id="dfpSyncToken" style="display:none">'.$dfpSyncID.'</span>';
 		
-?>
-		<h3 id="dfpSync" >
-			Update Ad Units.<br />
-			<span>* All ad units will be checked and can take several minutes.</span>
-			<button class="button" >Run Update</button>
-		</h3>
-		
-	<?php if( count($pendSlots) > 0 ){ ?>
+?>		
+	<?php if( count($liveSlots) > 0 ){ ?>
 	<div class="liveSlots inventSlots">
 		<h4>Existing Slots:</h4>
 		<ul>
@@ -36,11 +30,21 @@
 			}
 		?>		
 		</ul>
+		
+		<form action="" method="post">
+			<input type="hidden" name= "dfp_merge" value="1" />
+			<input type="submit" value="Merge To Account" class="button add-new-h2" />
+		</form>
+
+		
 	</div>	<?php } ?>
 	
-	<?php if( count($pendSlots) > 0 ){ ?>
 	<div class="pendingSlots inventSlots">
-		<h4>New Slots Found:</h4>
+		<h4 id="dfpSync" >
+			Find New Ad Slots.<a href="" class="button add-new-h2" >Find Slots</a>
+		</h4>
+	<?php if( count($pendSlots) > 0 ){ ?>
+		<h4>Pending Slots:</h4>
 		<ul>
 		<?php
 			foreach($pendSlots as $slot){
@@ -48,7 +52,13 @@
 			}
 		?>		
 		</ul>
-	</div>	<?php } ?>
+				
+		<form action="" method="post">
+			<input type="hidden" name= "dfp_approve" value="1" />
+			<input type="submit" value="Approve All" class="button add-new-h2" />
+		</form>
+			
+	<?php } ?></div>	
 
 <?php
 
@@ -58,12 +68,14 @@
 	echo "<script type='text/javascript' src='".$jsPath."adSync.js' ></script>";
 	echo "<script type='text/javascript' > var dfpPageLinks = ".json_encode($siteURLs)." </script>";
 
-
 /*
+	$units = $this->dfpGetAdUnits();
+
 	echo '<pre>';
-	print_r(
-	$siteURLs
+	var_dump(
+	$units
 	);
 	echo '</pre>';
 */
+
 ?>
