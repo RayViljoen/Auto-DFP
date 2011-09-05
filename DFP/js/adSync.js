@@ -13,29 +13,29 @@ function dfpAjax( url, callback ){
 }
 
 // Send AJAX notification to create new pending ad slot
-function dfpSlotNotification( newSlot, url ){
+function dfpSlotNotification( newSlot, id ){
 	
-	// Extract page ID from GUID
-	var pageID = url.slice( url.indexOf('page_id=') );
-	pageID = pageID.replace('page_id=', '');
-	
-	var query = "?new_dfp_tag=" + pageID + "&dfp_tag_size=" + newSlot + "&dfp_token=" +  dfpSyncToken;
-	
+	var query = "?new_dfp_tag=" + id + "&dfp_tag_size=" + newSlot + "&dfp_token=" +  dfpSyncToken;
 	dfpAjax( query, function(){
-		console.log('Notification sent for ' + newSlot + ' on page ' + pageID);
+		console.log('Notification sent for ' + newSlot + ' on page ' + id);
 	});
-	
 }
 
 // Check html for adSlots and pass addSlot to dfpSlotNotification
-function dfpAdSlots( html, url ){
+function dfpAdSlots( html, id ){
 	
-	var slots = jQuery(html).find('[dfp]');
+	var htmlWrap = '<div>' + html + '</div>';
+	var slots = jQuery(htmlWrap).find('[dfp]');
+	
+	console.log( slots );
 	
 	if( slots.length ){
 		jQuery.each( slots, function(){
 			var adSlot = jQuery(this).attr('dfp');
-			dfpSlotNotification(adSlot, url);
+			
+			console.log(adSlot);
+					
+			dfpSlotNotification(adSlot, id);
 		});
 	}
 }
@@ -44,9 +44,9 @@ function dfpAdSlots( html, url ){
 // Sync button
 jQuery('#dfpSync a').click(function(){
 		
-	// Loope through pages
-	jQuery.each( dfpPageLinks, function(){
-		dfpAjax( this, dfpAdSlots );
+	// Loop through pages
+	jQuery.each( dfpPageLinks, function( key, val ){
+		dfpAdSlots( val, key );
 	});
 	return false;
 });

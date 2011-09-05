@@ -10,8 +10,8 @@
 	));
 	// Get all page urls to perform sync
 	$siteURLs = array();
-	foreach($sitePages as$url){
-		$siteURLs[] = $url->guid;
+	foreach($sitePages as $url){
+		$siteURLs[$url->ID] = $url->post_content;
 	}
 	
 	// Create unique token to prevent unauthorised slot creation.
@@ -68,12 +68,12 @@
 	echo "<script type='text/javascript' src='".$jsPath."adSync.js' ></script>";
 	echo "<script type='text/javascript' > var dfpPageLinks = ".json_encode($siteURLs)." </script>";
 
-/*
-	$units = $this->dfpGetAdUnits();
+	//$units = $this->dfpGetAdUnits();
 
+/*
 	echo '<pre>';
 	var_dump(
-	$units
+	$siteURLs
 	);
 	echo '</pre>';
 */
