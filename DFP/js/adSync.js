@@ -5,37 +5,38 @@ var dfpSyncToken = jQuery('#dfpSyncToken').text();
 function dfpAjax( url, callback ){
 	jQuery.ajax({
 	  	url: url,
+	  	dataType: 'html',
 	  	context: document.body,
 	  	cache: false,
 	  	success: function(data){ callback( data, url); },
-	  	error: function(){ console.error('A problem occured:' + url + ' Could not be reached.'); }
+	  	error: function( request ){ console.error('A problem occured:' + url + ' Could not be reached.'); }
 	});
 }
 
 // Send AJAX notification to create new pending ad slot
-function dfpSlotNotification( newSlot, id ){
+function dfpSlotNotification( newSlot, url ){
 	
-	var query = "?new_dfp_tag=" + id + "&dfp_tag_size=" + newSlot + "&dfp_token=" +  dfpSyncToken;
+	// Extract page ID from GUID
+	var pageID = url.slice( url.indexOf('page_id=') );
+	pageID = pageID.replace('page_id=', '');
+	
+	var query = "?new_dfp_tag=" + pageID + "&dfp_tag_size=" + newSlot + "&dfp_token=" +  dfpSyncToken;
+	
 	dfpAjax( query, function(){
-		console.log('Notification sent for ' + newSlot + ' on page ' + id);
+		console.log('Notification sent for ' + newSlot + ' on page ' + pageID);
 	});
+	
 }
 
 // Check html for adSlots and pass addSlot to dfpSlotNotification
-function dfpAdSlots( html, id ){
+function dfpAdSlots( html, url ){
 	
-	var htmlWrap = '<div>' + html + '</div>';
-	var slots = jQuery(htmlWrap).find('[dfp]');
-	
-	console.log( slots );
+	var slots = jQuery(html).find('[dfp]');
 	
 	if( slots.length ){
 		jQuery.each( slots, function(){
 			var adSlot = jQuery(this).attr('dfp');
-			
-			console.log(adSlot);
-					
-			dfpSlotNotification(adSlot, id);
+			dfpSlotNotification(adSlot, url);
 		});
 	}
 }
@@ -44,9 +45,9 @@ function dfpAdSlots( html, id ){
 // Sync button
 jQuery('#dfpSync a').click(function(){
 		
-	// Loop through pages
-	jQuery.each( dfpPageLinks, function( key, val ){
-		dfpAdSlots( val, key );
+	// Loope through pages
+	jQuery.each( dfpPageLinks, function(){
+		dfpAjax( this, dfpAdSlots );
 	});
 	return false;
 });

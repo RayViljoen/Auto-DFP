@@ -10,8 +10,8 @@
 	));
 	// Get all page urls to perform sync
 	$siteURLs = array();
-	foreach($sitePages as $url){
-		$siteURLs[$url->ID] = $url->post_content;
+	foreach($sitePages as $url){  		
+		$siteURLs[$url->ID] = $url->guid;
 	}
 	
 	// Create unique token to prevent unauthorised slot creation.
@@ -70,12 +70,10 @@
 
 	//$units = $this->dfpGetAdUnits();
 
-/*
 	echo '<pre>';
 	var_dump(
 	$siteURLs
 	);
 	echo '</pre>';
-*/
 
 ?>
