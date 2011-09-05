@@ -47,10 +47,12 @@ class Auto_DFP_Data
 		$clientToken = $_GET['dfp_token'];
 		$serverToken = get_option('dfpSyncToken');
 		
+/*
 		if( $clientToken !== $serverToken ){
 			Auto_DFP_Admin::log( '"CREATE SLOT" FAILED: TOKENS DID NOT MATCH.' );
 			return FALSE;
 		}
+*/
 		
 		// Create size for adUnit
 		$size = $_GET['dfp_tag_size'];
@@ -62,12 +64,14 @@ class Auto_DFP_Data
 		// Get page id
 		$page = intval($_GET['new_dfp_tag']);
 		
+/*
 		// Check slot can be created
 		if( !$page || !$size ){
 			
 			Auto_DFP_Admin::log('Invalid new adUnit with: size='.$_GET['dfp_tag_size'].'&new_dfp_tag='.$_GET['new_dfp_tag']);
 			return FALSE;
 		}
+*/
 		
 		// Build adUnit name
 		$pageAtts = get_page( $page );
@@ -87,7 +91,14 @@ class Auto_DFP_Data
 		$adUnit = str_replace(' ', '_', $adUnit);
 
 		// Create slot
-		$data->createSlot( $adUnit, $page, $size );
+		$result = $data->createSlot( $adUnit, $page, $size );
+		
+		header('Content-Type: text/xml');
+      	echo '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' . "\n";
+      	echo "<response>\n";
+      	
+      	echo "</response>\n";
+
 	}
 	
 	
