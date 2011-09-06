@@ -106,7 +106,6 @@ class Auto_DFP_Ads
 	public function adLoaderHeader()
 	{			
 		global $post;
-										
 		$adUnitName = NULL;
 		$publisherID = get_option('dfp_prop_code');
 		
@@ -115,10 +114,7 @@ class Auto_DFP_Ads
 				
 		// Get all ad slots for page
 		$adSlots = $this->getSlotsFormatted($dbID);
-		
-		// Fall back to blog slots
-		if( count($adSlots) == 0 ){ getSlotsFormatted(get_option('page_for_posts')); }
-								
+
 		// Load dfp Scripts and include global $post variables as JS
 		echo "<script type='text/javascript'  src='http://partner.googleadservices.com/gampad/google_service.js'></script>";
 		echo "<script>GS_googleAddAdSenseService('ca-pub-5419175785675578'); GS_googleEnableAllServices();</script>";
@@ -144,7 +140,10 @@ class Auto_DFP_Ads
 	public function  adLoaderInline($size)
 	{	
 		global $post;
-		$name = $this->getNameStructure($post->ID);
+		
+		$pageID = (isset($post->dfpDeFault)) ? get_option('page_for_posts') : $post->ID;
+		
+		$name = $this->getNameStructure($pageID);
 		$name .= $size;
 		
 		return "<script> GA_googleFillSlot('".$name."'); </script>";

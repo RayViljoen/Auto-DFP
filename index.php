@@ -34,7 +34,7 @@ add_action('admin_menu', function(){
 */
 
 // Load JS to load and create ads. - HEADER
-add_action('wp_head', function(){	
+add_action('wp_head', function(){
 	$inst = new Auto_DFP_Ads();
 	$inst->adLoaderHeader();
 });
