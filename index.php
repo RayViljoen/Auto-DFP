@@ -58,3 +58,11 @@ if(isset($_GET['new_dfp_tag'])){
 if(isset($_GET['dfp_remove_slot'])){
 	Auto_DFP_Data::removeSlotAsync();
 }
+
+
+function dfpTag($size){
+	
+	$inst = new Auto_DFP_Ads();
+	$tag = $inst->adLoaderInline($size);
+	return $tag;
+}

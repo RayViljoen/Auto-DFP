@@ -12,7 +12,7 @@ class Auto_DFP_Admin
 	 * Switche between production and sandbox account.
 	 * @var BOOL
 	 */
-	private $production = FALSE;
+	private $production = TRUE;
 	
 	/**
 	 * Application Name.
@@ -455,34 +455,38 @@ class Auto_DFP_Admin
 	 */
 	private function mergeSlots()
 	{
+		set_time_limit(0);
+		
 		// Get approved slots not yet on live account
 		$localLiveSlots = $this->data->getPageSlots( NULL, 'active' );
 		
 		$adUnits = array();
 		
-/*
-		echo '<pre>';
-		print_r($localLiveSlots);
-		echo '</pre>';
-*/
-		
+		$i = 0;
+					
 		foreach( $localLiveSlots as $slot ){
-			if( !$slot->dfp_status ){
+		
+		$i++;
+		
+			//if( !$slot->dfp_status ){
 			
 				$size = array( $slot->size_w, $slot->size_h );
 				// Create ad unit object
 				$adUnits[] = $this->dfpAdUnit( $slot->adunit, $size  );
 				
+				echo '.';
 				// Set new status to avoid trying to create duplicate in future.
-				$result = $this->data->updateMergedLocal($slot->adunit);
+				
+				//TEMP $result = $this->data->updateMergedLocal($slot->adunit);
+				
 				// Make sure slot was updated.
-				if(!$result){ throw new Exception('Error: Cannot update '.$slot->adunit.' status.'); }
-			}
+				//if(!$result){ throw new Exception('Error: Cannot update '.$slot->adunit.' status.'); }
+			//}
 		}
 		
+		echo $i;
 		
-		
-		$this->dfpCreateAdUnit($adUnits);
+		//$this->dfpCreateAdUnit($adUnits);
 	}
 
 

@@ -41,7 +41,7 @@ function dfpAdSlots( html, url, id ){
 			var adSlot = jQuery(this).attr('dfp');
 			
 					
-			dfpSlotNotification(adSlot, url, id);
+			//dfpSlotNotification(adSlot, url, id);
 		});
 	}
 }

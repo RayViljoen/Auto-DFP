@@ -63,6 +63,36 @@ class Auto_DFP_Ads
 	}
 	
 	
+	private function getNameStructure(){
+		
+		global $post;
+		// Build adUnit name
+		$pageAtts = get_page( $post->ID );
+		$adUnit = get_bloginfo('name');
+		$ancestors = $pageAtts->ancestors;
+		
+		// If page is not top level, build ad name based on ancestors
+		if(count($ancestors)){
+			$ancestors = array_reverse($ancestors);
+			foreach($ancestors as $id){
+				$adUnit .= '_'.get_page($id)->post_name;
+			}
+		}elseif($pageAtts->post_parent){
+			
+			$parent = get_page($pageAtts->post_parent)->post_name;
+			$adUnit .= '_'.$parent;
+		}
+		$adUnit .= '_'.$pageAtts->post_name.'_'.$_GET['dfp_tag_size'];
+		
+		// Make sure there's no spaces
+		$adUnit = str_replace(' ', '_', $adUnit);
+		
+		
+		
+		return $adUnit;
+	}
+	
+	
 	/**
 	 * Loads in header javascript.
 	 * @param void.
@@ -77,20 +107,30 @@ class Auto_DFP_Ads
 		
 		// Get all ad slots for page
 		$adSlots = $this->getSlotsFormatted($post->ID);
-				
+						
 		// Load dfp Scripts and include global $post variables as JS
-		echo "<script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'></script>";
-		echo "<script type='text/javascript'>GS_googleAddAdSenseService('".$publisherID."'); GS_googleEnableAllServices();</script>";
+		echo "<script type='text/javascript'  src='http://partner.googleadservices.com/gampad/google_service.js'></script>";
+		echo "<script>GS_googleAddAdSenseService('ca-pub-5419175785675578'); GS_googleEnableAllServices();</script>";
 		echo "<script type='text/javascript'>";
+	
 		// print individual slot loaders
 		foreach( $adSlots as $slot ){
 			// Check slot has been approved & print hedaer unit
-			if( $slot['status'] == 'approved' ){
+			if( $slot['status'] == 'active' ){
 				echo "GA_googleAddSlot('".$publisherID."', '".$slot['name']."');";
 			}
 		}
 		echo "</script>";
-		echo "<script type='text/javascript'>GA_googleFetchAds();</script>";
+		echo "<script type='text/javascript'>GA_googleFetchAds();</script>";			
+	}
+	
+	
+	public function  adLoaderInline($size)
+	{
+		$name = $this->getNameStructure();
+		$name .= $size;
+		
+		return "<script> GA_googleFillSlot('".$name."'); </script>";
 	}
 	
 	
@@ -103,6 +143,8 @@ class Auto_DFP_Ads
 	{
 		global $post;
 		
+		$name = $this->getNameStructure();
+		
 		// Get all ad slots for page
 		$adSlots = $this->getSlotsFormatted($post->ID);
 		
@@ -113,11 +155,15 @@ class Auto_DFP_Ads
 		$jsPath = plugins_url( '/js/', __FILE__ );
 				
 		// Load jQuery if not already
-		wp_enqueue_script( 'jquery' );
+	//	wp_enqueue_script( 'jquery' );
 		
 		// Include jsLoader & call with page id
+/*
+		echo "<script type='text/javascript' src='".$jsPath."writeCapture.js' ></script>";
+		echo "<script type='text/javascript' src='".$jsPath."jquery.writeCapture.js' ></script>";
 		echo "<script type='text/javascript' src='".$jsPath."adLoader.js' ></script>";
 		echo "<script type='text/javascript'>jQuery(function(){ jsLoader(".$post->ID.", ".$jsAdSlots."); });</script>";
+*/
 	}
 
 }

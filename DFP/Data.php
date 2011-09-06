@@ -92,13 +92,6 @@ class Auto_DFP_Data
 
 		// Create slot
 		$result = $data->createSlot( $adUnit, $page, $size );
-		
-		header('Content-Type: text/xml');
-      	echo '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' . "\n";
-      	echo "<response>\n";
-      	
-      	echo "</response>\n";
-
 	}
 	
 	
