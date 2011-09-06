@@ -82,12 +82,13 @@ class Auto_DFP_Ads
 			$parent = get_page($pageAtts->post_parent)->post_name;
 			$adUnit .= '_'.$parent;
 		}
-		$adUnit .= '_'.$pageAtts->post_name.'_'.$_GET['dfp_tag_size'];
+		
+		$pageName = (!is_page()) ? 'blog' : $pageAtts->post_name;
+		
+		$adUnit .= '_'.$pageName.'_'.$_GET['dfp_tag_size'];
 		
 		// Make sure there's no spaces
 		$adUnit = str_replace(' ', '_', $adUnit);
-		
-		
 		
 		return $adUnit;
 	}
@@ -101,12 +102,19 @@ class Auto_DFP_Ads
 	public function adLoaderHeader()
 	{			
 		global $post;
+						
+						
+		//echo $this->getNameStructure(); 
+		
+				
 										
 		$adUnitName = NULL;
 		$publisherID = get_option('dfp_prop_code');
 		
+		$dbID = (is_page()) ? $post->ID : get_option('page_for_posts');
+				
 		// Get all ad slots for page
-		$adSlots = $this->getSlotsFormatted($post->ID);
+		$adSlots = $this->getSlotsFormatted($dbID);
 						
 		// Load dfp Scripts and include global $post variables as JS
 		echo "<script type='text/javascript'  src='http://partner.googleadservices.com/gampad/google_service.js'></script>";
@@ -142,9 +150,7 @@ class Auto_DFP_Ads
 	public function adLoaderFooter()
 	{
 		global $post;
-		
-		$name = $this->getNameStructure();
-		
+								
 		// Get all ad slots for page
 		$adSlots = $this->getSlotsFormatted($post->ID);
 		
