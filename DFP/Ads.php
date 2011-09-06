@@ -63,11 +63,15 @@ class Auto_DFP_Ads
 	}
 	
 	
-	private function getNameStructure(){
+	/**
+	 * Return dfp name structure from page ID.
+	 * @param number $id.
+	 * @return string
+	 */
+	private function getNameStructure($pageID){
 		
-		global $post;
 		// Build adUnit name
-		$pageAtts = get_page( $post->ID );
+		$pageAtts = get_page( $pageID );
 		$adUnit = get_bloginfo('name');
 		$ancestors = $pageAtts->ancestors;
 		
@@ -102,25 +106,24 @@ class Auto_DFP_Ads
 	public function adLoaderHeader()
 	{			
 		global $post;
-						
-						
-		//echo $this->getNameStructure(); 
-		
-				
 										
 		$adUnitName = NULL;
 		$publisherID = get_option('dfp_prop_code');
 		
+		// Check if we are dealing with the blog
 		$dbID = (is_page()) ? $post->ID : get_option('page_for_posts');
 				
 		// Get all ad slots for page
 		$adSlots = $this->getSlotsFormatted($dbID);
-						
+		
+		// Fall back to blog slots
+		if( count($adSlots) == 0 ){ getSlotsFormatted(get_option('page_for_posts')); }
+								
 		// Load dfp Scripts and include global $post variables as JS
 		echo "<script type='text/javascript'  src='http://partner.googleadservices.com/gampad/google_service.js'></script>";
 		echo "<script>GS_googleAddAdSenseService('ca-pub-5419175785675578'); GS_googleEnableAllServices();</script>";
 		echo "<script type='text/javascript'>";
-	
+			
 		// print individual slot loaders
 		foreach( $adSlots as $slot ){
 			// Check slot has been approved & print hedaer unit
@@ -133,43 +136,18 @@ class Auto_DFP_Ads
 	}
 	
 	
+	/**
+	 * Inserts inline tags to display ad.
+	 * @param string $size.
+	 * @return string
+	 */
 	public function  adLoaderInline($size)
-	{
-		$name = $this->getNameStructure();
+	{	
+		global $post;
+		$name = $this->getNameStructure($post->ID);
 		$name .= $size;
 		
 		return "<script> GA_googleFillSlot('".$name."'); </script>";
 	}
 	
-	
-	/**
-	 * Loads in footer javascript.
-	 * @param void.
-	 * @return string
-	 */
-	public function adLoaderFooter()
-	{
-		global $post;
-								
-		// Get all ad slots for page
-		$adSlots = $this->getSlotsFormatted($post->ID);
-		
-		// ready array for use in js
-		$jsAdSlots = json_encode($adSlots);
-		
-		// Auto DFP JS path
-		$jsPath = plugins_url( '/js/', __FILE__ );
-				
-		// Load jQuery if not already
-	//	wp_enqueue_script( 'jquery' );
-		
-		// Include jsLoader & call with page id
-/*
-		echo "<script type='text/javascript' src='".$jsPath."writeCapture.js' ></script>";
-		echo "<script type='text/javascript' src='".$jsPath."jquery.writeCapture.js' ></script>";
-		echo "<script type='text/javascript' src='".$jsPath."adLoader.js' ></script>";
-		echo "<script type='text/javascript'>jQuery(function(){ jsLoader(".$post->ID.", ".$jsAdSlots."); });</script>";
-*/
-	}
-
 }
