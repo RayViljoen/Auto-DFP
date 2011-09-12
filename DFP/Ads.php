@@ -111,7 +111,7 @@ class Auto_DFP_Ads
 		
 		// Check if we are dealing with the blog
 		$dbID = (is_page()) ? $post->ID : get_option('page_for_posts');
-				
+						
 		// Get all ad slots for page
 		$adSlots = $this->getSlotsFormatted($dbID);
 
