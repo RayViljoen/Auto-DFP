@@ -68,12 +68,13 @@ class Auto_DFP_Ads
 	 * @param number $id.
 	 * @return string
 	 */
-	private function getNameStructure($pageID){
+	private function getNameStructure(){
+		
+		global $post;
 		
 		// Build adUnit name
-		$pageAtts = get_page( $pageID );
 		$adUnit = get_bloginfo('name');
-		$ancestors = $pageAtts->ancestors;
+		$ancestors = $post->ancestors;
 		
 		// If page is not top level, build ad name based on ancestors
 		if(count($ancestors)){
@@ -81,13 +82,13 @@ class Auto_DFP_Ads
 			foreach($ancestors as $id){
 				$adUnit .= '_'.get_page($id)->post_name;
 			}
-		}elseif($pageAtts->post_parent){
+		}elseif($post->post_parent){
 			
-			$parent = get_page($pageAtts->post_parent)->post_name;
+			$parent = get_page($post->post_parent)->post_name;
 			$adUnit .= '_'.$parent;
 		}
 		
-		$pageName = (!is_page()) ? 'blog' : $pageAtts->post_name;
+		$pageName = (!is_page()) ? 'blog' : $post->post_name;
 		
 		$adUnit .= '_'.$pageName.'_'.$_GET['dfp_tag_size'];
 		
@@ -106,6 +107,7 @@ class Auto_DFP_Ads
 	public function adLoaderHeader()
 	{			
 		global $post;
+		
 		$adUnitName = NULL;
 		$publisherID = get_option('dfp_prop_code');
 		
@@ -140,10 +142,8 @@ class Auto_DFP_Ads
 	public function  adLoaderInline($size)
 	{	
 		global $post;
-		
-		$pageID = (isset($post->dfpDeFault)) ? get_option('page_for_posts') : $post->ID;
-		
-		$name = $this->getNameStructure($pageID);
+				
+		$name = $this->getNameStructure();
 		$name .= $size;
 		
 		return "<script> GA_googleFillSlot('".$name."'); </script>";
