@@ -74,7 +74,7 @@ class Auto_DFP_Ads
 		
 		// Build adUnit name
 		$adUnit = get_bloginfo('name');
-		$ancestors = $post->ancestors;
+		$ancestors = (isset($post->ancestors)) ? $post->ancestors : NULL;
 		
 		// If page is not top level, build ad name based on ancestors
 		if(count($ancestors)){
