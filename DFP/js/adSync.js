@@ -39,7 +39,6 @@ function dfpAdSlots( html, url, id ){
 			console.log(i);
 			
 			var adSlot = jQuery(this).attr('dfp');
-			
 					
 			//dfpSlotNotification(adSlot, url, id);
 		});
@@ -57,6 +56,7 @@ jQuery('#dfpSync a').click(function(){
 	});
 	return false;
 });
+
 
 // Remove slot
 jQuery('.inventSlots li a').click(function(){

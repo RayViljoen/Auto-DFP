@@ -68,13 +68,13 @@ class Auto_DFP_Ads
 	 * @param number $id.
 	 * @return string
 	 */
-	private function getNameStructure(){
+	private function getNameStructure($size){
 		
 		global $post;
 		
 		// Build adUnit name
 		$adUnit = get_bloginfo('name');
-		$ancestors = (isset($post->ancestors)) ? $post->ancestors : NULL;
+		$ancestors = (isset($post->ancestors)) ? $post->ancestors : NULL ;
 		
 		// If page is not top level, build ad name based on ancestors
 		if(count($ancestors)){
@@ -90,7 +90,7 @@ class Auto_DFP_Ads
 		
 		$pageName = (!is_page()) ? 'blog' : $post->post_name;
 		
-		$adUnit .= '_'.$pageName.'_'.$_GET['dfp_tag_size'];
+		$adUnit .= '_'.$pageName.'_'.$size;
 		
 		// Make sure there's no spaces
 		$adUnit = str_replace(' ', '_', $adUnit);
@@ -141,12 +141,11 @@ class Auto_DFP_Ads
 	 */
 	public function  adLoaderInline($size)
 	{	
-		global $post;
-				
-		$name = $this->getNameStructure();
-		$name .= $size;
+		$tag  = "<script> GA_googleFillSlot('";
+		$tag .= $this->getNameStructure($size);
+		$tag .= "'); </script>";
 		
-		return "<script> GA_googleFillSlot('".$name."'); </script>";
+		return $tag;
 	}
 	
 }

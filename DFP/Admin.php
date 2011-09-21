@@ -12,7 +12,7 @@ class Auto_DFP_Admin
 	 * Switche between production and sandbox account.
 	 * @var BOOL
 	 */
-	private $production = TRUE;
+	private $production = FALSE;
 	
 	/**
 	 * Application Name.
@@ -280,10 +280,13 @@ class Auto_DFP_Admin
 	public static function log($message = NULL)
 	{
 		$path = dirname(__FILE__) . '/../logs/'.date( "d-m-y" );
+		
+		if(is_writable($path)){
 			$logFile = fopen($path, 'a');
 			$message = '('.time().') '.$message."\n";
 			fwrite($logFile, $message);
 			fclose($logFile);
+		}
 	}
 
 
