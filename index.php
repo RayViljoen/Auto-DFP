@@ -23,7 +23,7 @@ register_activation_hook( __FILE__, array('Auto_DFP_Data', 'setup'));
 // TEMP MENU DISABLED AS IT WILL ONLY CAUSE =(
 
 // Create DFP Admin Menu
-/*
+
 add_action('admin_menu', function(){
   add_options_page(
   	'Auto DFP Settings',
@@ -32,7 +32,7 @@ add_action('admin_menu', function(){
   	'dfp_options',
   	function(){ new Auto_DFP_Admin(); });
 });
-*/
+
 
 
 // Load JS to load and create ads. - HEADER
