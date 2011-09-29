@@ -8,7 +8,7 @@ $liveSlots = $this->data->getPageSlots( NULL, 'active' );
 $sitePages = get_pages(array(
 	'post_type' => 'page',
 	'hierarchical' => 0,
-	'number'	=> 1,
+	'number'	=> 10,
 	'post_status' => array( 'publish', 'pending', 'draft' )
 ));
 
@@ -41,7 +41,7 @@ update_option( 'dfpSyncToken', $dfpAsyncAuthToken );
 				<?php echo $slot->adunit ?>
 				<a href="#" ></a>
 			</li>
-		<?php endif; ?>
+		<?php endforeach; ?>
 		</ul>
 		
 		<form action="" method="post">
@@ -67,7 +67,7 @@ update_option( 'dfpSyncToken', $dfpAsyncAuthToken );
 				<?php echo $slot->adunit ?>
 				<a href="#" ></a>
 			</li>
-		<?php endif; ?>
+		<?php endforeach; ?>
 		</ul>
 
 		<form action="" method="post">
@@ -83,7 +83,7 @@ update_option( 'dfpSyncToken', $dfpAsyncAuthToken );
 <script type='text/javascript' >
 	
 	var siteURLs = <?php echo $siteURLs; ?> /* Pass in json object of all url's */
-	var dfpAuthToken = <?php echo $dfpAsyncAuthToken; ?> /* Pass in authToken also stored in wp_option */
+	var dfpAuthToken = '<?php echo $dfpAsyncAuthToken; ?>'; /* Pass in authToken also stored in wp_option */
 		  	
 </script>
 

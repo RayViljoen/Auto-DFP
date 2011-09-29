@@ -160,7 +160,7 @@ class Auto_DFP_Data
 		}elseif( $status ){
 			$limit = "WHERE `local_status` = '{$status}'";
 		}
-				
+
 		$query = "SELECT * FROM {$this->tableName} ".$limit;
 				
 		// Return adUnit slots as object and include default slot.
