@@ -28,7 +28,7 @@ update_option( 'dfpSyncToken', $dfpAsyncAuthToken );
 ?>
 
 <!-- ========================= START TEMPLATE ========================= -->
-
+<h4 id="dfpSync" >Find New Ad Slots.<a href="" class="button add-new-h2" >Find Slots</a><div id="dfpProgress"><span></span></div></h4>
 <?php if( count($liveSlots) > 0 ): ?>
 	
 	<div class="liveSlots inventSlots">
@@ -52,12 +52,10 @@ update_option( 'dfpSyncToken', $dfpAsyncAuthToken );
 	</div>
 	
 <?php endif; ?>
+<?php if( count($pendSlots) > 0 ): ?>
 	
 	<div class="pendingSlots inventSlots">
 		
-		<h4 id="dfpSync" >Find New Ad Slots.<a href="" class="button add-new-h2" >Find Slots</a></h4>
-		
-<?php if( count($pendSlots) > 0 ): ?>
 		
 		<h4>Pending Slots:</h4>
 		

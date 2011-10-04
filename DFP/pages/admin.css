@@ -181,15 +181,40 @@ a.props{
 
 #dfpSync{
 	font-size: 1.7em;
+	width: 380px;
 	font-weight: 100;
 	padding: 15px 15px 10px;
-	margin: 0 0 15px;
-	-moz-border-radius:3px;
-	-khtml-border-radius:3px;
-	-webkit-border-radius:3px;
-	border-radius:3px;
+	margin: 0 0 15px 30px;
 	overflow: auto;
 	background: #91f27d;
+}
+
+#dfpSync .button{
+	float: right;
+}
+
+
+#dfpSync #dfpProgress{
+	display: none;
+	margin: 15px 0 0;
+	height: 30px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #62b250;
+	overflow: hidden;
+}
+#dfpSync #dfpProgress span{
+	display: block;
+	width: 0;
+	height: 30px;
+	background-image: url(img/progress.png);
+	background-position: 0 center;
+	background-repeat: repeat-x;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+
 }
 
 .inventSlots{
