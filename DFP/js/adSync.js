@@ -4,12 +4,7 @@
 
 	"use strict";
 
-// ============ VARS ========================
-
 	var numURLs; // Number of urls passed
-
-// ==========================================
-
 
 	// Reference number of URLs passed.
 	numURLs = (function () {
@@ -24,8 +19,7 @@
 	// Sends async notification to createSlotAsync() PHP function
 	function dfpSlotNotification(id, newSlot) {
 
-		var query,
-			response;
+		var query, response;
 
 		// Build query as GET only.
 		// Path is irrelevant as plugin loads anywhere hence the authToken.
@@ -36,19 +30,19 @@
 
 		// Send notification
 		jQuery.ajax({
-			
+
 			url: query,
 			async: false,
 			success: function (res) {
-						
+
 				// Create proper php response to handle ====== TODO
 				console.log(id + ' : ' + newSlot);
 				response = res;
 			},
-			error: function(e){
+			error: function (e) {
 				response = e;
 			}
-			
+
 		});
 		return response;
 	}
@@ -63,14 +57,14 @@
 		// Check html contains ad slots
 		if (slots.length) {
 			jQuery.each(slots, function () {
-				
+
 				// Get value of ad slot
 				var adSlot = jQuery(this).attr('dfp');
 				// Pass ad slot value to dfpSlotNotification()
 				return dfpSlotNotification(id, adSlot);
 			});
 		}
-		
+
 		return 'No Slots Found';
 	}
 
@@ -79,85 +73,84 @@
 	function dfpErrorHandler(id, e) {
 		console.log(id + ' : ' + e);
 	}
-	
-	
+
+
 	// Attach click handler to sync button.
 	jQuery('#dfpSync a').click(function () {
-	
-		// Show progress bar
+
 		var progBar = jQuery('#dfpProgress'),
 			urlsArr = [];
-		
-		progBar.fadeIn(500, function(){
-			
+
+		// Show progress bar
+		progBar.fadeIn(500, function () {
+
 			var dfpProgIncr,
 				progress = 0,
 				i = 0;
-			
+
 			// Calculate progress increment (only used to animate progress bar accurately)
-			dfpProgIncr = 380/numURLs
-				
+			dfpProgIncr = (jQuery('#dfpProgress').width()) / numURLs;
+
 			// Iterate over urls object and create array
 			jQuery.each(URLs, function (id, permalink) {
 				// Add to array
 				urlsArr[i] = {'id': id, 'permalink': permalink};
 				i += 1;
 			});
-			
+
 			// Reset counter
 			i = 0;
-			
+
 			// Increments page id, progress bar and calls self untill all pages spidered
-			function syncSpider(obj){
-				
+			function syncSpider(obj) {
+
 				var permalink = obj.permalink,
 					id = obj.id;
-				
+
 				// Increment progress bar
 				progress += dfpProgIncr;
-				
+
 				// Animate progress bar then spider
-				progBar.find('span').animate({'width': progress}, 1, function(){
-				
+				progBar.find('span').animate({'width': progress}, 1, function () {
+
 					// Do SYNC request for each url. 
 					jQuery.ajax({ url: permalink, dataType: 'html',
-					
+
 						// Using sync mode as to avoid overloading & connection limits.
 						async: false,
-										
+
 						// Success Handler.
 						success: function (res) {
 							var serverRes = dfpResponseHandler(id, res);
 							//console.log(serverRes);
 						},
-		
+
 						// Error Handler
 						error: function (e) {
 							var serverRes = dfpErrorHandler(id, e);
 							//console.log(serverRes);				
 						},
 						// On complete check if any more pages need spidering and call self
-						complete: function(){
-							
+						complete: function () {
+
 							i += 1;
-							
-							if(urlsArr[i]){
+
+							if (urlsArr[i]) {
 								syncSpider(urlsArr[i]);
-							}else{
-								progBar.fadeOut(500, function(){
+							} else {
+								progBar.fadeOut(500, function () {
 									document.location.reload();
 								});
 							}
 						}
 					});
-				
 				});
 			}
-			
+
 			// Start Spidering
 			syncSpider(urlsArr[i]);
 		});
-				
+
 		return false; // Null link
 	});
 
