@@ -95,9 +95,6 @@ class Auto_DFP_Admin
 	 */
 	public function __construct()
 	{
-		// Make sure session is started
-		@session_start();
-
 		// Get user Info
 		$wpUser = wp_get_current_user();
 		$wpUser = $wpUser->ID;
@@ -143,6 +140,8 @@ class Auto_DFP_Admin
 			$loginPage = include 'pages/login.php';
 		}
 	}
+	
+	
 
 
 	/**
@@ -156,11 +155,12 @@ class Auto_DFP_Admin
 		// Get user Info
 		$wpUser = wp_get_current_user();
 		$wpUser = $wpUser->ID;
-
+		
 		// Get wp url
 		$wpURL = get_bloginfo('url');
-
+		
 		if(isset($_POST['dfp_password']) && isset($_POST['dfp_username']) ){
+			
 			$password = $_POST['dfp_password'];
 			$username = $_POST['dfp_username'];
 			// Optional Network ID
@@ -169,6 +169,7 @@ class Auto_DFP_Admin
 
 			// Check if user id already authenticated through session.
 		}elseif(isset($_SESSION['DFP']['authToken']) && isset($_SESSION['DFP']['userID'])){
+
 			// Make sure of session
 			if( ($wpUser == $_SESSION['DFP']['userID']) && ($wpURL == $_SESSION['DFP']['url']) ){
 				$username = $_SESSION['DFP']['username'];
@@ -177,13 +178,15 @@ class Auto_DFP_Admin
 				$networkid = isset($_SESSION['DFP']['networkID']) ? $_SESSION['DFP']['networkID'] : NULL;
 				$password = NULL;
 			}
-		}else{
+		}else{		
 			// Log exception
 			self::log('BLANK LOGIN: wp_user '.$wpUser);
 			return FALSE;
 		}
+				
 		// Try Login
 		try {
+
 			// Create new user
 			$this->user = new DfpUser( NULL, $username, $password, $this->name, $networkid, NULL, $authToken );
 
@@ -211,6 +214,7 @@ class Auto_DFP_Admin
 			return $authToken;
 
 		} catch (Exception $e) {
+			
 			// Remove Session data
 			self::logout();
 			// Log exception

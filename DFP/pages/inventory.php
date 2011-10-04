@@ -8,7 +8,7 @@ $liveSlots = $this->data->getPageSlots( NULL, 'active' );
 $sitePages = get_pages(array(
 	'post_type' => 'page',
 	'hierarchical' => 0,
-	'number'	=> 10,
+//	'number'	=> 10, // Limit for dev purposes
 	'post_status' => array( 'publish', 'pending', 'draft' )
 ));
 

@@ -24,7 +24,8 @@
 	// Sends async notification to createSlotAsync() PHP function
 	function dfpSlotNotification(id, newSlot) {
 
-		var query;
+		var query,
+			response;
 
 		// Build query as GET only.
 		// Path is irrelevant as plugin loads anywhere hence the authToken.
@@ -34,11 +35,22 @@
 		query += "&dfp_token=" +  authToken;	// Auth Token
 
 		// Send notification
-		jQuery.get(query, function () {
-
-			console.log(id + ' : ' + newSlot);
-			// Create proper php response to handle ====== TODO
+		jQuery.ajax({
+			
+			url: query,
+			async: false,
+			success: function (res) {
+						
+				// Create proper php response to handle ====== TODO
+				console.log(id + ' : ' + newSlot);
+				response = res;
+			},
+			error: function(e){
+				response = e;
+			}
+			
 		});
+		return response;
 	}
 
 
@@ -47,24 +59,25 @@
 
 		// Find all ad slots from res html
 		var slots = jQuery(res).find('[dfp]');
-
+		
 		// Check html contains ad slots
 		if (slots.length) {
 			jQuery.each(slots, function () {
-
+				
 				// Get value of ad slot
 				var adSlot = jQuery(this).attr('dfp');
-
 				// Pass ad slot value to dfpSlotNotification()
-				dfpSlotNotification(id, adSlot);
+				return dfpSlotNotification(id, adSlot);
 			});
 		}
+		
+		return 'No Slots Found';
 	}
 
 
 	// Log Error ====== Create gui error TODO
 	function dfpErrorHandler(id, e) {
-		console.log(e);
+		console.log(id + ' : ' + e);
 	}
 
 
@@ -73,21 +86,40 @@
 
 		// Iterate over urls object
 		jQuery.each(URLs, function (id, permalink) {
-
+			
+			// Countdown urls sent.
+			numURLs -= 1;
+			
 			// Do async request for each url. 
 			jQuery.ajax({ url: permalink, dataType: 'html',
-
+			
+				// Using sync mode as to avoid overloading & connection limits.
+				async: false,
+								
 				// Success Handler.
 				success: function (res) {
-					dfpResponseHandler(id, res);
+					var serverRes = dfpResponseHandler(id, res);
+					console.log(serverRes);
 				},
 
 				// Error Handler
 				error: function (e) {
-					dfpErrorHandler(id, e);
+					var serverRes = dfpErrorHandler(id, e);
+					console.log(serverRes);				
 				}
 			});
+			
+			// Check if last request & reload.
+			if (numURLs === 0) {
+				document.location.reload();
+			}	
+
+			
+			
 		});
+		
+		
+		
 		return false; // Null link
 	});
 

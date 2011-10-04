@@ -7,8 +7,10 @@ Version: 1.0
 Author: Ray Viljoen
 Author URI: http://fubra.com
 */
-
 error_reporting( E_ALL);
+
+// Make sure session is started
+@session_start();
 
 require_once 'api/src/Google/Api/Ads/Dfp/Lib/DfpUser.php';
 require 'DFP/Data.php';
@@ -51,9 +53,19 @@ if(isset($_GET['dfp_remove_slot'])){
 	Auto_DFP_Data::removeSlotAsync();
 }
 
+// Shortcode and function ad inlude
+add_shortcode('dfp', 'dfpTag');
 
 function dfpTag($size){
+	
+	// Check if shortcode
+	if(is_array($size)){
+		$size = $size['size'];
+	}
+
 	$inst = new Auto_DFP_Ads();
 	$tag = $inst->adLoaderInline($size);
+	// Also wrap span with dfp attribute. Allows ad slots to be spidered from admin.
+	$tag = '<span dfp="'.$size.'" >'.$tag.'</span>';
 	return $tag;
 }
