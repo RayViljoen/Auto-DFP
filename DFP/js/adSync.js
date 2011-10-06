@@ -1,5 +1,9 @@
+/*======================================================================================================
 
-// Self invoking function handles all async spidering and notifications.
+		Self invoking function handles all async spidering and notifications.
+
+======================================================================================================*/
+
 (function (URLs, authToken) {
 
 	"use strict";
@@ -111,7 +115,7 @@
 				progress += dfpProgIncr;
 
 				// Animate progress bar then spider
-				progBar.find('span').animate({'width': progress}, 1, function () {
+				progBar.find('span').animate({'width': progress}, 10, function () {
 
 					// Do SYNC request for each url. 
 					jQuery.ajax({ url: permalink, dataType: 'html',
@@ -130,6 +134,7 @@
 							var serverRes = dfpErrorHandler(id, e);
 							//console.log(serverRes);				
 						},
+						
 						// On complete check if any more pages need spidering and call self
 						complete: function () {
 
@@ -172,11 +177,14 @@
 		// Send notification
 		jQuery.get(query, function () {
 
-			adUnit.fadeOut(500);
+			adUnit.fadeOut(500, function(){
+				jQuery(this).remove();
+			});
+		
 		// Create proper php response to handle ====== TODO
 
 		});
-
+		
 		return false; // Null link
 	});
 
@@ -184,6 +192,4 @@
 }(siteURLs, dfpAuthToken)); // Pass PHP generated variables.
 
 
-
 // ======================================================================================================
-

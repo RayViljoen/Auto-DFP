@@ -172,23 +172,43 @@ a.props{
 	float: right;
 	text-decoration: none;
 	display: inline-block;
-	padding: 3px;
+	padding: 3px 20px;
 }
 
 .settings .page{
 	padding: 15px;
 }
 
+#dfpAddNew,
 #dfpSync{
+	display: inline-block;
 	font-size: 1.7em;
+	float: left;
 	width: 380px;
 	font-weight: 100;
-	padding: 15px 15px 10px;
-	margin: 0 0 15px 30px;
+	padding: 15px 10px 0;
+	min-height: 33px;
+	margin: 0 0 15px 15px;
 	overflow: auto;
 	background: #91f27d;
 }
 
+#dfpAddNew{
+	background-color: #c9dfe2;
+}
+
+#dfpAddNew select,
+#dfpAddNew input{
+	width: 80px;
+	position: relative;
+	top: -5px;
+	margin-left: 20px;
+}
+#dfpAddNew select{
+	width: 100px;
+}
+
+#dfpAddNew .button,
 #dfpSync .button{
 	float: right;
 }
@@ -196,14 +216,15 @@ a.props{
 
 #dfpSync #dfpProgress{
 	display: none;
-	margin: 15px 0 0;
+	margin: 15px 0 10px;
 	height: 30px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	border: 1px solid #62b250;
+	border: 3px solid #62b250;
 	overflow: hidden;
 }
+
 #dfpSync #dfpProgress span{
 	display: block;
 	width: 0;
@@ -219,11 +240,17 @@ a.props{
 
 .inventSlots{
 	background: #f0f0f0;
-	margin: 0 0 15px 30px;
+	margin: 0 0 15px 15px;
 	display: inline-block;
 	float: left;
 	width: 380px;
-	padding: 10px 15px;
+	padding: 10px;
+}
+
+.inventSlots .notification{
+	text-indent: 10px;
+	font-weight: bold;
+	color: #AAA;
 }
 
 .inventSlots h4{

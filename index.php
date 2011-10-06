@@ -53,19 +53,30 @@ if(isset($_GET['dfp_remove_slot'])){
 	Auto_DFP_Data::removeSlotAsync();
 }
 
-// Shortcode and function ad inlude
+// Shortcode and function for ad include
 add_shortcode('dfp', 'dfpTag');
 
-function dfpTag($size){
+function dfpTag($attr, $class=null){
 	
 	// Check if shortcode
-	if(is_array($size)){
-		$size = $size['size'];
+	if(is_array($attr)){
+	
+		$size = isset($attr['size']) ? $attr['size'] : null ;
+		$class = isset($attr['class']) ? $attr['class'] : null ;
+		
+	}else{ $size = $attr; }
+	
+	if(!$size){
+		$err  = '<p style=" display:inline; color: white; padding: 3px 5px;';
+		$err .= 'font-weight:bold; background: red;">Missing ad size. e.g. 120x60</p>';
+				
+		return $err;
 	}
 
 	$inst = new Auto_DFP_Ads();
 	$tag = $inst->adLoaderInline($size);
+	
 	// Also wrap span with dfp attribute. Allows ad slots to be spidered from admin.
-	$tag = '<span dfp="'.$size.'" >'.$tag.'</span>';
+	$tag = '<div dfp="'.$size.'" class="'.$class.'" >'.$tag.'</div>';
 	return $tag;
 }

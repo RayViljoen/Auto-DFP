@@ -8,15 +8,15 @@ $liveSlots = $this->data->getPageSlots( NULL, 'active' );
 $sitePages = get_pages(array(
 	'post_type' => 'page',
 	'hierarchical' => 0,
-//	'number'	=> 10, // Limit for dev purposes
 	'post_status' => array( 'publish', 'pending', 'draft' )
 ));
 
 // Get all page urls to perform spider.
 $siteURLs = array();
-foreach($sitePages as $url){  		
+foreach($sitePages as $url){
 	$siteURLs[$url->ID] = get_permalink($url->ID);
 }
+
 // encode to use with js.
 $siteURLs = json_encode($siteURLs);
 
@@ -28,9 +28,16 @@ update_option( 'dfpSyncToken', $dfpAsyncAuthToken );
 ?>
 
 <!-- ========================= START TEMPLATE ========================= -->
+
 <h4 id="dfpSync" >Find New Ad Slots.<a href="" class="button add-new-h2" >Find Slots</a><div id="dfpProgress"><span></span></div></h4>
-<?php if( count($liveSlots) > 0 ): ?>
-	
+<h4 id="dfpAddNew" >Add Slot.
+	<select name="dfpPage">
+		<option>Page</option>
+		<option>PAGE With very long title</option>
+	</select>
+	<input type="text" value="Size" name="dfpSize" />
+<a href="" class="button add-new-h2" >Add</a></h4>
+
 	<div class="liveSlots inventSlots">
 	
 		<h4>Existing Slots:</h4>
@@ -43,16 +50,18 @@ update_option( 'dfpSyncToken', $dfpAsyncAuthToken );
 			</li>
 		<?php endforeach; ?>
 		</ul>
-		
+<?php if( count($liveSlots) > 0 ): ?>		
 		<form action="" method="post">
 			<input type="hidden" name= "dfp_merge" value="1" />
 			<input type="submit" value="Merge To Account" class="button add-new-h2" />
 		</form>
-
+<?php else: ?>
+		<p class="notification">No Ad Slots Found.</p>	
+<?php endif; ?>
 	</div>
 	
-<?php endif; ?>
-<?php if( count($pendSlots) > 0 ): ?>
+
+
 	
 	<div class="pendingSlots inventSlots">
 		
@@ -67,22 +76,24 @@ update_option( 'dfpSyncToken', $dfpAsyncAuthToken );
 			</li>
 		<?php endforeach; ?>
 		</ul>
-
+<?php if( count($pendSlots) > 0 ): ?>
+		
 		<form action="" method="post">
 			<input type="hidden" name= "dfp_approve" value="1" />
 			<input type="submit" value="Approve All" class="button add-new-h2" />
 		</form>
-		
+<?php else: ?>
+		<p class="notification">No Ad Slots Found.</p>	
 <?php endif; ?>
 	
 	</div>
-	
+
 <!-- Create js variables. -->
 <script type='text/javascript' >
 	
 	var siteURLs = <?php echo $siteURLs; ?> /* Pass in json object of all url's */
 	var dfpAuthToken = '<?php echo $dfpAsyncAuthToken; ?>'; /* Pass in authToken also stored in wp_option */
-		  	
+			  	
 </script>
 
 <!-- Include Sync script ( uses php generated vars siteURLs, dfpAuthToken ) -->
