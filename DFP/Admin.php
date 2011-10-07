@@ -114,12 +114,6 @@ class Auto_DFP_Admin
 			
 			// Set logged in True
 			$this->loggedIn = TRUE;
-			
-			// Create array of ad units in actual dfp account
-			$dfpAccountSlots = $this->dfpGetAdUnits();
-			foreach( $dfpAccountSlots as $unit){
-				$this->dfpAccountAdUnits[] = $unit->name;
-			}
 		}
 
 		//=====================================
@@ -140,8 +134,6 @@ class Auto_DFP_Admin
 			$loginPage = include 'pages/login.php';
 		}
 	}
-	
-	
 
 
 	/**
@@ -344,7 +336,8 @@ class Auto_DFP_Admin
 		echo '</ul>';
 
 	}
-	
+
+
 	/**
 	 * Creates adUnit Object.
 	 * @param string $name, array( $size['w'], $size['h'] ), string $description, [string $target]

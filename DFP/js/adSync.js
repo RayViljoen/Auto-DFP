@@ -173,12 +173,22 @@
 		// Path is irrelevant as plugin loads anywhere hence the authToken.
 		query  = "?dfp_remove_slot=" + adUnit.text();
 		query += "&dfp_token=" + authToken;
-
+				
 		// Send notification
 		jQuery.get(query, function () {
 
+			// Remove element and check if inventory is empty
 			adUnit.fadeOut(500, function(){
+				
+				var thisWrap = jQuery(this).parents('.inventSlots');
+				
 				jQuery(this).remove();
+				
+				var slotCount = thisWrap.find('li');
+				
+				if(slotCount.length === 0){
+					thisWrap.addClass('blank');
+				}
 			});
 		
 		// Create proper php response to handle ====== TODO

@@ -55,16 +55,14 @@ update_option( 'dfpSyncToken', $dfpAsyncAuthToken );
 			<input type="hidden" name= "dfp_merge" value="1" />
 			<input type="submit" value="Merge To Account" class="button add-new-h2" />
 		</form>
+		<p class="hiddenNotif">No Ad Slots Found.</p>
 <?php else: ?>
-		<p class="notification">No Ad Slots Found.</p>	
+		<p class="notification">No Ad Slots Found.</p>
 <?php endif; ?>
 	</div>
-	
-
 
 	
 	<div class="pendingSlots inventSlots">
-		
 		
 		<h4>Pending Slots:</h4>
 		
@@ -82,10 +80,10 @@ update_option( 'dfpSyncToken', $dfpAsyncAuthToken );
 			<input type="hidden" name= "dfp_approve" value="1" />
 			<input type="submit" value="Approve All" class="button add-new-h2" />
 		</form>
+		<p class="hiddenNotif">No Ad Slots Found.</p>
 <?php else: ?>
-		<p class="notification">No Ad Slots Found.</p>	
+		<p class="notification">No Ad Slots Found.</p>
 <?php endif; ?>
-	
 	</div>
 
 <!-- Create js variables. -->

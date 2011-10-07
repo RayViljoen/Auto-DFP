@@ -247,10 +247,20 @@ a.props{
 	padding: 10px;
 }
 
+.inventSlots .hiddenNotif,
 .inventSlots .notification{
 	text-indent: 10px;
 	font-weight: bold;
 	color: #AAA;
+}
+
+.blank form,
+.inventSlots .hiddenNotif{
+	display: none;
+}
+
+.blank .hiddenNotif{
+	display: block;
 }
 
 .inventSlots h4{
