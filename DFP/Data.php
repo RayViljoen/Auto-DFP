@@ -38,7 +38,7 @@ class Auto_DFP_Data
 	 * @param void.
 	 * @return void
 	 */
-	public static function createSlotAsync()
+	public static function remoteCreateSlot()
 	{
 		// Data instance
 		$data = new self();
@@ -47,16 +47,18 @@ class Auto_DFP_Data
 		$clientToken = $_GET['dfp_token'];
 		$serverToken = get_option('dfpSyncToken');
 		
-/*
 		if( $clientToken !== $serverToken ){
 			Auto_DFP_Admin::log( '"CREATE SLOT" FAILED: TOKENS DID NOT MATCH.' );
 			return FALSE;
 		}
-*/
 		
-		// Create size for adUnit
-		$size = $_GET['dfp_tag_size'];
-		$size = str_replace( ' ', '',  explode( 'x', $size ));
+		// Format size
+		$fSize =  $_GET['dfp_tag_size'];
+		$fSize = str_replace( ' ', '', $fSize );
+		$fSize = str_replace( 'X', 'x',  $fSize);
+		
+		// Create size array for adUnit
+		$size = explode( 'x', $fSize );
 
 		// Make sure there's no spaces
 		$adUnit = str_replace(' ', '_', $adUnit);
@@ -64,14 +66,12 @@ class Auto_DFP_Data
 		// Get page id
 		$page = intval($_GET['new_dfp_tag']);
 		
-/*
 		// Check slot can be created
 		if( !$page || !$size ){
 			
 			Auto_DFP_Admin::log('Invalid new adUnit with: size='.$_GET['dfp_tag_size'].'&new_dfp_tag='.$_GET['new_dfp_tag']);
 			return FALSE;
 		}
-*/
 		
 		// Build adUnit name
 		$pageAtts = get_page( $page );
@@ -85,7 +85,7 @@ class Auto_DFP_Data
 				$adUnit .= '_'.get_page($id)->post_name;
 			}
 		}
-		$adUnit .= '_'.$pageAtts->post_name.'_'.$_GET['dfp_tag_size'];
+		$adUnit .= '_'.$pageAtts->post_name.'_'.$fSize;
 		
 		// Make sure there's no spaces
 		$adUnit = str_replace(' ', '_', $adUnit);

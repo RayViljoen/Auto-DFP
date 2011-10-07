@@ -193,17 +193,33 @@ a.props{
 	background: #91f27d;
 }
 
+
 #dfpAddNew{
 	background-color: #c9dfe2;
+}
+
+#dfpAddNew form{
+	margin: 0;
+	display: inline;
+	padding: 0;
 }
 
 #dfpAddNew select,
 #dfpAddNew input{
 	width: 80px;
+	height: 20px;
 	position: relative;
-	top: -5px;
-	margin-left: 20px;
+	bottom: 4px;
+	margin:0 0 0 20px;
 }
+
+#dfpAddNew .button{
+	width: 30px;
+	bottom: 0;
+	height: 15px;
+	margin: 0;
+}
+
 #dfpAddNew select{
 	width: 100px;
 }

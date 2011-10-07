@@ -45,7 +45,7 @@ add_action('wp_head', function(){
 
 // Check for AJAX notification of unlisted adUnit
 if(isset($_GET['new_dfp_tag'])){
-	Auto_DFP_Data::createSlotAsync();
+	Auto_DFP_Data::remoteCreateSlot();
 }
 
 // Check for AJAX delete adunit.

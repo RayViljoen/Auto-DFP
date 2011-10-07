@@ -178,13 +178,15 @@
 		jQuery.get(query, function () {
 
 			// Remove element and check if inventory is empty
-			adUnit.fadeOut(500, function(){
+			adUnit.fadeOut(200, function(){
 				
-				var thisWrap = jQuery(this).parents('.inventSlots');
+				var thisWrap, slotCount;
+				
+				thisWrap = jQuery(this).parents('.inventSlots');
 				
 				jQuery(this).remove();
 				
-				var slotCount = thisWrap.find('li');
+				slotCount = thisWrap.find('li');
 				
 				if(slotCount.length === 0){
 					thisWrap.addClass('blank');
@@ -197,6 +199,48 @@
 		
 		return false; // Null link
 	});
+	
+	
+	jQuery('#dfpAddNew form').submit(function(){
+		
+		var query, size, id, sizeMatch;
+		
+		// Get page ID from form
+		id = jQuery(this).find('select option:selected').val();
+		id = parseInt(id);
+		
+		// Get ad size from form
+		size = jQuery(this).find('input[name=dfp_tag_size]').val();
+		
+		sizeMatch = size.search(/\d{2,4}\s*[xX]\s*\d{2,4}/);
+		
+		// Check fields match criteria
+		if(id === 0 || sizeMatch === -1){
+		
+			alert('Please make sure you\'ve selected a page\nand entered a valid size. e.g. 120x60 ');
+			return false;
+		}
+		
+		// Build query as GET only.
+		// Path is irrelevant as plugin loads anywhere hence the authToken.
+		query  = "?new_dfp_tag=" + id;			// Page ID
+		query += "&dfp_tag_size=" + size;		// Ad Unit Size
+		query += "&dfp_token=" +  authToken;	// Auth Token
+		
+		// Send notification
+		jQuery.get(query, function () {
+
+			document.location.reload();
+					
+		// Create proper php response to handle ====== TODO
+
+		});
+		
+		return false; // Null link
+	
+	});
+	
+	
 
 
 }(siteURLs, dfpAuthToken)); // Pass PHP generated variables.

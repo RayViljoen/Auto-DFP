@@ -31,13 +31,25 @@ update_option( 'dfpSyncToken', $dfpAsyncAuthToken );
 
 <h4 id="dfpSync" >Find New Ad Slots.<a href="" class="button add-new-h2" >Find Slots</a><div id="dfpProgress"><span></span></div></h4>
 <h4 id="dfpAddNew" >Add Slot.
-	<select name="dfpPage">
-		<option>Page</option>
-		<option>PAGE With very long title</option>
-	</select>
-	<input type="text" value="Size" name="dfpSize" />
-<a href="" class="button add-new-h2" >Add</a></h4>
-
+	<form method="post" name="manSlot" action="">
+		<select name="new_dfp_tag">
+			<option value="0">Page</option>
+			
+		<?php // Create option for each page with value of id
+			
+			foreach($sitePages as $page):
+				echo '<option value="'.$page->ID.'">';
+				echo $page->post_title.'</option>';
+			endforeach;	  
+		?>
+	
+		</select>
+		<input type="text" value="Size" name="dfp_tag_size" />
+		<input type="submit" value="Add" class="button add-new-h2" />
+	</form>
+</h4>
+	
+	
 	<div class="liveSlots inventSlots">
 	
 		<h4>Existing Slots:</h4>
