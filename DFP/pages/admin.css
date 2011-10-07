@@ -265,7 +265,8 @@ a.props{
 
 .inventSlots .hiddenNotif,
 .inventSlots .notification{
-	text-indent: 10px;
+/* 	text-indent: 10px; */
+text-align: center;
 	font-weight: bold;
 	color: #AAA;
 }
@@ -280,10 +281,11 @@ a.props{
 }
 
 .inventSlots h4{
-	margin: 0;
+	margin: 0 0 10px;;
 	color: #777;
 	font-size: 1.1em;
-	padding: 5px;
+	padding: 0 5px 7px;
+	border-bottom: 1px solid #E0E0E0;
 }
 
 .liveSlots{
@@ -294,7 +296,8 @@ a.props{
 }
 
 .inventSlots li{
-	padding: 5px 10px;
+	position: relative;
+	padding: 5px 30px 5px 10px;
 	font-weight: bold;
 	margin: 5px 0;
 	color: #333;
@@ -319,7 +322,9 @@ a.props{
 }
 
 .inventSlots li a{
-	float: right;
+	position: absolute;
+	right: 5px;
+	top: 5px;
 	display: inline-block;
 	background: url(img/close.png) no-repeat center center;
 	height: 15px;
