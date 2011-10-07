@@ -90,7 +90,7 @@ update_option( 'dfpSyncToken', $dfpAsyncAuthToken );
 		
 		<form action="" method="post">
 			<input type="hidden" name= "dfp_approve" value="1" />
-			<input type="submit" value="Approve All" class="button add-new-h2" />
+			<input type="submit" value="Approve" class="button add-new-h2" />
 		</form>
 		<p class="hiddenNotif">No Pending Ad Slots.</p>
 <?php else: ?>

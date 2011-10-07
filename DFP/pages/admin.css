@@ -237,8 +237,10 @@ a.props{
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	border: 3px solid #62b250;
+	border: 1px solid #006b3f;
 	overflow: hidden;
+	background: #006b3f;
+	
 }
 
 #dfpSync #dfpProgress span{
@@ -248,10 +250,6 @@ a.props{
 	background-image: url(img/progress.png);
 	background-position: 0 center;
 	background-repeat: repeat-x;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-
 }
 
 .inventSlots{
@@ -307,7 +305,6 @@ text-align: center;
 	border-radius:3px;
 	background: #efbd7c;
 	border: 1px #d8a970 solid;
-	
 }
 
 .liveSlots li{

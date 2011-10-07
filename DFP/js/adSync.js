@@ -241,6 +241,22 @@
 	});
 	
 	
+	// Focus Event
+	jQuery('input[name=dfp_tag_size]').focus(function(){
+		var sizeVal = jQuery(this).val();
+		if(sizeVal === 'Size'){
+			jQuery(this).val('');
+		}		
+	});
+	
+	// Blur Event
+	jQuery('input[name=dfp_tag_size]').blur(function(){
+		var sizeVal = jQuery(this).val();
+		if(sizeVal === ''){
+			jQuery(this).val('Size');
+		}
+	});
+
 
 
 }(siteURLs, dfpAuthToken)); // Pass PHP generated variables.
