@@ -25,6 +25,12 @@ class Auto_DFP_Admin
 	 * @var string
 	 */
 	private $api = 'v201107';
+	
+	/**
+	 * DFP API Version.
+	 * @var string
+	 */
+	private $loginError = FALSE;
 
 	/**
 	 * Whether to display the 'settings saved' message on the admin page.
@@ -98,7 +104,7 @@ class Auto_DFP_Admin
 		// Get user Info
 		$wpUser = wp_get_current_user();
 		$wpUser = $wpUser->ID;
-
+		
 		// Check if user requested logout
 		if(isset($_GET['dfp_logout'])){
 			// Record Logout
@@ -152,7 +158,7 @@ class Auto_DFP_Admin
 		$wpURL = get_bloginfo('url');
 		
 		if(isset($_POST['dfp_password']) && isset($_POST['dfp_username']) ){
-			
+
 			$password = $_POST['dfp_password'];
 			$username = $_POST['dfp_username'];
 			// Optional Network ID
@@ -181,6 +187,7 @@ class Auto_DFP_Admin
 
 			// Create new user
 			$this->user = new DfpUser( NULL, $username, $password, $this->name, $networkid, NULL, $authToken );
+			
 
 			// Get authtoken
 			$authToken = $this->user->GetAuthToken();
@@ -206,11 +213,14 @@ class Auto_DFP_Admin
 			return $authToken;
 
 		} catch (Exception $e) {
-			
+
 			// Remove Session data
 			self::logout();
 			// Log exception
 			self::log('LOGIN ERROR: '.$e->GetMessage());
+			
+			$this->loginError = TRUE;
+			
 			return FALSE;
 		}
 	}
