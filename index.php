@@ -7,7 +7,8 @@ Version: 1.0
 Author: Ray Viljoen
 Author URI: http://fubra.com
 */
-error_reporting( E_ALL);
+
+error_reporting(E_ALL);
 
 // Make sure session is started
 @session_start();
@@ -25,17 +26,16 @@ register_activation_hook( __FILE__, array('Auto_DFP_Data', 'setup'));
 // TEMP MENU DISABLED AS IT WILL ONLY CAUSE =(
 
 // Create DFP Admin Menu
-
 add_action('admin_menu', function(){
   add_options_page(
   	'Auto DFP Settings',
   	'Auto DFP',
   	'manage_options',
   	'dfp_options',
-  	function(){ new Auto_DFP_Admin(); });
+  	function(){
+  		new Auto_DFP_Admin();
+  	});
 });
-
-
 
 // Load JS to load and create ads. - HEADER
 add_action('wp_head', function(){

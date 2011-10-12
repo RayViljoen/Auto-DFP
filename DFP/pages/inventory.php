@@ -1,4 +1,4 @@
-<?php		
+<?php
 
 // Get all ad slots.
 $pendSlots = $this->data->getPageSlots( NULL, 'pending' );
@@ -28,7 +28,7 @@ update_option( 'dfpSyncToken', $dfpAsyncAuthToken );
 ?>
 
 <!-- ========================= START TEMPLATE ========================= -->
-
+<div class="inventory">
 <h4 id="dfpSync" >Find New Ad Slots.<a href="" class="button add-new-h2" >Find Slots</a><div id="dfpProgress"><span></span></div></h4>
 <h4 id="dfpAddNew" >Add Slot.
 	<form method="post" name="manSlot" action="">
@@ -108,6 +108,4 @@ update_option( 'dfpSyncToken', $dfpAsyncAuthToken );
 
 <!-- Include Sync script ( uses php generated vars siteURLs, dfpAuthToken ) -->
 <script type='text/javascript' src='<?php echo plugins_url( '/js/', __DIR__ ); ?>adSync.js' ></script>
-
-
-
+</div>

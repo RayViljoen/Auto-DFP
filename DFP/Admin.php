@@ -123,7 +123,7 @@ class Auto_DFP_Admin
 		}
 
 		//=====================================
-		//    OUTPUT ADMIN PAGE
+		//    		OUTPUT ADMIN PAGE
 		//=====================================
 
 		// Print Admin Stylesheet
@@ -165,7 +165,7 @@ class Auto_DFP_Admin
 			$networkid = (isset($_POST['dfp_network'])) ? $_POST['dfp_network'] : NULL;
 			$authToken = NULL;
 
-			// Check if user id already authenticated through session.
+		// Check if user id already authenticated through session.
 		}elseif(isset($_SESSION['DFP']['authToken']) && isset($_SESSION['DFP']['userID'])){
 
 			// Make sure of session
@@ -188,7 +188,6 @@ class Auto_DFP_Admin
 			// Create new user
 			$this->user = new DfpUser( NULL, $username, $password, $this->name, $networkid, NULL, $authToken );
 			
-
 			// Get authtoken
 			$authToken = $this->user->GetAuthToken();
 						
@@ -218,9 +217,9 @@ class Auto_DFP_Admin
 			self::logout();
 			// Log exception
 			self::log('LOGIN ERROR: '.$e->GetMessage());
-			
+
 			$this->loginError = TRUE;
-			
+
 			return FALSE;
 		}
 	}
@@ -259,7 +258,7 @@ class Auto_DFP_Admin
 	 */
 	private function logout()
 	{
-		unset( $_SESSION['DFP'] );
+		unset($_SESSION['DFP']);
 	}
 
 
@@ -270,11 +269,11 @@ class Auto_DFP_Admin
 	 */
 	private function setSession($username, $networkid, $authToken, $wpUser, $wpURL)
 	{
-		$_SESSION['DFP']['username'] = $username;
+		$_SESSION['DFP']['username']  = $username;
 		$_SESSION['DFP']['authToken'] = $authToken;
-		$_SESSION['DFP']['userID'] = $wpUser;
+		$_SESSION['DFP']['userID']    = $wpUser;
 		$_SESSION['DFP']['networkID'] = $networkid;
-		$_SESSION['DFP']['url'] = $wpURL;
+		$_SESSION['DFP']['url']       = $wpURL;
 	}
 
 
@@ -303,15 +302,17 @@ class Auto_DFP_Admin
 	 */
 	private function getAdminPage()
 	{
-		$path = dirname(__FILE__) . '/pages/';
-		$page = (isset($_GET['dfp_menu'])) ? $_GET['dfp_menu'] : 'overview';
+		$invettoryPath = dirname(__FILE__) . '/pages/inventory.php';
+		$settingsPath = dirname(__FILE__) . '/pages/settings.php';
 
 		// Admin Page Header
 		$this->adminHeader();
+		// Settings Page
+		include $settingsPath;
 		// Specific Admin Page Body
-		include $path.$page.'.php';
+		include $invettoryPath;
 		// Footer. Could later be moved to getFooter.
-		echo '</div><a class="props" href="http://catn.com">Created by the experts at CatN</a></div>';
+		echo '</div><div class="props" ><a href="http://catn.com">Created by the experts at CatN</a></div>';
 	}
 
 
@@ -324,27 +325,13 @@ class Auto_DFP_Admin
 	{
 		echo '<div id="dfp" class="wrap">';
 		echo '<div class="icon32 dfp_logo"><br></div>';
-		echo '<h2>'.__( 'Auto DFP', 'menu-test' ).'</h2>';
+		echo '<h2>'.__( 'Auto DFP', 'menu-test' ).'<span><a href="?page=dfp_options&dfp_logout">Logout</a> | <a href="#settings">Settings</a></span></h2>';
 
 		if($this->saved){
 			echo '<div class="updated"><p><strong>';
 			_e('settings saved.', 'menu-test' );
 			echo '</strong></p></div>';
 		};
-		echo '<div class="dfp settings">';
-
-		$default = (!isset($_GET['dfp_menu'])) ? 'active' : NULL;
-
-		echo '<ul id="dfp_menu">';
-		echo '<li class="default '.$default.'"><a href="?page=dfp_options" >Overview</a></li>';
-
-		foreach($this->menu_items as $tab){
-			$active = (isset($_GET['dfp_menu']) && $_GET['dfp_menu'] == strtolower($tab)) ? 'class="active"' : NULL;
-			echo '<li '.$active.'><a href="?page=dfp_options&dfp_menu='.strtolower($tab).'" >'.$tab.'</a></li>';
-		}
-		echo '<li class="logout" ><a href="?page=dfp_options&dfp_logout=1" >Log Out</a></li>';
-		echo '</ul>';
-
 	}
 
 
@@ -456,7 +443,7 @@ class Auto_DFP_Admin
 		// Update pending slots to active
 		$this->data->approvePendingLocal();		
 	}
-	
+
 	
 	/**
 	 * Add all locally live slots to dfp account and set account status to live.
@@ -493,11 +480,8 @@ class Auto_DFP_Admin
 				//if(!$result){ throw new Exception('Error: Cannot update '.$slot->adunit.' status.'); }
 			//}
 		}
-		
 		echo $i;
-		
 		//$this->dfpCreateAdUnit($adUnits);
 	}
-
 
 }

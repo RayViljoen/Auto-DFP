@@ -53,7 +53,7 @@ class Auto_DFP_Data
 		}
 		
 		// Format size
-		$fSize =  $_GET['dfp_tag_size'];
+		$fSize = $_GET['dfp_tag_size'];
 		$fSize = str_replace( ' ', '', $fSize );
 		$fSize = str_replace( 'X', 'x',  $fSize);
 		

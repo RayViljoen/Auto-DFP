@@ -22,6 +22,11 @@
 	padding-left: 5px;
 }
 
+#dfp.wrap{
+	padding-top: 15px;
+	max-width:850px;
+}
+
 .dfp_logo{
 	background: url(img/logo.png) no-repeat center center;
 	padding: 20px 10px;
@@ -29,7 +34,20 @@
 
 .wrap h2{
 	padding: 30px 0 25px;
-	display: inline-block;
+}
+
+.wrap h2 a{
+	font-weight: bold;
+	text-decoration:none;
+	padding: 0 10px;
+}
+
+.wrap h2 span{
+	float:right;
+	font-size: 0.7em;
+	background: url(img/settings.png) no-repeat 100% center;
+	margin-right: 15px;
+	padding-right:27px;
 }
 
 form .forgetmenot {
@@ -123,59 +141,20 @@ p.submit{
 	border: none;
 }
 
-#dfp .dfp{
-	border:1px solid #e5e5e5;
-	background: #fff;
-	margin-top: 15px;
-	overflow: auto;
-}
-#dfp_menu{
-	overflow: auto;
-	padding-bottom: 15px;
-}
-#dfp_menu li{
-	padding: 7px 10px;
-	width: 10%;
-	background: #f3f3f3;
-	float: left;
-	text-align: center;
-	display: inline-block;
-	border-right:1px solid #e5e5e5;
-	border-bottom:1px solid #e5e5e5;
-}
-
-#dfp_menu .logout{
-	float: right;
-	font-weight: bold;
-	padding: 3px 10px;
-	width: 80px;
-	margin: 5px 5px 0 0;
-	border:1px solid #e5e5e5;
-	-moz-border-radius:3px;
-	-khtml-border-radius:3px;
-	-webkit-border-radius:3px;
-	border-radius:3px
-
-}
-
-#dfp_menu li a{
-	text-decoration: none;
-	cursor: pointer;
-}
-#dfp_menu li.active{
-	border-bottom: none;
-	background: transparent;
-}
-
-a.props{
+.props a{
 	float: right;
 	text-decoration: none;
-	display: inline-block;
-	padding: 3px 20px;
+	padding: 5px 20px;
 }
 
-.settings .page{
-	padding: 15px;
+.props{
+	clear:both;
+	margin: 0 15px 0 0;
+	border-top: 1px #DFDFDF solid;
+}
+
+.inventory{
+	padding-top:30px;
 }
 
 #dfpAddNew,
@@ -326,3 +305,14 @@ text-align: center;
 	height: 15px;
 	width: 15px;
 }
+
+/*-------------- SETTINGS PAGE -------------- */
+
+.settings{
+	display:none;
+	margin: 0 0 0 15px;
+	width: 815px;
+	height:400px;
+	background:#F0F0F0;
+}
+
