@@ -237,8 +237,7 @@ class ApplicationException {
 
 if (!class_exists("Authentication", FALSE)) {
 /**
- * {@code Authentication} represents the authentication protocols that can be
- * used.
+ * A representation of the authentication protocols that can be used.
  * @package GoogleApiAdsDfp
  * @subpackage v201104
  */
@@ -411,6 +410,45 @@ class CommonError extends ApiError {
 
   public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
     if(get_parent_class('CommonError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
+if (!class_exists("CreativeAssetMacroError", FALSE)) {
+/**
+ * Lists all errors associated with creative asset macros.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201104
+ */
+class CreativeAssetMacroError extends ApiError {
+  /**
+   * @access public
+   * @var tnsCreativeAssetMacroErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201104";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "CreativeAssetMacroError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('CreativeAssetMacroError')) parent::__construct();
     $this->reason = $reason;
     $this->fieldPath = $fieldPath;
     $this->trigger = $trigger;
@@ -609,6 +647,45 @@ class CreativePage {
   }
 }}
 
+if (!class_exists("CustomCreativeError", FALSE)) {
+/**
+ * Lists all errors associated with custom creatives.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201104
+ */
+class CustomCreativeError extends ApiError {
+  /**
+   * @access public
+   * @var tnsCustomCreativeErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201104";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "CustomCreativeError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('CustomCreativeError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
 if (!class_exists("FileError", FALSE)) {
 /**
  * A list of all errors to be used for problems related to files.
@@ -689,76 +766,6 @@ class HasDestinationUrlCreative extends Creative {
   }
 }}
 
-if (!class_exists("ImageCreative", FALSE)) {
-/**
- * A {@code Creative} that displays an image.
- * @package GoogleApiAdsDfp
- * @subpackage v201104
- */
-class ImageCreative extends HasDestinationUrlCreative {
-  /**
-   * @access public
-   * @var string
-   */
-  public $imageName;
-
-  /**
-   * @access public
-   * @var base64Binary
-   */
-  public $imageByteArray;
-
-  /**
-   * @access public
-   * @var boolean
-   */
-  public $overrideSize;
-
-  /**
-   * @access public
-   * @var Size
-   */
-  public $assetSize;
-
-  /**
-   * @access public
-   * @var string
-   */
-  public $imageUrl;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://www.google.com/apis/ads/publisher/v201104";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "ImageCreative";
-  }
-
-  public function __construct($imageName = NULL, $imageByteArray = NULL, $overrideSize = NULL, $assetSize = NULL, $imageUrl = NULL, $destinationUrl = NULL, $advertiserId = NULL, $id = NULL, $name = NULL, $size = NULL, $previewUrl = NULL, $CreativeType = NULL) {
-    if(get_parent_class('ImageCreative')) parent::__construct();
-    $this->imageName = $imageName;
-    $this->imageByteArray = $imageByteArray;
-    $this->overrideSize = $overrideSize;
-    $this->assetSize = $assetSize;
-    $this->imageUrl = $imageUrl;
-    $this->destinationUrl = $destinationUrl;
-    $this->advertiserId = $advertiserId;
-    $this->id = $id;
-    $this->name = $name;
-    $this->size = $size;
-    $this->previewUrl = $previewUrl;
-    $this->CreativeType = $CreativeType;
-  }
-}}
-
 if (!class_exists("ImageError", FALSE)) {
 /**
  * Lists all errors associated with images.
@@ -795,48 +802,6 @@ class ImageError extends ApiError {
     $this->trigger = $trigger;
     $this->errorString = $errorString;
     $this->ApiErrorType = $ApiErrorType;
-  }
-}}
-
-if (!class_exists("ImageRedirectCreative", FALSE)) {
-/**
- * A {@code Creative} that loads an image asset from a specified URL.
- * @package GoogleApiAdsDfp
- * @subpackage v201104
- */
-class ImageRedirectCreative extends HasDestinationUrlCreative {
-  /**
-   * @access public
-   * @var string
-   */
-  public $imageUrl;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://www.google.com/apis/ads/publisher/v201104";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "ImageRedirectCreative";
-  }
-
-  public function __construct($imageUrl = NULL, $destinationUrl = NULL, $advertiserId = NULL, $id = NULL, $name = NULL, $size = NULL, $previewUrl = NULL, $CreativeType = NULL) {
-    if(get_parent_class('ImageRedirectCreative')) parent::__construct();
-    $this->imageUrl = $imageUrl;
-    $this->destinationUrl = $destinationUrl;
-    $this->advertiserId = $advertiserId;
-    $this->id = $id;
-    $this->name = $name;
-    $this->size = $size;
-    $this->previewUrl = $previewUrl;
-    $this->CreativeType = $CreativeType;
   }
 }}
 
@@ -961,7 +926,7 @@ class NotNullError extends ApiError {
 
 if (!class_exists("NullError", FALSE)) {
 /**
- * Errors associated with contents not null constraint.
+ * Errors associated with violation of a NOT NULL check.
  * @package GoogleApiAdsDfp
  * @subpackage v201104
  */
@@ -1597,6 +1562,38 @@ class TypeError extends ApiError {
   }
 }}
 
+if (!class_exists("UniqueError", FALSE)) {
+/**
+ * An error for a field which must satisfy a uniqueness constraint
+ * @package GoogleApiAdsDfp
+ * @subpackage v201104
+ */
+class UniqueError extends ApiError {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201104";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "UniqueError";
+  }
+
+  public function __construct($fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('UniqueError')) parent::__construct();
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
 if (!class_exists("Value", FALSE)) {
 /**
  * {@code Value} represents a value.
@@ -1752,6 +1749,34 @@ class CommonErrorReason {
   }
 }}
 
+if (!class_exists("CreativeAssetMacroErrorReason", FALSE)) {
+/**
+ * The reasons for the target error.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201104
+ */
+class CreativeAssetMacroErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201104";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "CreativeAssetMacroError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('CreativeAssetMacroErrorReason')) parent::__construct();
+  }
+}}
+
 if (!class_exists("CreativeErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
@@ -1777,6 +1802,34 @@ class CreativeErrorReason {
 
   public function __construct() {
     if(get_parent_class('CreativeErrorReason')) parent::__construct();
+  }
+}}
+
+if (!class_exists("CustomCreativeErrorReason", FALSE)) {
+/**
+ * The reasons for the target error.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201104
+ */
+class CustomCreativeErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201104";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "CustomCreativeError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('CustomCreativeErrorReason')) parent::__construct();
   }
 }}
 
@@ -2631,50 +2684,14 @@ class ApiException extends ApplicationException {
   }
 }}
 
-if (!class_exists("BooleanValue", FALSE)) {
+if (!class_exists("BaseFlashCreative", FALSE)) {
 /**
- * Contains a boolean value.
+ * A base type for creatives that display a Flash-based ad. If the Flash ad
+ * cannot load, a fallback image is displayed instead.
  * @package GoogleApiAdsDfp
  * @subpackage v201104
  */
-class BooleanValue extends Value {
-  /**
-   * @access public
-   * @var boolean
-   */
-  public $value;
-
-  /**
-   * Gets the namesapce of this class
-   * @return the namespace of this class
-   */
-  public function getNamespace() {
-    return "https://www.google.com/apis/ads/publisher/v201104";
-  }
-
-  /**
-   * Gets the xsi:type name of this class
-   * @return the xsi:type name of this class
-   */
-  public function getXsiTypeName() {
-    return "BooleanValue";
-  }
-
-  public function __construct($value = NULL, $ValueType = NULL) {
-    if(get_parent_class('BooleanValue')) parent::__construct();
-    $this->value = $value;
-    $this->ValueType = $ValueType;
-  }
-}}
-
-if (!class_exists("FlashCreative", FALSE)) {
-/**
- * A {@code Creative} that displays a Flash-based ad. If the Flash ad cannot
- * load, a fallback image is displayed instead.
- * @package GoogleApiAdsDfp
- * @subpackage v201104
- */
-class FlashCreative extends HasDestinationUrlCreative {
+class BaseFlashCreative extends HasDestinationUrlCreative {
   /**
    * @access public
    * @var string
@@ -2742,11 +2759,11 @@ class FlashCreative extends HasDestinationUrlCreative {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
-    return "FlashCreative";
+    return "BaseFlashCreative";
   }
 
   public function __construct($flashName = NULL, $flashByteArray = NULL, $fallbackImageName = NULL, $fallbackImageByteArray = NULL, $overrideSize = NULL, $clickTagRequired = NULL, $fallbackPreviewUrl = NULL, $flashAssetSize = NULL, $fallbackAssetSize = NULL, $destinationUrl = NULL, $advertiserId = NULL, $id = NULL, $name = NULL, $size = NULL, $previewUrl = NULL, $CreativeType = NULL) {
-    if(get_parent_class('FlashCreative')) parent::__construct();
+    if(get_parent_class('BaseFlashCreative')) parent::__construct();
     $this->flashName = $flashName;
     $this->flashByteArray = $flashByteArray;
     $this->fallbackImageName = $fallbackImageName;
@@ -2766,15 +2783,15 @@ class FlashCreative extends HasDestinationUrlCreative {
   }
 }}
 
-if (!class_exists("FlashRedirectCreative", FALSE)) {
+if (!class_exists("BaseFlashRedirectCreative", FALSE)) {
 /**
- * A {@code Creative} that loads a Flash asset from a specified URL. If the
- * remote flash asset cannot be served, a fallback image is used at an alternate
- * URL.
+ * The base type for creatives that load a Flash asset from a specified URL.
+ * If the remote flash asset cannot be served, a fallback image is used at an
+ * alternate URL.
  * @package GoogleApiAdsDfp
  * @subpackage v201104
  */
-class FlashRedirectCreative extends HasDestinationUrlCreative {
+class BaseFlashRedirectCreative extends HasDestinationUrlCreative {
   /**
    * @access public
    * @var string
@@ -2806,6 +2823,239 @@ class FlashRedirectCreative extends HasDestinationUrlCreative {
    * @return the xsi:type name of this class
    */
   public function getXsiTypeName() {
+    return "BaseFlashRedirectCreative";
+  }
+
+  public function __construct($flashUrl = NULL, $fallbackUrl = NULL, $fallbackPreviewUrl = NULL, $destinationUrl = NULL, $advertiserId = NULL, $id = NULL, $name = NULL, $size = NULL, $previewUrl = NULL, $CreativeType = NULL) {
+    if(get_parent_class('BaseFlashRedirectCreative')) parent::__construct();
+    $this->flashUrl = $flashUrl;
+    $this->fallbackUrl = $fallbackUrl;
+    $this->fallbackPreviewUrl = $fallbackPreviewUrl;
+    $this->destinationUrl = $destinationUrl;
+    $this->advertiserId = $advertiserId;
+    $this->id = $id;
+    $this->name = $name;
+    $this->size = $size;
+    $this->previewUrl = $previewUrl;
+    $this->CreativeType = $CreativeType;
+  }
+}}
+
+if (!class_exists("BaseImageCreative", FALSE)) {
+/**
+ * The base type for creatives that display an image.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201104
+ */
+class BaseImageCreative extends HasDestinationUrlCreative {
+  /**
+   * @access public
+   * @var string
+   */
+  public $imageName;
+
+  /**
+   * @access public
+   * @var base64Binary
+   */
+  public $imageByteArray;
+
+  /**
+   * @access public
+   * @var boolean
+   */
+  public $overrideSize;
+
+  /**
+   * @access public
+   * @var Size
+   */
+  public $assetSize;
+
+  /**
+   * @access public
+   * @var string
+   */
+  public $imageUrl;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201104";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "BaseImageCreative";
+  }
+
+  public function __construct($imageName = NULL, $imageByteArray = NULL, $overrideSize = NULL, $assetSize = NULL, $imageUrl = NULL, $destinationUrl = NULL, $advertiserId = NULL, $id = NULL, $name = NULL, $size = NULL, $previewUrl = NULL, $CreativeType = NULL) {
+    if(get_parent_class('BaseImageCreative')) parent::__construct();
+    $this->imageName = $imageName;
+    $this->imageByteArray = $imageByteArray;
+    $this->overrideSize = $overrideSize;
+    $this->assetSize = $assetSize;
+    $this->imageUrl = $imageUrl;
+    $this->destinationUrl = $destinationUrl;
+    $this->advertiserId = $advertiserId;
+    $this->id = $id;
+    $this->name = $name;
+    $this->size = $size;
+    $this->previewUrl = $previewUrl;
+    $this->CreativeType = $CreativeType;
+  }
+}}
+
+if (!class_exists("BaseImageRedirectCreative", FALSE)) {
+/**
+ * The base type for creatives that load an image asset from a specified URL.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201104
+ */
+class BaseImageRedirectCreative extends HasDestinationUrlCreative {
+  /**
+   * @access public
+   * @var string
+   */
+  public $imageUrl;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201104";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "BaseImageRedirectCreative";
+  }
+
+  public function __construct($imageUrl = NULL, $destinationUrl = NULL, $advertiserId = NULL, $id = NULL, $name = NULL, $size = NULL, $previewUrl = NULL, $CreativeType = NULL) {
+    if(get_parent_class('BaseImageRedirectCreative')) parent::__construct();
+    $this->imageUrl = $imageUrl;
+    $this->destinationUrl = $destinationUrl;
+    $this->advertiserId = $advertiserId;
+    $this->id = $id;
+    $this->name = $name;
+    $this->size = $size;
+    $this->previewUrl = $previewUrl;
+    $this->CreativeType = $CreativeType;
+  }
+}}
+
+if (!class_exists("BooleanValue", FALSE)) {
+/**
+ * Contains a boolean value.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201104
+ */
+class BooleanValue extends Value {
+  /**
+   * @access public
+   * @var boolean
+   */
+  public $value;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201104";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "BooleanValue";
+  }
+
+  public function __construct($value = NULL, $ValueType = NULL) {
+    if(get_parent_class('BooleanValue')) parent::__construct();
+    $this->value = $value;
+    $this->ValueType = $ValueType;
+  }
+}}
+
+if (!class_exists("FlashCreative", FALSE)) {
+/**
+ * A {@code Creative} that displays a Flash-based ad. If the Flash ad cannot
+ * load, a fallback image is displayed instead.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201104
+ */
+class FlashCreative extends BaseFlashCreative {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201104";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "FlashCreative";
+  }
+
+  public function __construct($flashName = NULL, $flashByteArray = NULL, $fallbackImageName = NULL, $fallbackImageByteArray = NULL, $overrideSize = NULL, $clickTagRequired = NULL, $fallbackPreviewUrl = NULL, $flashAssetSize = NULL, $fallbackAssetSize = NULL, $destinationUrl = NULL, $advertiserId = NULL, $id = NULL, $name = NULL, $size = NULL, $previewUrl = NULL, $CreativeType = NULL) {
+    if(get_parent_class('FlashCreative')) parent::__construct();
+    $this->flashName = $flashName;
+    $this->flashByteArray = $flashByteArray;
+    $this->fallbackImageName = $fallbackImageName;
+    $this->fallbackImageByteArray = $fallbackImageByteArray;
+    $this->overrideSize = $overrideSize;
+    $this->clickTagRequired = $clickTagRequired;
+    $this->fallbackPreviewUrl = $fallbackPreviewUrl;
+    $this->flashAssetSize = $flashAssetSize;
+    $this->fallbackAssetSize = $fallbackAssetSize;
+    $this->destinationUrl = $destinationUrl;
+    $this->advertiserId = $advertiserId;
+    $this->id = $id;
+    $this->name = $name;
+    $this->size = $size;
+    $this->previewUrl = $previewUrl;
+    $this->CreativeType = $CreativeType;
+  }
+}}
+
+if (!class_exists("FlashRedirectCreative", FALSE)) {
+/**
+ * A {@code Creative} that loads a Flash asset from a specified URL. If the
+ * remote flash asset cannot be served, a fallback image is used at an
+ * alternate URL.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201104
+ */
+class FlashRedirectCreative extends BaseFlashRedirectCreative {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201104";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
     return "FlashRedirectCreative";
   }
 
@@ -2814,6 +3064,82 @@ class FlashRedirectCreative extends HasDestinationUrlCreative {
     $this->flashUrl = $flashUrl;
     $this->fallbackUrl = $fallbackUrl;
     $this->fallbackPreviewUrl = $fallbackPreviewUrl;
+    $this->destinationUrl = $destinationUrl;
+    $this->advertiserId = $advertiserId;
+    $this->id = $id;
+    $this->name = $name;
+    $this->size = $size;
+    $this->previewUrl = $previewUrl;
+    $this->CreativeType = $CreativeType;
+  }
+}}
+
+if (!class_exists("ImageCreative", FALSE)) {
+/**
+ * A {@code Creative} that displays an image.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201104
+ */
+class ImageCreative extends BaseImageCreative {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201104";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "ImageCreative";
+  }
+
+  public function __construct($imageName = NULL, $imageByteArray = NULL, $overrideSize = NULL, $assetSize = NULL, $imageUrl = NULL, $destinationUrl = NULL, $advertiserId = NULL, $id = NULL, $name = NULL, $size = NULL, $previewUrl = NULL, $CreativeType = NULL) {
+    if(get_parent_class('ImageCreative')) parent::__construct();
+    $this->imageName = $imageName;
+    $this->imageByteArray = $imageByteArray;
+    $this->overrideSize = $overrideSize;
+    $this->assetSize = $assetSize;
+    $this->imageUrl = $imageUrl;
+    $this->destinationUrl = $destinationUrl;
+    $this->advertiserId = $advertiserId;
+    $this->id = $id;
+    $this->name = $name;
+    $this->size = $size;
+    $this->previewUrl = $previewUrl;
+    $this->CreativeType = $CreativeType;
+  }
+}}
+
+if (!class_exists("ImageRedirectCreative", FALSE)) {
+/**
+ * A {@code Creative} that loads an image asset from a specified URL.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201104
+ */
+class ImageRedirectCreative extends BaseImageRedirectCreative {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201104";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "ImageRedirectCreative";
+  }
+
+  public function __construct($imageUrl = NULL, $destinationUrl = NULL, $advertiserId = NULL, $id = NULL, $name = NULL, $size = NULL, $previewUrl = NULL, $CreativeType = NULL) {
+    if(get_parent_class('ImageRedirectCreative')) parent::__construct();
+    $this->imageUrl = $imageUrl;
     $this->destinationUrl = $destinationUrl;
     $this->advertiserId = $advertiserId;
     $this->id = $id;
@@ -2919,16 +3245,22 @@ class CreativeService extends DfpSoapClient {
     "ApiVersionError" => "ApiVersionError",
     "Authentication" => "Authentication",
     "AuthenticationError" => "AuthenticationError",
+    "BaseFlashCreative" => "BaseFlashCreative",
+    "HasDestinationUrlCreative" => "HasDestinationUrlCreative",
+    "BaseFlashRedirectCreative" => "BaseFlashRedirectCreative",
+    "BaseImageCreative" => "BaseImageCreative",
+    "BaseImageRedirectCreative" => "BaseImageRedirectCreative",
     "BooleanValue" => "BooleanValue",
     "Value" => "Value",
     "ClientLogin" => "ClientLogin",
     "CommonError" => "CommonError",
+    "CreativeAssetMacroError" => "CreativeAssetMacroError",
     "Creative" => "Creative",
     "CreativeError" => "CreativeError",
     "CreativePage" => "CreativePage",
+    "CustomCreativeError" => "CustomCreativeError",
     "FileError" => "FileError",
     "FlashCreative" => "FlashCreative",
-    "HasDestinationUrlCreative" => "HasDestinationUrlCreative",
     "FlashRedirectCreative" => "FlashRedirectCreative",
     "ImageCreative" => "ImageCreative",
     "ImageError" => "ImageError",
@@ -2952,10 +3284,13 @@ class CreativeService extends DfpSoapClient {
     "TextValue" => "TextValue",
     "ThirdPartyCreative" => "ThirdPartyCreative",
     "TypeError" => "TypeError",
+    "UniqueError" => "UniqueError",
     "ApiVersionError.Reason" => "ApiVersionErrorReason",
     "AuthenticationError.Reason" => "AuthenticationErrorReason",
     "CommonError.Reason" => "CommonErrorReason",
+    "CreativeAssetMacroError.Reason" => "CreativeAssetMacroErrorReason",
     "CreativeError.Reason" => "CreativeErrorReason",
+    "CustomCreativeError.Reason" => "CustomCreativeErrorReason",
     "FileError.Reason" => "FileErrorReason",
     "ImageError.Reason" => "ImageErrorReason",
     "InternalApiError.Reason" => "InternalApiErrorReason",

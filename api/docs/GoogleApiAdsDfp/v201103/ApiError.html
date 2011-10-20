@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class ApiError</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class ApiError</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|											<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The API error base class that provides details about an error that occurred while processing a service request.</p>
+<p class="description"><p>The OGNL field path is provided for parsers to identify the request data  element that may have caused the error.</p></p>
+		<p class="notes">
+			Located in <a class="field" href="_Ads---Dfp---v201103---CompanyService.php.html">/Ads/Dfp/v201103/CompanyService.php</a> (line <span class="field">410</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+								|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsDfp/v201103/ApiVersionError.html">ApiVersionError</a></td>
+					<td>
+											Errors related to the usage of API versions.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsDfp/v201103/AuthenticationError.html">AuthenticationError</a></td>
+					<td>
+											An error for an exception that occurred when authenticating.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsDfp/v201103/CommonError.html">CommonError</a></td>
+					<td>
+											A place for common errors that can be used across services.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsDfp/v201103/InternalApiError.html">InternalApiError</a></td>
+					<td>
+											Indicates that a server-side error has occured. {@code InternalApiError}s  are generally not the result of an invalid request or message sent by the  client.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsDfp/v201103/NotNullError.html">NotNullError</a></td>
+					<td>
+											Caused by supplying a null value for an attribute that cannot be null.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsDfp/v201103/ParseError.html">ParseError</a></td>
+					<td>
+											Lists errors related to parsing.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsDfp/v201103/PermissionError.html">PermissionError</a></td>
+					<td>
+											Errors related to incorrect permission.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsDfp/v201103/QuotaError.html">QuotaError</a></td>
+					<td>
+											Describes a client-side error on which a user is attempting  to perform an action to which they have no quota remaining.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsDfp/v201103/RequiredError.html">RequiredError</a></td>
+					<td>
+											Errors due to missing required field.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsDfp/v201103/ServerError.html">ServerError</a></td>
+					<td>
+											Errors related to the server.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsDfp/v201103/StatementError.html">StatementError</a></td>
+					<td>
+											An error that occurs while parsing <a href="../../GoogleApiAdsDfp/v201103/Statement.html">Statement</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsDfp/v201103/TypeError.html">TypeError</a></td>
+					<td>
+											An error for a field which is an invalid type.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../GoogleApiAdsDfp/v201103/UniqueError.html">UniqueError</a></td>
+					<td>
+											An error for a field which must satisfy a uniqueness constraint
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$ApiErrorType" title="details" class="var-name">$ApiErrorType</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$errorString" title="details" class="var-name">$errorString</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$fieldPath" title="details" class="var-name">$fieldPath</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$trigger" title="details" class="var-name">$trigger</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																				
+												<div class="method-definition">
+											<span class="method-result">ApiError</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$fieldPath</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$trigger</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$errorString</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$ApiErrorType</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#getNamespace" title="details" class="method-name">getNamespace</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getParameterMap" title="details" class="method-name">getParameterMap</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#getXsiTypeName" title="details" class="method-name">getXsiTypeName</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#__get" title="details" class="method-name">__get</a>
+											(<span class="var-type">$var</span>&nbsp;<span class="var-name">$var</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__set" title="details" class="method-name">__set</a>
+											(<span class="var-type">$var</span>&nbsp;<span class="var-name">$var</span>, <span class="var-type">$value</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$ApiErrorType" id="$ApiErrorType"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$ApiErrorType</span>
+						(line <span class="line-number">433</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$errorString" id="$errorString"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$errorString</span>
+						(line <span class="line-number">427</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$fieldPath" id="$fieldPath"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$fieldPath</span>
+						(line <span class="line-number">415</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$trigger" id="$trigger"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$trigger</span>
+						(line <span class="line-number">421</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">483</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">ApiError</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$fieldPath</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$trigger</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$errorString</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$ApiErrorType</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$fieldPath</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$trigger</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$errorString</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$ApiErrorType</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/ApiVersionError.html#method__construct">ApiVersionError::__construct()</a>
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/AuthenticationError.html#method__construct">AuthenticationError::__construct()</a>
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/CommonError.html#method__construct">CommonError::__construct()</a>
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/InternalApiError.html#method__construct">InternalApiError::__construct()</a>
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/NotNullError.html#method__construct">NotNullError::__construct()</a>
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/ParseError.html#method__construct">ParseError::__construct()</a>
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/PermissionError.html#method__construct">PermissionError::__construct()</a>
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/QuotaError.html#method__construct">QuotaError::__construct()</a>
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/RequiredError.html#method__construct">RequiredError::__construct()</a>
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/ServerError.html#method__construct">ServerError::__construct()</a>
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/StatementError.html#method__construct">StatementError::__construct()</a>
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/TypeError.html#method__construct">TypeError::__construct()</a>
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/UniqueError.html#method__construct">UniqueError::__construct()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodgetNamespace" id="getNamespace"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNamespace</span> (line <span class="line-number">471</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the namesapce of this class</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> namespace of this class</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			getNamespace
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/ApiVersionError.html#methodgetNamespace">ApiVersionError::getNamespace()</a>
+								: Gets the namesapce of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/AuthenticationError.html#methodgetNamespace">AuthenticationError::getNamespace()</a>
+								: Gets the namesapce of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/CommonError.html#methodgetNamespace">CommonError::getNamespace()</a>
+								: Gets the namesapce of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/InternalApiError.html#methodgetNamespace">InternalApiError::getNamespace()</a>
+								: Gets the namesapce of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/NotNullError.html#methodgetNamespace">NotNullError::getNamespace()</a>
+								: Gets the namesapce of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/ParseError.html#methodgetNamespace">ParseError::getNamespace()</a>
+								: Gets the namesapce of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/PermissionError.html#methodgetNamespace">PermissionError::getNamespace()</a>
+								: Gets the namesapce of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/QuotaError.html#methodgetNamespace">QuotaError::getNamespace()</a>
+								: Gets the namesapce of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/RequiredError.html#methodgetNamespace">RequiredError::getNamespace()</a>
+								: Gets the namesapce of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/ServerError.html#methodgetNamespace">ServerError::getNamespace()</a>
+								: Gets the namesapce of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/StatementError.html#methodgetNamespace">StatementError::getNamespace()</a>
+								: Gets the namesapce of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/TypeError.html#methodgetNamespace">TypeError::getNamespace()</a>
+								: Gets the namesapce of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/UniqueError.html#methodgetNamespace">UniqueError::getNamespace()</a>
+								: Gets the namesapce of this class
+							</li>
+				</ul>
+	</div>
+<a name="methodgetParameterMap" id="getParameterMap"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getParameterMap</span> (line <span class="line-number">463</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Provided for getting non-php-standard named variables</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> parameter map</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getParameterMap
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetXsiTypeName" id="getXsiTypeName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getXsiTypeName</span> (line <span class="line-number">479</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the xsi:type name of this class</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> xsi:type name of this class</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			getXsiTypeName
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/ApiVersionError.html#methodgetXsiTypeName">ApiVersionError::getXsiTypeName()</a>
+								: Gets the xsi:type name of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/AuthenticationError.html#methodgetXsiTypeName">AuthenticationError::getXsiTypeName()</a>
+								: Gets the xsi:type name of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/CommonError.html#methodgetXsiTypeName">CommonError::getXsiTypeName()</a>
+								: Gets the xsi:type name of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/InternalApiError.html#methodgetXsiTypeName">InternalApiError::getXsiTypeName()</a>
+								: Gets the xsi:type name of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/NotNullError.html#methodgetXsiTypeName">NotNullError::getXsiTypeName()</a>
+								: Gets the xsi:type name of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/ParseError.html#methodgetXsiTypeName">ParseError::getXsiTypeName()</a>
+								: Gets the xsi:type name of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/PermissionError.html#methodgetXsiTypeName">PermissionError::getXsiTypeName()</a>
+								: Gets the xsi:type name of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/QuotaError.html#methodgetXsiTypeName">QuotaError::getXsiTypeName()</a>
+								: Gets the xsi:type name of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/RequiredError.html#methodgetXsiTypeName">RequiredError::getXsiTypeName()</a>
+								: Gets the xsi:type name of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/ServerError.html#methodgetXsiTypeName">ServerError::getXsiTypeName()</a>
+								: Gets the xsi:type name of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/StatementError.html#methodgetXsiTypeName">StatementError::getXsiTypeName()</a>
+								: Gets the xsi:type name of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/TypeError.html#methodgetXsiTypeName">TypeError::getXsiTypeName()</a>
+								: Gets the xsi:type name of this class
+							</li>
+					<li>
+				<a href="../../GoogleApiAdsDfp/v201103/UniqueError.html#methodgetXsiTypeName">UniqueError::getXsiTypeName()</a>
+								: Gets the xsi:type name of this class
+							</li>
+				</ul>
+	</div>
+<a name="method__get" id="__get"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__get</span> (line <span class="line-number">451</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Provided for getting non-php-standard named variables</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Variable value</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			__get
+		</span>
+					(<span class="var-type">$var</span>&nbsp;<span class="var-name">$var</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$var</span>
+				<span class="var-name">$var</span><span class="var-description">: Variable name to get.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__set" id="__set"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__set</span> (line <span class="line-number">444</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Provided for setting non-php-standard named variables</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__set
+		</span>
+					(<span class="var-type">$var</span>&nbsp;<span class="var-name">$var</span>, <span class="var-type">$value</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$var</span>
+				<span class="var-name">$var</span><span class="var-description">: Variable name to set</span>			</li>
+					<li>
+				<span class="var-type">$value</span>
+				<span class="var-name">$value</span><span class="var-description">: Value to set</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

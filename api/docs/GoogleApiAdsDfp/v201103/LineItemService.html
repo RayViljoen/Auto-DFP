@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class LineItemService</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class LineItemService</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">LineItemService</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> WSDLInterpreter</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Ads---Dfp---v201103---LineItemService.php.html">/Ads/Dfp/v201103/LineItemService.php</a> (line <span class="field">5839</span>)
+		</p>
+		
+				
+		<pre>SoapClient
+   |
+   --<a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html">AdsSoapClient</a>
+      |
+      --<a href="../../GoogleApiAdsDfp/Lib/DfpSoapClient.html">DfpSoapClient</a>
+         |
+         --LineItemService</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+												<div class="var-title">
+					static <span class="var-type">array</span>
+					<a href="#$classmap" title="details" class="var-name">$classmap</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type">string</span>
+					<a href="#$endpoint" title="details" class="var-name">$endpoint</a>
+				</div>
+																															</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																				
+												<div class="method-definition">
+											<span class="method-result">LineItemService</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$wsdl</span> = <span class="var-default">null</span>], <span class="var-type">array</span>&nbsp;<span class="var-name">$options</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#createLineItem" title="details" class="method-name">createLineItem</a>
+											(<span class="var-type">lineItem</span>&nbsp;<span class="var-name">$lineItem</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#createLineItems" title="details" class="method-name">createLineItems</a>
+											(<span class="var-type">lineItems</span>&nbsp;<span class="var-name">$lineItems</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#getLineItem" title="details" class="method-name">getLineItem</a>
+											(<span class="var-type">lineItemId</span>&nbsp;<span class="var-name">$lineItemId</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#getLineItemsByStatement" title="details" class="method-name">getLineItemsByStatement</a>
+											(<span class="var-type">filterStatement</span>&nbsp;<span class="var-name">$filterStatement</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#performLineItemAction" title="details" class="method-name">performLineItemAction</a>
+											(<span class="var-type">lineItemAction</span>&nbsp;<span class="var-name">$lineItemAction</span>, <span class="var-type">filterStatement</span>&nbsp;<span class="var-name">$filterStatement</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#updateLineItem" title="details" class="method-name">updateLineItem</a>
+											(<span class="var-type">lineItem</span>&nbsp;<span class="var-name">$lineItem</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#updateLineItems" title="details" class="method-name">updateLineItems</a>
+											(<span class="var-type">lineItems</span>&nbsp;<span class="var-name">$lineItems</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$classmap" id="$classmap"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">array</span>
+			<span class="var-name">$classmap</span>
+			 = <span class="var-default">array(<br />    &quot;DateTime&quot; =&gt; &quot;DfpDateTime&quot;,<br />    &quot;Location&quot; =&gt; &quot;DfpLocation&quot;,<br />    &quot;OAuth&quot; =&gt; &quot;DfpOAuth&quot;,<br />    &quot;ActivateLineItems&quot; =&gt; &quot;ActivateLineItems&quot;,<br />    &quot;LineItemAction&quot; =&gt; &quot;LineItemAction&quot;,<br />    &quot;ApiError&quot; =&gt; &quot;ApiError&quot;,<br />    &quot;ApiException&quot; =&gt; &quot;ApiException&quot;,<br />    &quot;ApplicationException&quot; =&gt; &quot;ApplicationException&quot;,<br />    &quot;ApiVersionError&quot; =&gt; &quot;ApiVersionError&quot;,<br />    &quot;ArchiveLineItems&quot; =&gt; &quot;ArchiveLineItems&quot;,<br />    &quot;Authentication&quot; =&gt; &quot;Authentication&quot;,<br />    &quot;AuthenticationError&quot; =&gt; &quot;AuthenticationError&quot;,<br />    &quot;BooleanValue&quot; =&gt; &quot;BooleanValue&quot;,<br />    &quot;Value&quot; =&gt; &quot;Value&quot;,<br />    &quot;CityLocation&quot; =&gt; &quot;CityLocation&quot;,<br />    &quot;ClientLogin&quot; =&gt; &quot;ClientLogin&quot;,<br />    &quot;CommonError&quot; =&gt; &quot;CommonError&quot;,<br />    &quot;CountryLocation&quot; =&gt; &quot;CountryLocation&quot;,<br />    &quot;CustomCriteria&quot; =&gt; &quot;CustomCriteria&quot;,<br />    &quot;CustomCriteriaNode&quot; =&gt; &quot;CustomCriteriaNode&quot;,<br />    &quot;CustomCriteriaSet&quot; =&gt; &quot;CustomCriteriaSet&quot;,<br />    &quot;CustomTargetingError&quot; =&gt; &quot;CustomTargetingError&quot;,<br />    &quot;CustomTargetingValue&quot; =&gt; &quot;CustomTargetingValue&quot;,<br />    &quot;Date&quot; =&gt; &quot;Date&quot;,<br />    &quot;DayPart&quot; =&gt; &quot;DayPart&quot;,<br />    &quot;DayPartTargeting&quot; =&gt; &quot;DayPartTargeting&quot;,<br />    &quot;DayPartTargetingError&quot; =&gt; &quot;DayPartTargetingError&quot;,<br />    &quot;DeliveryData&quot; =&gt; &quot;DeliveryData&quot;,<br />    &quot;DeliveryIndicator&quot; =&gt; &quot;DeliveryIndicator&quot;,<br />    &quot;ForecastError&quot; =&gt; &quot;ForecastError&quot;,<br />    &quot;FreeFormCustomCriteria&quot; =&gt; &quot;FreeFormCustomCriteria&quot;,<br />    &quot;FrequencyCap&quot; =&gt; &quot;FrequencyCap&quot;,<br />    &quot;FrequencyCapError&quot; =&gt; &quot;FrequencyCapError&quot;,<br />    &quot;GeoTargeting&quot; =&gt; &quot;GeoTargeting&quot;,<br />    &quot;GeoTargetingError&quot; =&gt; &quot;GeoTargetingError&quot;,<br />    &quot;InternalApiError&quot; =&gt; &quot;InternalApiError&quot;,<br />    &quot;InventoryTargeting&quot; =&gt; &quot;InventoryTargeting&quot;,<br />    &quot;InventoryTargetingError&quot; =&gt; &quot;InventoryTargetingError&quot;,<br />    &quot;LineItem&quot; =&gt; &quot;LineItem&quot;,<br />    &quot;LineItemSummary&quot; =&gt; &quot;LineItemSummary&quot;,<br />    &quot;LineItemError&quot; =&gt; &quot;LineItemError&quot;,<br />    &quot;LineItemFlightDateError&quot; =&gt; &quot;LineItemFlightDateError&quot;,<br />    &quot;LineItemOperationError&quot; =&gt; &quot;LineItemOperationError&quot;,<br />    &quot;LineItemPage&quot; =&gt; &quot;LineItemPage&quot;,<br />    &quot;MetroLocation&quot; =&gt; &quot;MetroLocation&quot;,<br />    &quot;Money&quot; =&gt; &quot;Money&quot;,<br />    &quot;NotNullError&quot; =&gt; &quot;NotNullError&quot;,<br />    &quot;NullError&quot; =&gt; &quot;NullError&quot;,<br />    &quot;NumberValue&quot; =&gt; &quot;NumberValue&quot;,<br />    &quot;OrderError&quot; =&gt; &quot;OrderError&quot;,<br />    &quot;ParseError&quot; =&gt; &quot;ParseError&quot;,<br />    &quot;PauseLineItems&quot; =&gt; &quot;PauseLineItems&quot;,<br />    &quot;PermissionError&quot; =&gt; &quot;PermissionError&quot;,<br />    &quot;PredefinedCustomCriteria&quot; =&gt; &quot;PredefinedCustomCriteria&quot;,<br />    &quot;QuotaError&quot; =&gt; &quot;QuotaError&quot;,<br />    &quot;RangeError&quot; =&gt; &quot;RangeError&quot;,<br />    &quot;RegionLocation&quot; =&gt; &quot;RegionLocation&quot;,<br />    &quot;ReleaseLineItems&quot; =&gt; &quot;ReleaseLineItems&quot;,<br />    &quot;RequiredCollectionError&quot; =&gt; &quot;RequiredCollectionError&quot;,<br />    &quot;RequiredError&quot; =&gt; &quot;RequiredError&quot;,<br />    &quot;RequiredNumberError&quot; =&gt; &quot;RequiredNumberError&quot;,<br />    &quot;ReservationDetailsError&quot; =&gt; &quot;ReservationDetailsError&quot;,<br />    &quot;ReserveAndOverbookLineItems&quot; =&gt; &quot;ReserveAndOverbookLineItems&quot;,<br />    &quot;ReserveLineItems&quot; =&gt; &quot;ReserveLineItems&quot;,<br />    &quot;ResumeAndOverbookLineItems&quot; =&gt; &quot;ResumeAndOverbookLineItems&quot;,<br />    &quot;ResumeLineItems&quot; =&gt; &quot;ResumeLineItems&quot;,<br />    &quot;ServerError&quot; =&gt; &quot;ServerError&quot;,<br />    &quot;Size&quot; =&gt; &quot;Size&quot;,<br />    &quot;SoapRequestHeader&quot; =&gt; &quot;SoapRequestHeader&quot;,<br />    &quot;SoapResponseHeader&quot; =&gt; &quot;SoapResponseHeader&quot;,<br />    &quot;Statement&quot; =&gt; &quot;Statement&quot;,<br />    &quot;StatementError&quot; =&gt; &quot;StatementError&quot;,<br />    &quot;Stats&quot; =&gt; &quot;Stats&quot;,<br />    &quot;StringLengthError&quot; =&gt; &quot;StringLengthError&quot;,<br />    &quot;String_ValueMapEntry&quot; =&gt; &quot;String_ValueMapEntry&quot;,<br />    &quot;Targeting&quot; =&gt; &quot;Targeting&quot;,<br />    &quot;TextValue&quot; =&gt; &quot;TextValue&quot;,<br />    &quot;TimeOfDay&quot; =&gt; &quot;TimeOfDay&quot;,<br />    &quot;TypeError&quot; =&gt; &quot;TypeError&quot;,<br />    &quot;UnarchiveLineItems&quot; =&gt; &quot;UnarchiveLineItems&quot;,<br />    &quot;UniqueError&quot; =&gt; &quot;UniqueError&quot;,<br />    &quot;UpdateResult&quot; =&gt; &quot;UpdateResult&quot;,<br />    &quot;UserDomainTargeting&quot; =&gt; &quot;UserDomainTargeting&quot;,<br />    &quot;UserDomainTargetingError&quot; =&gt; &quot;UserDomainTargetingError&quot;,<br />    &quot;ApiVersionError.Reason&quot; =&gt; &quot;ApiVersionErrorReason&quot;,<br />    &quot;AuthenticationError.Reason&quot; =&gt; &quot;AuthenticationErrorReason&quot;,<br />    &quot;CommonError.Reason&quot; =&gt; &quot;CommonErrorReason&quot;,<br />    &quot;ComputedStatus&quot; =&gt; &quot;ComputedStatus&quot;,<br />    &quot;CostType&quot; =&gt; &quot;CostType&quot;,<br />    &quot;CreativeRotationType&quot; =&gt; &quot;CreativeRotationType&quot;,<br />    &quot;CustomCriteria.ComparisonOperator&quot; =&gt; &quot;CustomCriteriaComparisonOperator&quot;,<br />    &quot;CustomCriteriaSet.LogicalOperator&quot; =&gt; &quot;CustomCriteriaSetLogicalOperator&quot;,<br />    &quot;CustomTargetingError.Reason&quot; =&gt; &quot;CustomTargetingErrorReason&quot;,<br />    &quot;CustomTargetingValue.MatchType&quot; =&gt; &quot;CustomTargetingValueMatchType&quot;,<br />    &quot;DayOfWeek&quot; =&gt; &quot;DayOfWeek&quot;,<br />    &quot;DayPartTargetingError.Reason&quot; =&gt; &quot;DayPartTargetingErrorReason&quot;,<br />    &quot;DeliveryTimeZone&quot; =&gt; &quot;DeliveryTimeZone&quot;,<br />    &quot;DeliveryRateType&quot; =&gt; &quot;DeliveryRateType&quot;,<br />    &quot;ForecastError.Reason&quot; =&gt; &quot;ForecastErrorReason&quot;,<br />    &quot;FrequencyCapError.Reason&quot; =&gt; &quot;FrequencyCapErrorReason&quot;,<br />    &quot;GeoTargetingError.Reason&quot; =&gt; &quot;GeoTargetingErrorReason&quot;,<br />    &quot;InternalApiError.Reason&quot; =&gt; &quot;InternalApiErrorReason&quot;,<br />    &quot;InventoryTargetingError.Reason&quot; =&gt; &quot;InventoryTargetingErrorReason&quot;,<br />    &quot;LineItemDiscountType&quot; =&gt; &quot;LineItemDiscountType&quot;,<br />    &quot;LineItemError.Reason&quot; =&gt; &quot;LineItemErrorReason&quot;,<br />    &quot;LineItemFlightDateError.Reason&quot; =&gt; &quot;LineItemFlightDateErrorReason&quot;,<br />    &quot;LineItemOperationError.Reason&quot; =&gt; &quot;LineItemOperationErrorReason&quot;,<br />    &quot;LineItemSummary.Duration&quot; =&gt; &quot;LineItemSummaryDuration&quot;,<br />    &quot;LineItemSummary.ReservationStatus&quot; =&gt; &quot;LineItemSummaryReservationStatus&quot;,<br />    &quot;LineItemType&quot; =&gt; &quot;LineItemType&quot;,<br />    &quot;MinuteOfHour&quot; =&gt; &quot;MinuteOfHour&quot;,<br />    &quot;NotNullError.Reason&quot; =&gt; &quot;NotNullErrorReason&quot;,<br />    &quot;NullError.Reason&quot; =&gt; &quot;NullErrorReason&quot;,<br />    &quot;OrderError.Reason&quot; =&gt; &quot;OrderErrorReason&quot;,<br />    &quot;ParseError.Reason&quot; =&gt; &quot;ParseErrorReason&quot;,<br />    &quot;PermissionError.Reason&quot; =&gt; &quot;PermissionErrorReason&quot;,<br />    &quot;QuotaError.Reason&quot; =&gt; &quot;QuotaErrorReason&quot;,<br />    &quot;RangeError.Reason&quot; =&gt; &quot;RangeErrorReason&quot;,<br />    &quot;RequiredCollectionError.Reason&quot; =&gt; &quot;RequiredCollectionErrorReason&quot;,<br />    &quot;RequiredError.Reason&quot; =&gt; &quot;RequiredErrorReason&quot;,<br />    &quot;RequiredNumberError.Reason&quot; =&gt; &quot;RequiredNumberErrorReason&quot;,<br />    &quot;ReservationDetailsError.Reason&quot; =&gt; &quot;ReservationDetailsErrorReason&quot;,<br />    &quot;RoadblockingType&quot; =&gt; &quot;RoadblockingType&quot;,<br />    &quot;ServerError.Reason&quot; =&gt; &quot;ServerErrorReason&quot;,<br />    &quot;StartDateTimeType&quot; =&gt; &quot;StartDateTimeType&quot;,<br />    &quot;StatementError.Reason&quot; =&gt; &quot;StatementErrorReason&quot;,<br />    &quot;StringLengthError.Reason&quot; =&gt; &quot;StringLengthErrorReason&quot;,<br />    &quot;TimeUnit&quot; =&gt; &quot;TimeUnit&quot;,<br />    &quot;UnitType&quot; =&gt; &quot;UnitType&quot;,<br />    &quot;UserDomainTargetingError.Reason&quot; =&gt; &quot;UserDomainTargetingErrorReason&quot;,<br />    &quot;createLineItem&quot; =&gt; &quot;createLineItem&quot;,<br />    &quot;createLineItemResponse&quot; =&gt; &quot;createLineItemResponse&quot;,<br />    &quot;createLineItems&quot; =&gt; &quot;createLineItems&quot;,<br />    &quot;createLineItemsResponse&quot; =&gt; &quot;createLineItemsResponse&quot;,<br />    &quot;getLineItem&quot; =&gt; &quot;getLineItem&quot;,<br />    &quot;getLineItemResponse&quot; =&gt; &quot;getLineItemResponse&quot;,<br />    &quot;getLineItemsByStatement&quot; =&gt; &quot;getLineItemsByStatement&quot;,<br />    &quot;getLineItemsByStatementResponse&quot; =&gt; &quot;getLineItemsByStatementResponse&quot;,<br />    &quot;performLineItemAction&quot; =&gt; &quot;performLineItemAction&quot;,<br />    &quot;performLineItemActionResponse&quot; =&gt; &quot;performLineItemActionResponse&quot;,<br />    &quot;updateLineItem&quot; =&gt; &quot;updateLineItem&quot;,<br />    &quot;updateLineItemResponse&quot; =&gt; &quot;updateLineItemResponse&quot;,<br />    &quot;updateLineItems&quot; =&gt; &quot;updateLineItems&quot;,<br />    &quot;updateLineItemsResponse&quot; =&gt; &quot;updateLineItemsResponse&quot;,<br />  )</span>			(line <span class="line-number">5845</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Default class map for wsdl=&gt;php</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$endpoint" id="$endpoint"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">string</span>
+			<span class="var-name">$endpoint</span>
+			 = <span class="var-default"> &quot;https://sandbox.google.com/apis/ads/publisher/v201103/LineItemService&quot;</span>			(line <span class="line-number">5996</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The endpoint of the service</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html">AdsSoapClient</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$headers">AdsSoapClient::$headers</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastArguments">AdsSoapClient::$lastArguments</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastHeaders">AdsSoapClient::$lastHeaders</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastMethodName">AdsSoapClient::$lastMethodName</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastRequest">AdsSoapClient::$lastRequest</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastResponse">AdsSoapClient::$lastResponse</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastSoapFault">AdsSoapClient::$lastSoapFault</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$options">AdsSoapClient::$options</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$serviceName">AdsSoapClient::$serviceName</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$serviceNamespace">AdsSoapClient::$serviceNamespace</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$user">AdsSoapClient::$user</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">6003</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor using wsdl location and options array</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">LineItemService</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$wsdl</span> = <span class="var-default">null</span>], <span class="var-type">array</span>&nbsp;<span class="var-name">$options</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$wsdl</span><span class="var-description">: WSDL location for this service</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$options</span><span class="var-description">: Options for the SoapClient</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../GoogleApiAdsDfp/Lib/DfpSoapClient.html#method__construct">DfpSoapClient::__construct()</a></dt>
+						<dd>Constructor for Google's DoubleClick for Publishers API SOAP client.</dd>
+					</dl>
+			
+	</div>
+<a name="methodcreateLineItem" id="createLineItem"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createLineItem</span> (line <span class="line-number">6028</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates a new <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>.</p>
+<p class="description"><p>These fields are required:  <ul><li>costPerUnit</li><li>costType</li><li></li><li>endDateTime</li><li>lineItemType</li><li>name</li><li>orderId</li><li>startDateTime</li><li>unitsBought</li><li>creativeSizes</li><li>targeting</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> line item with its ID filled in</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			createLineItem
+		</span>
+					(<span class="var-type">lineItem</span>&nbsp;<span class="var-name">$lineItem</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">lineItem</span>
+				<span class="var-name">$lineItem</span><span class="var-description">: the line item to create</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcreateLineItems" id="createLineItems"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createLineItems</span> (line <span class="line-number">6041</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates new <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> created line items with their IDs filled in</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			createLineItems
+		</span>
+					(<span class="var-type">lineItems</span>&nbsp;<span class="var-name">$lineItems</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">lineItems</span>
+				<span class="var-name">$lineItems</span><span class="var-description">: the line items to create</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetLineItem" id="getLineItem"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getLineItem</span> (line <span class="line-number">6054</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> uniquely identified by the given ID.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> {@code LineItem} uniquely identified by the given ID</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			getLineItem
+		</span>
+					(<span class="var-type">lineItemId</span>&nbsp;<span class="var-name">$lineItemId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">lineItemId</span>
+				<span class="var-name">$lineItemId</span><span class="var-description">: the ID of the line item, which must already exist</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetLineItemsByStatement" id="getLineItemsByStatement"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getLineItemsByStatement</span> (line <span class="line-number">6108</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets a <a href="../../GoogleApiAdsDfp/v201103/LineItemPage.html">LineItemPage</a> of <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects that satisfy the  given query. The following fields are supported for  filtering:</p>
+<p class="description"><p>&lt;table&gt;  &lt;tr&gt;  &lt;th scope=&quot;col&quot;&gt;PQL Property&lt;/th&gt; &lt;th scope=&quot;col&quot;&gt;Object Property&lt;/th&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;{@code costType}&lt;/td&gt;  &lt;td&gt;costType&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;{@code id}&lt;/td&gt;  &lt;td&gt;id&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;{@code lineItemType}&lt;/td&gt;  &lt;td&gt;lineItemType&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;{@code name}&lt;/td&gt;  &lt;td&gt;name&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;{@code orderId}&lt;/td&gt;  &lt;td&gt;orderId&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;{@code status}&lt;/td&gt;  &lt;td&gt;status&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;{@code unitsBought}&lt;/td&gt;  &lt;td&gt;unitsBought&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;{@code deliveryRateType}&lt;/td&gt;  &lt;td&gt;deliveryRateType&lt;/td&gt;  &lt;/tr&gt;  &lt;/table&gt;</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> line items that match the given filter</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			getLineItemsByStatement
+		</span>
+					(<span class="var-type">filterStatement</span>&nbsp;<span class="var-name">$filterStatement</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">filterStatement</span>
+				<span class="var-name">$filterStatement</span><span class="var-description">: a Publisher Query Language statement used to filter  a set of line items.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodperformLineItemAction" id="performLineItemAction"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">performLineItemAction</span> (line <span class="line-number">6124</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Performs actions on <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects that match the given  query.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> result of the action performed</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			performLineItemAction
+		</span>
+					(<span class="var-type">lineItemAction</span>&nbsp;<span class="var-name">$lineItemAction</span>, <span class="var-type">filterStatement</span>&nbsp;<span class="var-name">$filterStatement</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">lineItemAction</span>
+				<span class="var-name">$lineItemAction</span><span class="var-description">: the action to perform</span>			</li>
+					<li>
+				<span class="var-type">filterStatement</span>
+				<span class="var-name">$filterStatement</span><span class="var-description">: a Publisher Query Language statement used to filter  a set of line items</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodupdateLineItem" id="updateLineItem"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">updateLineItem</span> (line <span class="line-number">6137</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Updates the specified <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> updated line item</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			updateLineItem
+		</span>
+					(<span class="var-type">lineItem</span>&nbsp;<span class="var-name">$lineItem</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">lineItem</span>
+				<span class="var-name">$lineItem</span><span class="var-description">: the line item to update</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodupdateLineItems" id="updateLineItems"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">updateLineItems</span> (line <span class="line-number">6150</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Updates the specified <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> updated line items</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			updateLineItems
+		</span>
+					(<span class="var-type">lineItems</span>&nbsp;<span class="var-name">$lineItems</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">lineItems</span>
+				<span class="var-name">$lineItems</span><span class="var-description">: the line items to update</span>			</li>
+				</ul>
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../GoogleApiAdsDfp/Lib/DfpSoapClient.html">DfpSoapClient</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../GoogleApiAdsDfp/Lib/DfpSoapClient.html#method__construct">DfpSoapClient::__construct()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsDfp/Lib/DfpSoapClient.html#methodGenerateRequestInfoMessage">DfpSoapClient::GenerateRequestInfoMessage()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsDfp/Lib/DfpSoapClient.html#methodGenerateSoapHeader">DfpSoapClient::GenerateSoapHeader()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsDfp/Lib/DfpSoapClient.html#methodRemoveSensitiveInfo">DfpSoapClient::RemoveSensitiveInfo()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html">AdsSoapClient</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#method__construct">AdsSoapClient::__construct()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodCreate">AdsSoapClient::Create()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGenerateRequestInfoMessage">AdsSoapClient::GenerateRequestInfoMessage()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGenerateSoapHeader">AdsSoapClient::GenerateSoapHeader()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetAdsUser">AdsSoapClient::GetAdsUser()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetEmail">AdsSoapClient::GetEmail()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetHeaderNames">AdsSoapClient::GetHeaderNames()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetHeaderValue">AdsSoapClient::GetHeaderValue()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastFaultMessage">AdsSoapClient::GetLastFaultMessage()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastMethodName">AdsSoapClient::GetLastMethodName()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastRequestDom">AdsSoapClient::GetLastRequestDom()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastRequestId">AdsSoapClient::GetLastRequestId()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastResponseDom">AdsSoapClient::GetLastResponseDom()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastResponseTime">AdsSoapClient::GetLastResponseTime()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetServer">AdsSoapClient::GetServer()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetServiceName">AdsSoapClient::GetServiceName()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetTypemaps">AdsSoapClient::GetTypemaps()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodIsFault">AdsSoapClient::IsFault()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodPrepareRequest">AdsSoapClient::PrepareRequest()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodRemoveSensitiveInfo">AdsSoapClient::RemoveSensitiveInfo()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodSetHeaderValue">AdsSoapClient::SetHeaderValue()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodTypemapLongFromXml">AdsSoapClient::TypemapLongFromXml()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodTypemapLongToXml">AdsSoapClient::TypemapLongToXml()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#method__doRequest">AdsSoapClient::__doRequest()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#method__soapCall">AdsSoapClient::__soapCall()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname">SoapClient (Internal Class)</span></p>
+					<blockquote>
+													<span class="method-name">constructor SoapClient ( $wsdl, [$options = ] )</span><br>
+													<span class="method-name">__call ( $function_name, $arguments )</span><br>
+													<span class="method-name">__doRequest ( $request, $location, $action, $version, [$one_way = ] )</span><br>
+													<span class="method-name">__getFunctions (  )</span><br>
+													<span class="method-name">__getLastRequest (  )</span><br>
+													<span class="method-name">__getLastRequestHeaders (  )</span><br>
+													<span class="method-name">__getLastResponse (  )</span><br>
+													<span class="method-name">__getLastResponseHeaders (  )</span><br>
+													<span class="method-name">__getTypes (  )</span><br>
+													<span class="method-name">__setCookie ( $name, [$value = ] )</span><br>
+													<span class="method-name">__setLocation ( [$new_location = ] )</span><br>
+													<span class="method-name">__setSoapHeaders ( $soapheaders )</span><br>
+													<span class="method-name">__soapCall ( $function_name, $arguments, [$options = ], [$input_headers = ], [&$output_headers = ] )</span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

@@ -543,9 +543,10 @@ class Authentication {
 
 if (!class_exists("AdUnitSize", FALSE)) {
 /**
- * An {@code AdUnitSize} represents the size of the ad unit.  In most
- * cases it is a simple size with just a width and a height (sometimes
- * representing an aspect ratio).
+ * An {@code AdUnitSize} represents the size of an ad in an ad unit. Starting
+ * with v201108 this also represents the environment, and companions of a
+ * particular ad in an ad unit. In most cases, it is a simple size with just a
+ * width and a height (sometimes representing an aspect ratio).
  * @package GoogleApiAdsDfp
  * @subpackage v201107
  */
@@ -1481,6 +1482,34 @@ class InventoryUnitErrorReason {
 
   public function __construct() {
     if(get_parent_class('InventoryUnitErrorReason')) parent::__construct();
+  }
+}}
+
+if (!class_exists("InventoryUnitSizesErrorReason", FALSE)) {
+/**
+ * All possible reasons the error can be thrown.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201107
+ */
+class InventoryUnitSizesErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201107";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "InventoryUnitSizesError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('InventoryUnitSizesErrorReason')) parent::__construct();
   }
 }}
 
@@ -2965,6 +2994,45 @@ class InventoryUnitError extends ApiError {
   }
 }}
 
+if (!class_exists("InventoryUnitSizesError", FALSE)) {
+/**
+ * An error specifically for InventoryUnitSizes.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201107
+ */
+class InventoryUnitSizesError extends ApiError {
+  /**
+   * @access public
+   * @var tnsInventoryUnitSizesErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201107";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "InventoryUnitSizesError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('InventoryUnitSizesError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
 if (!class_exists("NotNullError", FALSE)) {
 /**
  * Caused by supplying a null value for an attribute that cannot be null.
@@ -3006,7 +3074,7 @@ class NotNullError extends ApiError {
 
 if (!class_exists("NullError", FALSE)) {
 /**
- * Errors associated with contents not null constraint.
+ * Errors associated with violation of a NOT NULL check.
  * @package GoogleApiAdsDfp
  * @subpackage v201107
  */
@@ -3645,6 +3713,7 @@ class InventoryService extends DfpSoapClient {
     "FrequencyCapError" => "FrequencyCapError",
     "InternalApiError" => "InternalApiError",
     "InventoryUnitError" => "InventoryUnitError",
+    "InventoryUnitSizesError" => "InventoryUnitSizesError",
     "NotNullError" => "NotNullError",
     "NullError" => "NullError",
     "NumberValue" => "NumberValue",
@@ -3689,6 +3758,7 @@ class InventoryService extends DfpSoapClient {
     "InternalApiError.Reason" => "InternalApiErrorReason",
     "InventoryStatus" => "InventoryStatus",
     "InventoryUnitError.Reason" => "InventoryUnitErrorReason",
+    "InventoryUnitSizesError.Reason" => "InventoryUnitSizesErrorReason",
     "NotNullError.Reason" => "NotNullErrorReason",
     "NullError.Reason" => "NullErrorReason",
     "ParseError.Reason" => "ParseErrorReason",

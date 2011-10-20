@@ -38,7 +38,7 @@ require_once 'DfpSoapClientFactory.php';
  * the available API services.
  */
 class DfpUser extends AdsUser {
-  private static $LIB_VERSION = '2.7.0';
+  private static $LIB_VERSION = '2.8.0';
   private static $LIB_NAME = "DfpApi-PHP";
 
   /**

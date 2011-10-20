@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class UserService</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class UserService</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">UserService</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> WSDLInterpreter</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Ads---Dfp---v201103---UserService.php.html">/Ads/Dfp/v201103/UserService.php</a> (line <span class="field">2585</span>)
+		</p>
+		
+				
+		<pre>SoapClient
+   |
+   --<a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html">AdsSoapClient</a>
+      |
+      --<a href="../../GoogleApiAdsDfp/Lib/DfpSoapClient.html">DfpSoapClient</a>
+         |
+         --UserService</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+												<div class="var-title">
+					static <span class="var-type">array</span>
+					<a href="#$classmap" title="details" class="var-name">$classmap</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type">string</span>
+					<a href="#$endpoint" title="details" class="var-name">$endpoint</a>
+				</div>
+																															</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																												
+												<div class="method-definition">
+											<span class="method-result">UserService</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$wsdl</span> = <span class="var-default">null</span>], <span class="var-type">array</span>&nbsp;<span class="var-name">$options</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#createUser" title="details" class="method-name">createUser</a>
+											(<span class="var-type">user</span>&nbsp;<span class="var-name">$user</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#createUsers" title="details" class="method-name">createUsers</a>
+											(<span class="var-type">users</span>&nbsp;<span class="var-name">$users</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#getAllRoles" title="details" class="method-name">getAllRoles</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#getUser" title="details" class="method-name">getUser</a>
+											(<span class="var-type">userId</span>&nbsp;<span class="var-name">$userId</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#getUsersByStatement" title="details" class="method-name">getUsersByStatement</a>
+											(<span class="var-type">filterStatement</span>&nbsp;<span class="var-name">$filterStatement</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#performUserAction" title="details" class="method-name">performUserAction</a>
+											(<span class="var-type">userAction</span>&nbsp;<span class="var-name">$userAction</span>, <span class="var-type">filterStatement</span>&nbsp;<span class="var-name">$filterStatement</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#updateUser" title="details" class="method-name">updateUser</a>
+											(<span class="var-type">user</span>&nbsp;<span class="var-name">$user</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#updateUsers" title="details" class="method-name">updateUsers</a>
+											(<span class="var-type">users</span>&nbsp;<span class="var-name">$users</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$classmap" id="$classmap"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">array</span>
+			<span class="var-name">$classmap</span>
+			 = <span class="var-default">array(<br />    &quot;DateTime&quot; =&gt; &quot;DfpDateTime&quot;,<br />    &quot;Location&quot; =&gt; &quot;DfpLocation&quot;,<br />    &quot;OAuth&quot; =&gt; &quot;DfpOAuth&quot;,<br />    &quot;ActivateUsers&quot; =&gt; &quot;ActivateUsers&quot;,<br />    &quot;UserAction&quot; =&gt; &quot;UserAction&quot;,<br />    &quot;ApiVersionError&quot; =&gt; &quot;ApiVersionError&quot;,<br />    &quot;ApiError&quot; =&gt; &quot;ApiError&quot;,<br />    &quot;AuthenticationError&quot; =&gt; &quot;AuthenticationError&quot;,<br />    &quot;BooleanValue&quot; =&gt; &quot;BooleanValue&quot;,<br />    &quot;Value&quot; =&gt; &quot;Value&quot;,<br />    &quot;ClientLogin&quot; =&gt; &quot;ClientLogin&quot;,<br />    &quot;Authentication&quot; =&gt; &quot;Authentication&quot;,<br />    &quot;CommonError&quot; =&gt; &quot;CommonError&quot;,<br />    &quot;DeactivateUsers&quot; =&gt; &quot;DeactivateUsers&quot;,<br />    &quot;InternalApiError&quot; =&gt; &quot;InternalApiError&quot;,<br />    &quot;NotNullError&quot; =&gt; &quot;NotNullError&quot;,<br />    &quot;NumberValue&quot; =&gt; &quot;NumberValue&quot;,<br />    &quot;ParseError&quot; =&gt; &quot;ParseError&quot;,<br />    &quot;PermissionError&quot; =&gt; &quot;PermissionError&quot;,<br />    &quot;QuotaError&quot; =&gt; &quot;QuotaError&quot;,<br />    &quot;RequiredError&quot; =&gt; &quot;RequiredError&quot;,<br />    &quot;Role&quot; =&gt; &quot;Role&quot;,<br />    &quot;ServerError&quot; =&gt; &quot;ServerError&quot;,<br />    &quot;SoapResponseHeader&quot; =&gt; &quot;SoapResponseHeader&quot;,<br />    &quot;StatementError&quot; =&gt; &quot;StatementError&quot;,<br />    &quot;TextValue&quot; =&gt; &quot;TextValue&quot;,<br />    &quot;TypeError&quot; =&gt; &quot;TypeError&quot;,<br />    &quot;UpdateResult&quot; =&gt; &quot;UpdateResult&quot;,<br />    &quot;User&quot; =&gt; &quot;User&quot;,<br />    &quot;UserRecord&quot; =&gt; &quot;UserRecord&quot;,<br />    &quot;SoapRequestHeader&quot; =&gt; &quot;SoapRequestHeader&quot;,<br />    &quot;String_ValueMapEntry&quot; =&gt; &quot;String_ValueMapEntry&quot;,<br />    &quot;UserPage&quot; =&gt; &quot;UserPage&quot;,<br />    &quot;ApiException&quot; =&gt; &quot;ApiException&quot;,<br />    &quot;ApplicationException&quot; =&gt; &quot;ApplicationException&quot;,<br />    &quot;Statement&quot; =&gt; &quot;Statement&quot;,<br />    &quot;ApiVersionError.Reason&quot; =&gt; &quot;ApiVersionErrorReason&quot;,<br />    &quot;AuthenticationError.Reason&quot; =&gt; &quot;AuthenticationErrorReason&quot;,<br />    &quot;CommonError.Reason&quot; =&gt; &quot;CommonErrorReason&quot;,<br />    &quot;InternalApiError.Reason&quot; =&gt; &quot;InternalApiErrorReason&quot;,<br />    &quot;NotNullError.Reason&quot; =&gt; &quot;NotNullErrorReason&quot;,<br />    &quot;ParseError.Reason&quot; =&gt; &quot;ParseErrorReason&quot;,<br />    &quot;PermissionError.Reason&quot; =&gt; &quot;PermissionErrorReason&quot;,<br />    &quot;QuotaError.Reason&quot; =&gt; &quot;QuotaErrorReason&quot;,<br />    &quot;RequiredError.Reason&quot; =&gt; &quot;RequiredErrorReason&quot;,<br />    &quot;ServerError.Reason&quot; =&gt; &quot;ServerErrorReason&quot;,<br />    &quot;StatementError.Reason&quot; =&gt; &quot;StatementErrorReason&quot;,<br />    &quot;createUser&quot; =&gt; &quot;createUser&quot;,<br />    &quot;createUserResponse&quot; =&gt; &quot;createUserResponse&quot;,<br />    &quot;createUsers&quot; =&gt; &quot;createUsers&quot;,<br />    &quot;createUsersResponse&quot; =&gt; &quot;createUsersResponse&quot;,<br />    &quot;getAllRoles&quot; =&gt; &quot;getAllRoles&quot;,<br />    &quot;getAllRolesResponse&quot; =&gt; &quot;getAllRolesResponse&quot;,<br />    &quot;getUser&quot; =&gt; &quot;getUser&quot;,<br />    &quot;getUserResponse&quot; =&gt; &quot;getUserResponse&quot;,<br />    &quot;getUsersByStatement&quot; =&gt; &quot;getUsersByStatement&quot;,<br />    &quot;getUsersByStatementResponse&quot; =&gt; &quot;getUsersByStatementResponse&quot;,<br />    &quot;performUserAction&quot; =&gt; &quot;performUserAction&quot;,<br />    &quot;performUserActionResponse&quot; =&gt; &quot;performUserActionResponse&quot;,<br />    &quot;updateUser&quot; =&gt; &quot;updateUser&quot;,<br />    &quot;updateUserResponse&quot; =&gt; &quot;updateUserResponse&quot;,<br />    &quot;updateUsers&quot; =&gt; &quot;updateUsers&quot;,<br />    &quot;updateUsersResponse&quot; =&gt; &quot;updateUsersResponse&quot;,<br />  )</span>			(line <span class="line-number">2591</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Default class map for wsdl=&gt;php</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$endpoint" id="$endpoint"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">string</span>
+			<span class="var-name">$endpoint</span>
+			 = <span class="var-default"> &quot;https://sandbox.google.com/apis/ads/publisher/v201103/UserService&quot;</span>			(line <span class="line-number">2661</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The endpoint of the service</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html">AdsSoapClient</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$headers">AdsSoapClient::$headers</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastArguments">AdsSoapClient::$lastArguments</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastHeaders">AdsSoapClient::$lastHeaders</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastMethodName">AdsSoapClient::$lastMethodName</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastRequest">AdsSoapClient::$lastRequest</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastResponse">AdsSoapClient::$lastResponse</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$lastSoapFault">AdsSoapClient::$lastSoapFault</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$options">AdsSoapClient::$options</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$serviceName">AdsSoapClient::$serviceName</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$serviceNamespace">AdsSoapClient::$serviceNamespace</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#var$user">AdsSoapClient::$user</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">2668</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor using wsdl location and options array</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">UserService</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$wsdl</span> = <span class="var-default">null</span>], <span class="var-type">array</span>&nbsp;<span class="var-name">$options</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$wsdl</span><span class="var-description">: WSDL location for this service</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$options</span><span class="var-description">: Options for the SoapClient</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../GoogleApiAdsDfp/Lib/DfpSoapClient.html#method__construct">DfpSoapClient::__construct()</a></dt>
+						<dd>Constructor for Google's DoubleClick for Publishers API SOAP client.</dd>
+					</dl>
+			
+	</div>
+<a name="methodcreateUser" id="createUser"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createUser</span> (line <span class="line-number">2685</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates a new <a href="../../GoogleApiAdsDfp/v201103/User.html">User</a>.</p>
+<p class="description"><p>The following fields are required:  <ul><li>email</li><li>name</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> new user with its ID filled in</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			createUser
+		</span>
+					(<span class="var-type">user</span>&nbsp;<span class="var-name">$user</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">user</span>
+				<span class="var-name">$user</span><span class="var-description">: the user to create</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcreateUsers" id="createUsers"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createUsers</span> (line <span class="line-number">2698</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates new <a href="../../GoogleApiAdsDfp/v201103/User.html">User</a> objects.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> created users with their IDs filled in</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			createUsers
+		</span>
+					(<span class="var-type">users</span>&nbsp;<span class="var-name">$users</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">users</span>
+				<span class="var-name">$users</span><span class="var-description">: the users to create</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetAllRoles" id="getAllRoles"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAllRoles</span> (line <span class="line-number">2711</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the <a href="../../GoogleApiAdsDfp/v201103/Role.html">Role</a> objects that are defined for the users of the  network.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> roles defined for the user's network</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			getAllRoles
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetUser" id="getUser"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUser</span> (line <span class="line-number">2724</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the <a href="../../GoogleApiAdsDfp/v201103/User.html">User</a> uniquely identified by the given ID.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> {@code User} uniquely identified by the given ID</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			getUser
+		</span>
+					(<span class="var-type">userId</span>&nbsp;<span class="var-name">$userId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">userId</span>
+				<span class="var-name">$userId</span><span class="var-description">: the ID of the user, which must already exist</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetUsersByStatement" id="getUsersByStatement"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUsersByStatement</span> (line <span class="line-number">2770</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets a <a href="../../GoogleApiAdsDfp/v201103/UserPage.html">UserPage</a> of <a href="../../GoogleApiAdsDfp/v201103/User.html">User</a> objects that satisfy the given  query. The following fields are supported for filtering:</p>
+<p class="description"><p>&lt;table&gt;  &lt;tr&gt;  &lt;th scope=&quot;col&quot;&gt;PQL Property&lt;/th&gt; &lt;th scope=&quot;col&quot;&gt;Object Property&lt;/th&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;{@code email}&lt;/td&gt;  &lt;td&gt;email&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;{@code id}&lt;/td&gt;  &lt;td&gt;id&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;{@code name}&lt;/td&gt;  &lt;td&gt;name&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;{@code roleId}&lt;/td&gt;  &lt;td&gt;roleId  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;{@code rolename}&lt;/td&gt;  &lt;td&gt;roleName  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;{@code status}&lt;/td&gt;  &lt;td&gt;{@code ACTIVE} if isActive is true; {@code INACTIVE}  otherwise&lt;/td&gt;  &lt;/tr&gt;  &lt;/table&gt;</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> users that match the given filter</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			getUsersByStatement
+		</span>
+					(<span class="var-type">filterStatement</span>&nbsp;<span class="var-name">$filterStatement</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">filterStatement</span>
+				<span class="var-name">$filterStatement</span><span class="var-description">: a Publisher Query Language statement used to filter  a set of users</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodperformUserAction" id="performUserAction"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">performUserAction</span> (line <span class="line-number">2786</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Performs actions on <a href="../../GoogleApiAdsDfp/v201103/User.html">User</a> objects that match the given  query.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> result of the action performed</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			performUserAction
+		</span>
+					(<span class="var-type">userAction</span>&nbsp;<span class="var-name">$userAction</span>, <span class="var-type">filterStatement</span>&nbsp;<span class="var-name">$filterStatement</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">userAction</span>
+				<span class="var-name">$userAction</span><span class="var-description">: the action to perform</span>			</li>
+					<li>
+				<span class="var-type">filterStatement</span>
+				<span class="var-name">$filterStatement</span><span class="var-description">: a Publisher Query Language statement used to filter  a set of users</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodupdateUser" id="updateUser"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">updateUser</span> (line <span class="line-number">2799</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Updates the specified <a href="../../GoogleApiAdsDfp/v201103/User.html">User</a>.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> updated user</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			updateUser
+		</span>
+					(<span class="var-type">user</span>&nbsp;<span class="var-name">$user</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">user</span>
+				<span class="var-name">$user</span><span class="var-description">: the user to update</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodupdateUsers" id="updateUsers"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">updateUsers</span> (line <span class="line-number">2812</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Updates the specified <a href="../../GoogleApiAdsDfp/v201103/User.html">User</a> objects.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> updated users</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			updateUsers
+		</span>
+					(<span class="var-type">users</span>&nbsp;<span class="var-name">$users</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">users</span>
+				<span class="var-name">$users</span><span class="var-description">: the users to update</span>			</li>
+				</ul>
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../GoogleApiAdsDfp/Lib/DfpSoapClient.html">DfpSoapClient</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../GoogleApiAdsDfp/Lib/DfpSoapClient.html#method__construct">DfpSoapClient::__construct()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsDfp/Lib/DfpSoapClient.html#methodGenerateRequestInfoMessage">DfpSoapClient::GenerateRequestInfoMessage()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsDfp/Lib/DfpSoapClient.html#methodGenerateSoapHeader">DfpSoapClient::GenerateSoapHeader()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsDfp/Lib/DfpSoapClient.html#methodRemoveSensitiveInfo">DfpSoapClient::RemoveSensitiveInfo()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html">AdsSoapClient</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#method__construct">AdsSoapClient::__construct()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodCreate">AdsSoapClient::Create()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGenerateRequestInfoMessage">AdsSoapClient::GenerateRequestInfoMessage()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGenerateSoapHeader">AdsSoapClient::GenerateSoapHeader()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetAdsUser">AdsSoapClient::GetAdsUser()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetEmail">AdsSoapClient::GetEmail()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetHeaderNames">AdsSoapClient::GetHeaderNames()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetHeaderValue">AdsSoapClient::GetHeaderValue()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastFaultMessage">AdsSoapClient::GetLastFaultMessage()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastMethodName">AdsSoapClient::GetLastMethodName()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastRequestDom">AdsSoapClient::GetLastRequestDom()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastRequestId">AdsSoapClient::GetLastRequestId()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastResponseDom">AdsSoapClient::GetLastResponseDom()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetLastResponseTime">AdsSoapClient::GetLastResponseTime()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetServer">AdsSoapClient::GetServer()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetServiceName">AdsSoapClient::GetServiceName()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodGetTypemaps">AdsSoapClient::GetTypemaps()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodIsFault">AdsSoapClient::IsFault()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodPrepareRequest">AdsSoapClient::PrepareRequest()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodRemoveSensitiveInfo">AdsSoapClient::RemoveSensitiveInfo()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodSetHeaderValue">AdsSoapClient::SetHeaderValue()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodTypemapLongFromXml">AdsSoapClient::TypemapLongFromXml()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#methodTypemapLongToXml">AdsSoapClient::TypemapLongToXml()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#method__doRequest">AdsSoapClient::__doRequest()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsSoapClient.html#method__soapCall">AdsSoapClient::__soapCall()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname">SoapClient (Internal Class)</span></p>
+					<blockquote>
+													<span class="method-name">constructor SoapClient ( $wsdl, [$options = ] )</span><br>
+													<span class="method-name">__call ( $function_name, $arguments )</span><br>
+													<span class="method-name">__doRequest ( $request, $location, $action, $version, [$one_way = ] )</span><br>
+													<span class="method-name">__getFunctions (  )</span><br>
+													<span class="method-name">__getLastRequest (  )</span><br>
+													<span class="method-name">__getLastRequestHeaders (  )</span><br>
+													<span class="method-name">__getLastResponse (  )</span><br>
+													<span class="method-name">__getLastResponseHeaders (  )</span><br>
+													<span class="method-name">__getTypes (  )</span><br>
+													<span class="method-name">__setCookie ( $name, [$value = ] )</span><br>
+													<span class="method-name">__setLocation ( [$new_location = ] )</span><br>
+													<span class="method-name">__setSoapHeaders ( $soapheaders )</span><br>
+													<span class="method-name">__soapCall ( $function_name, $arguments, [$options = ], [$input_headers = ], [&$output_headers = ] )</span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

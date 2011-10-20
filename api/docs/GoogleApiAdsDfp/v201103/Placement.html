@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class Placement</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Placement</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">A {@code Placement} groups related {@code AdUnit} objects.</p>
+		<p class="notes">
+			Located in <a class="field" href="_Ads---Dfp---v201103---PlacementService.php.html">/Ads/Dfp/v201103/PlacementService.php</a> (line <span class="field">2714</span>)
+		</p>
+		
+				
+		<pre><a href="../../GoogleApiAdsDfp/v201103/SiteTargetingInfo.html">SiteTargetingInfo</a>
+   |
+   --Placement</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																																																								<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$adSenseTargetingLocale" title="details" class="var-name">$adSenseTargetingLocale</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$description" title="details" class="var-name">$description</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$id" title="details" class="var-name">$id</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">boolean</span>
+					<a href="#$isAdPlannerTargetingEnabled" title="details" class="var-name">$isAdPlannerTargetingEnabled</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">boolean</span>
+					<a href="#$isAdSenseTargetingEnabled" title="details" class="var-name">$isAdSenseTargetingEnabled</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$name" title="details" class="var-name">$name</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$placementCode" title="details" class="var-name">$placementCode</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">tnsInventoryStatus</span>
+					<a href="#$status" title="details" class="var-name">$status</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string[]</span>
+					<a href="#$targetedAdUnitIds" title="details" class="var-name">$targetedAdUnitIds</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																												
+												<div class="method-definition">
+											<span class="method-result">Placement</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$id</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$description</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$placementCode</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$status</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$isAdSenseTargetingEnabled</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$isAdPlannerTargetingEnabled</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$adSenseTargetingLocale</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$targetedAdUnitIds</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$targetingDescription</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$targetingSiteName</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$targetingAdLocation</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$SiteTargetingInfoType</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#getNamespace" title="details" class="method-name">getNamespace</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#getXsiTypeName" title="details" class="method-name">getXsiTypeName</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$adSenseTargetingLocale" id="$adSenseTargetingLocale"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$adSenseTargetingLocale</span>
+						(line <span class="line-number">2761</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$description" id="$description"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$description</span>
+						(line <span class="line-number">2731</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$id" id="$id"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$id</span>
+						(line <span class="line-number">2719</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$isAdPlannerTargetingEnabled" id="$isAdPlannerTargetingEnabled"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$isAdPlannerTargetingEnabled</span>
+						(line <span class="line-number">2755</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$isAdSenseTargetingEnabled" id="$isAdSenseTargetingEnabled"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$isAdSenseTargetingEnabled</span>
+						(line <span class="line-number">2749</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$name" id="$name"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$name</span>
+						(line <span class="line-number">2725</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$placementCode" id="$placementCode"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$placementCode</span>
+						(line <span class="line-number">2737</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$status" id="$status"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">tnsInventoryStatus</span>
+			<span class="var-name">$status</span>
+						(line <span class="line-number">2743</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$targetedAdUnitIds" id="$targetedAdUnitIds"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string[]</span>
+			<span class="var-name">$targetedAdUnitIds</span>
+						(line <span class="line-number">2767</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../GoogleApiAdsDfp/v201103/SiteTargetingInfo.html">SiteTargetingInfo</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsDfp/v201103/SiteTargetingInfo.html#var$SiteTargetingInfoType">SiteTargetingInfo::$SiteTargetingInfoType</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsDfp/v201103/SiteTargetingInfo.html#var$targetingAdLocation">SiteTargetingInfo::$targetingAdLocation</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsDfp/v201103/SiteTargetingInfo.html#var$targetingDescription">SiteTargetingInfo::$targetingDescription</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../GoogleApiAdsDfp/v201103/SiteTargetingInfo.html#var$targetingSiteName">SiteTargetingInfo::$targetingSiteName</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">2785</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Placement</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$id</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$description</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$placementCode</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$status</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$isAdSenseTargetingEnabled</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$isAdPlannerTargetingEnabled</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$adSenseTargetingLocale</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$targetedAdUnitIds</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$targetingDescription</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$targetingSiteName</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$targetingAdLocation</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$SiteTargetingInfoType</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$id</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$name</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$description</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$placementCode</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$status</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$isAdSenseTargetingEnabled</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$isAdPlannerTargetingEnabled</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$adSenseTargetingLocale</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$targetedAdUnitIds</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$targetingDescription</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$targetingSiteName</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$targetingAdLocation</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$SiteTargetingInfoType</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../GoogleApiAdsDfp/v201103/SiteTargetingInfo.html#method__construct">SiteTargetingInfo::__construct()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodgetNamespace" id="getNamespace"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNamespace</span> (line <span class="line-number">2773</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the namesapce of this class</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> namespace of this class</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			getNamespace
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../GoogleApiAdsDfp/v201103/SiteTargetingInfo.html#methodgetNamespace">SiteTargetingInfo::getNamespace()</a></dt>
+						<dd>Gets the namesapce of this class</dd>
+					</dl>
+			
+	</div>
+<a name="methodgetXsiTypeName" id="getXsiTypeName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getXsiTypeName</span> (line <span class="line-number">2781</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the xsi:type name of this class</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> xsi:type name of this class</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			getXsiTypeName
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../GoogleApiAdsDfp/v201103/SiteTargetingInfo.html#methodgetXsiTypeName">SiteTargetingInfo::getXsiTypeName()</a></dt>
+						<dd>Gets the xsi:type name of this class</dd>
+					</dl>
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../GoogleApiAdsDfp/v201103/SiteTargetingInfo.html">SiteTargetingInfo</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../GoogleApiAdsDfp/v201103/SiteTargetingInfo.html#method__construct">SiteTargetingInfo::__construct()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsDfp/v201103/SiteTargetingInfo.html#methodgetNamespace">SiteTargetingInfo::getNamespace()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsDfp/v201103/SiteTargetingInfo.html#methodgetParameterMap">SiteTargetingInfo::getParameterMap()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsDfp/v201103/SiteTargetingInfo.html#methodgetXsiTypeName">SiteTargetingInfo::getXsiTypeName()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsDfp/v201103/SiteTargetingInfo.html#method__get">SiteTargetingInfo::__get()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsDfp/v201103/SiteTargetingInfo.html#method__set">SiteTargetingInfo::__set()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

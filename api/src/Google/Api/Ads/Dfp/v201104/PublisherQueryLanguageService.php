@@ -176,8 +176,7 @@ class Value {
 
 if (!class_exists("Authentication", FALSE)) {
 /**
- * {@code Authentication} represents the authentication protocols that can be
- * used.
+ * A representation of the authentication protocols that can be used.
  * @package GoogleApiAdsDfp
  * @subpackage v201104
  */
@@ -674,8 +673,8 @@ if (!class_exists("AdUnitCodeErrorReason", FALSE)) {
 /**
  * For {@link AdUnit#adUnitCode}, only alpha-numeric characters,
  * underscores, hyphens, periods, asterisks, double quotes, back slashes,
- * forward slashes, commas, exclamations, left angle brackets, and colons
- * are allowed.
+ * forward slashes, exclamations, left angle brackets, colons and
+ * parentheses are allowed.
  * @package GoogleApiAdsDfp
  * @subpackage v201104
  */
@@ -1355,7 +1354,7 @@ class RegExErrorReason {
 
 if (!class_exists("RequiredCollectionErrorReason", FALSE)) {
 /**
- * 
+ * A required collection is missing.
  * @package GoogleApiAdsDfp
  * @subpackage v201104
  */

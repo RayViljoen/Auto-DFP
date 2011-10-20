@@ -24,7 +24,7 @@ class Auto_DFP_Admin
 	 * DFP API Version.
 	 * @var string
 	 */
-	private $api = 'v201107';
+	private $api = '201108';
 	
 	/**
 	 * DFP API Version.
@@ -313,6 +313,7 @@ class Auto_DFP_Admin
 		include $invettoryPath;
 		// Footer. Could later be moved to getFooter.
 		echo '</div><div class="props" ><a href="http://catn.com">Created by the experts at CatN</a></div>';
+		echo '<script type="text/javascript">jQuery("#settings").click(function(){jQuery("#dfp .settings").slideToggle(500); return false;});</script>';
 	}
 
 
@@ -325,7 +326,7 @@ class Auto_DFP_Admin
 	{
 		echo '<div id="dfp" class="wrap">';
 		echo '<div class="icon32 dfp_logo"><br></div>';
-		echo '<h2>'.__( 'Auto DFP', 'menu-test' ).'<span><a href="?page=dfp_options&dfp_logout">Logout</a> | <a href="#settings">Settings</a></span></h2>';
+		echo '<h2>'.__( 'Auto DFP', 'menu-test' ).'<span><a href="?page=dfp_options&dfp_logout">Logout</a> | <a id="settings" href="#settings">Settings</a></span></h2>';
 
 		if($this->saved){
 			echo '<div class="updated"><p><strong>';

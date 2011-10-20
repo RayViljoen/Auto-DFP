@@ -1,0 +1,1344 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs for page LineItemService.php</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="file-name">/Ads/Dfp/v201107/LineItemService.php</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-classes">Classes</a>
+			|							<a href="#sec-includes">Includes</a>
+												</div>
+	<div class="info-box-body">	
+		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Contains all client objects for the LineItemService service.</p>
+<p class="description"><p>PHP version 5</p><p>Copyright 2011, Google Inc. All Rights Reserved.</p><p>Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);  you may not use this file except in compliance with the License.  You may obtain a copy of the License at</p><p>http://www.apache.org/licenses/LICENSE-2.0</p><p>Unless required by applicable law or agreed to in writing, software  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the License for the specific language governing permissions and  limitations under the License.</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Eric Koleda &lt;<a href="mailto:eric.koleda@google.com">eric.koleda@google.com</a>&gt;</li>
+				<li><span class="field">copyright:</span> 2011, Google Inc. All Rights Reserved.</li>
+				<li><span class="field">license:</span> <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License,
+             Version 2.0</a></li>
+			</ul>
+		
+			</div>
+</div>
+		
+	<a name="sec-classes"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Classes</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Classes</span>
+			|							<a href="#sec-includes">Includes</a>
+																		</div>
+		<div class="info-box-body">	
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The API error base class that provides details about an error that occurred while processing a service request.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Provides <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects the ability to target or exclude  technologies.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors related to the usage of API versions.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Base class for exceptions.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a <a href="../../GoogleApiAdsDfp/v201107/Label.html">Label</a> that can be applied to an entity. To negate an  inherited label, create an {@code AppliedLabel} with {@code labelId} as the  inherited label's ID and {@code isNegated} set to true.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A representation of the authentication protocols that can be used.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											An error for an exception that occurred when authenticating.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents bandwidth groups that are being targeted or excluded by the  <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents browser languages that are being targeted or excluded by the  <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents browsers that are being targeted or excluded by the  <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201107/ClickTrackingLineItemError.html">ClickTrackingLineItemError</a>
+					</td>
+					<td>
+											Click tracking is a special line item type with a number of unique errors as  described below.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The credentials for the {@code ClientLogin} API authentication protocol.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A place for common errors that can be used across services.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Lists all errors related to <a href="../../GoogleApiAdsDfp/v201103/CustomTargetingKey.html">CustomTargetingKey</a> and  <a href="../../GoogleApiAdsDfp/v201103/CustomTargetingValue.html">CustomTargetingValue</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A <a href="../../GoogleApiAdsDfp/v201103/CustomCriteriaNode.html">CustomCriteriaNode</a> is a node in the custom targeting tree. A custom  criteria node can either be a <a href="../../GoogleApiAdsDfp/v201103/CustomCriteriaSet.html">CustomCriteriaSet</a> (a non-leaf node) or  a <a href="../../GoogleApiAdsDfp/v201103/CustomCriteria.html">CustomCriteria</a> (a leaf node). The custom criteria targeting tree is  subject to the rules defined on customTargeting.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a date.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a date combined with the time of day.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											{@code DayPart} represents a time-period within a day of the week which is  targeted by a <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Modify the delivery times of line items for particular days of the week. By  default, line items are served at all days and times.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Lists all errors associated with day-part targeting for a line item.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Holds the number of clicks or impressions, determined by
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Indicates the delivery performance of the <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors that can result from a forecast request.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a limit on the number of times a single viewer can be exposed to  the same <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> in a specified time period.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Lists all errors associated with frequency caps.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Provides line items the ability to target geographical locations. By default, line items target all countries and their subdivisions. With geographical targeting, you can target line items to specific countries, regions, metro areas, and cities. You can also exclude the same.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Lists all errors associated with geographical targeting for a  <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Indicates that a server-side error has occured. {@code InternalApiError}s  are generally not the result of an invalid request or message sent by the  client.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Contains criteria for targeting Inventory.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Lists all inventory errors caused by associating a line item with a targeting  expression.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors specific to creating label entity associations.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents the actions that can be performed on <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A catch-all error that lists all generic errors associated with LineItem.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Lists all errors associated with LineItem start and end dates.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Lists all errors for executing operations on line items
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Captures a page of <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The {@code LineItemSummary} represents the base class from which a {@code LineItem} is derived.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A Location represents a geographical entity that can be targeted. If  a location type is not available because of the API version you are using,  the location will be represented as just the base class, otherwise it will be  sub-classed correctly.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a metropolitan area for geographical targeting. Currently, metropolitan areas only within the United States can be targeted.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a money amount.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Caused by supplying a null value for an attribute that cannot be null.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors associated with violation of a NOT NULL check.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The credentials for the {@code OAuth} authentication protocol.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents operating systems that are being targeted or excluded by the  <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Lists all errors associated with orders.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Lists errors related to parsing.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The action used for pausing <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors related to incorrect permission.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Describes a client-side error on which a user is attempting  to perform an action to which they have no quota remaining.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A list of all errors associated with the Range constraint.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a principal subdivision (eg. province or state) of a country for geographical targeting.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The action used for releasing <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A list of all errors to be used for validating sizes of collections.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors due to missing required field.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A list of all errors to be used in conjunction with required number  validators.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Lists all errors associated with LineItem's reservation details.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The action used for reserving <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The action used for resuming <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors related to the server.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents the dimensions of AdUnits, LineItems and Creatives.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents the SOAP request header used by API requests.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents the SOAP request header used by API responses.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Captures the {@code WHERE}, {@code ORDER BY} and {@code LIMIT} clauses of a PQL query. Statements are typically used to retrieve objects of a predefined domain type, which makes SELECT clause unnecessary.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											An error that occurs while parsing <a href="../../GoogleApiAdsDfp/v201103/Statement.html">Statement</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											{@code Stats} contains trafficking statistics for <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> and
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors for Strings which do not meet given length constraints.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											This represents an entry in a map with a key of type String  and value of type Value.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Contains targeting criteria for <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects. See  targeting.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a technology entity that can be targeted.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a specific time in a day.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											An error for a field which is an invalid type.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The action used for unarchiving <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											An error for a field which must satisfy a uniqueness constraint
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents the result of performing an action on objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Provides line items the ability to target or exclude users visiting their  websites from a list of domains or subdomains.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Lists all errors related to user domain targeting for a line item.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											{@code Value} represents a value.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Indicates that the operation is not allowed in the version the request  was made in.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The SOAP message contains a request header with an ambiguous definition  of the authentication header fields. This means either the {@code authToken} and {@code oAuthToken} fields were both null or both were  specified. Exactly one value should be specified with each request.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201107/ClickTrackingLineItemErrorReason.html">ClickTrackingLineItemErrorReason</a>
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Describes reasons for common errors
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Describes the computed <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> status that is derived from the  current state of the line item.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Describes the <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> actions that are billable.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The strategy to use for displaying multiple <a href="../../GoogleApiAdsDfp/v201103/Creative.html">Creative</a> objects that are  associated with a <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Specifies the available comparison operators.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Specifies the available logical operators.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Days of the week.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents the time zone to be used for <a href="../../GoogleApiAdsDfp/v201103/DayPartTargeting.html">DayPartTargeting</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Possible delivery rates for a <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>, which dictate the manner in  which they are served.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Reason why a forecast could not be retrieved.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The single reason for the internal API error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Describes the possible discount types on the cost of booking a  <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Specifies the time period used for limiting the number of ads served for a  <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>. For valid and default values of duration for each line  item type, see duration.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Specifies the reservation status of the <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											{@code LineItemType} indicates the priority of a <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>, determined  by the way in which impressions are reserved to be served for it.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Minutes in an hour. Currently, only 0, 15, 30, and 45 are supported. This  field is required.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the validation error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Describes reasons for permission errors.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The number of requests made per second is too high and has exceeded the  allowable limit. Please wait before trying your request again. If you see  this error often, try increasing the wait time between requests.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A required collection is missing.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Describes reasons for a number to be invalid.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Describes the roadblocking types.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Describes reasons for server errors
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Specifies the start type to use for an entity with a start date time field.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A bind variable has not been bound to a value.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represent the possible time units for frequency capping.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Indicates the type of unit used for defining a reservation. The
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											ApiErrorReason enum for user domain targeting error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Creates a new <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Creates new <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Returns the <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> uniquely identified by the given ID.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Gets a <a href="../../GoogleApiAdsDfp/v201103/LineItemPage.html">LineItemPage</a> of <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects that satisfy the  given query. The following fields are supported for  filtering:
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Performs actions on <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects that match the given  query.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Updates the specified <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Updates the specified <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The action used for activating <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Exception class for holding a list of service errors.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The action used for archiving <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a group of bandwidths that are logically organized by some well  known generic names such as 'Cable' or 'DSL'.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Contains a boolean value.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents an internet browser.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a Browser's language.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a city for geographical targeting.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a country for geographical targeting.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A <a href="../../GoogleApiAdsDfp/v201103/CustomCriteria.html">CustomCriteria</a> object is used to perform custom criteria targeting  on custom targeting keys of type PREDEFINED  or FREEFORM.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A <a href="../../GoogleApiAdsDfp/v201103/CustomCriteriaSet.html">CustomCriteriaSet</a> comprises of a set of <a href="../../GoogleApiAdsDfp/v201103/CustomCriteriaNode.html">CustomCriteriaNode</a>
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201107/DeleteLineItems.html">DeleteLineItems</a>
+					</td>
+					<td>
+											The action used for deleting <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											{@code LineItem} is an advertiser's commitment to purchase a specific number  of ad impressions, clicks, or time.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Contains a numeric value.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents an Operating System, such as Linux, Mac OS or Windows.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The action used for reserving and overbooking <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The action used for resuming and overbooking <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Contains a string value.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											LineItemService
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+	<a name="sec-includes"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Includes</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-classes">Classes</a>
+				|						<span class="disabled">Includes</span>
+														</div>
+		<div class="info-box-body">	
+			<a name="_dirname(__FILE__)_/__/Lib/DfpSoapClient_php"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="include-title">
+			<span class="include-type">require_once</span>
+			(<span class="include-name">dirname(__FILE__)."/../Lib/DfpSoapClient.php"</span>)
+			(line <span class="line-number">31</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Required classes. *</p>
+	
+</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	<p class="notes" id="credit">
+		Documentation generated by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

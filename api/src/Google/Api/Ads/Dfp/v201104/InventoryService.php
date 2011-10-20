@@ -476,8 +476,7 @@ class AdUnitAction {
 
 if (!class_exists("Authentication", FALSE)) {
 /**
- * {@code Authentication} represents the authentication protocols that can be
- * used.
+ * A representation of the authentication protocols that can be used.
  * @package GoogleApiAdsDfp
  * @subpackage v201104
  */
@@ -1158,8 +1157,8 @@ if (!class_exists("AdUnitCodeErrorReason", FALSE)) {
 /**
  * For {@link AdUnit#adUnitCode}, only alpha-numeric characters,
  * underscores, hyphens, periods, asterisks, double quotes, back slashes,
- * forward slashes, commas, exclamations, left angle brackets, and colons
- * are allowed.
+ * forward slashes, exclamations, left angle brackets, colons and
+ * parentheses are allowed.
  * @package GoogleApiAdsDfp
  * @subpackage v201104
  */
@@ -1445,6 +1444,34 @@ class InventoryUnitErrorReason {
 
   public function __construct() {
     if(get_parent_class('InventoryUnitErrorReason')) parent::__construct();
+  }
+}}
+
+if (!class_exists("InventoryUnitSizesErrorReason", FALSE)) {
+/**
+ * All possible reasons the error can be thrown.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201104
+ */
+class InventoryUnitSizesErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201104";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "InventoryUnitSizesError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('InventoryUnitSizesErrorReason')) parent::__construct();
   }
 }}
 
@@ -2864,6 +2891,45 @@ class InventoryUnitError extends ApiError {
   }
 }}
 
+if (!class_exists("InventoryUnitSizesError", FALSE)) {
+/**
+ * An error specifically for InventoryUnitSizes.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201104
+ */
+class InventoryUnitSizesError extends ApiError {
+  /**
+   * @access public
+   * @var tnsInventoryUnitSizesErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201104";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "InventoryUnitSizesError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('InventoryUnitSizesError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
 if (!class_exists("NotNullError", FALSE)) {
 /**
  * Caused by supplying a null value for an attribute that cannot be null.
@@ -2905,7 +2971,7 @@ class NotNullError extends ApiError {
 
 if (!class_exists("NullError", FALSE)) {
 /**
- * Errors associated with contents not null constraint.
+ * Errors associated with violation of a NOT NULL check.
  * @package GoogleApiAdsDfp
  * @subpackage v201104
  */
@@ -3544,6 +3610,7 @@ class InventoryService extends DfpSoapClient {
     "FrequencyCapError" => "FrequencyCapError",
     "InternalApiError" => "InternalApiError",
     "InventoryUnitError" => "InventoryUnitError",
+    "InventoryUnitSizesError" => "InventoryUnitSizesError",
     "NotNullError" => "NotNullError",
     "NullError" => "NullError",
     "NumberValue" => "NumberValue",
@@ -3587,6 +3654,7 @@ class InventoryService extends DfpSoapClient {
     "InternalApiError.Reason" => "InternalApiErrorReason",
     "InventoryStatus" => "InventoryStatus",
     "InventoryUnitError.Reason" => "InventoryUnitErrorReason",
+    "InventoryUnitSizesError.Reason" => "InventoryUnitSizesErrorReason",
     "NotNullError.Reason" => "NotNullErrorReason",
     "NullError.Reason" => "NullErrorReason",
     "ParseError.Reason" => "ParseErrorReason",

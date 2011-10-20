@@ -403,8 +403,7 @@ class Value {
 
 if (!class_exists("Authentication", FALSE)) {
 /**
- * {@code Authentication} represents the authentication protocols that can be
- * used.
+ * A representation of the authentication protocols that can be used.
  * @package GoogleApiAdsDfp
  * @subpackage v201104
  */

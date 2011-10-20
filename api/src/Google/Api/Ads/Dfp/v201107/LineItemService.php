@@ -2090,7 +2090,10 @@ class LineItemSummary {
 
 if (!class_exists("DfpLocation", FALSE)) {
 /**
- * A {@link Location} represents a geographical entity that can be targeted.
+ * A {@link Location} represents a geographical entity that can be targeted. If
+ * a location type is not available because of the API version you are using,
+ * the location will be represented as just the base class, otherwise it will be
+ * sub-classed correctly.
  * @package GoogleApiAdsDfp
  * @subpackage v201107
  */
@@ -2295,7 +2298,7 @@ class NotNullError extends ApiError {
 
 if (!class_exists("NullError", FALSE)) {
 /**
- * Errors associated with contents not null constraint.
+ * Errors associated with violation of a NOT NULL check.
  * @package GoogleApiAdsDfp
  * @subpackage v201107
  */
@@ -2410,6 +2413,45 @@ class OperatingSystemTargeting {
     if(get_parent_class('OperatingSystemTargeting')) parent::__construct();
     $this->isTargeted = $isTargeted;
     $this->operatingSystems = $operatingSystems;
+  }
+}}
+
+if (!class_exists("OrderError", FALSE)) {
+/**
+ * Lists all errors associated with orders.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201107
+ */
+class OrderError extends ApiError {
+  /**
+   * @access public
+   * @var tnsOrderErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201107";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "OrderError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('OrderError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
   }
 }}
 
@@ -4615,6 +4657,34 @@ class NullErrorReason {
   }
 }}
 
+if (!class_exists("OrderErrorReason", FALSE)) {
+/**
+ * The reasons for the target error.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201107
+ */
+class OrderErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201107";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "OrderError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('OrderErrorReason')) parent::__construct();
+  }
+}}
+
 if (!class_exists("ParseErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
@@ -6423,6 +6493,7 @@ class LineItemService extends DfpSoapClient {
     "NumberValue" => "NumberValue",
     "OperatingSystem" => "OperatingSystem",
     "OperatingSystemTargeting" => "OperatingSystemTargeting",
+    "OrderError" => "OrderError",
     "ParseError" => "ParseError",
     "PauseLineItems" => "PauseLineItems",
     "PermissionError" => "PermissionError",
@@ -6486,6 +6557,7 @@ class LineItemService extends DfpSoapClient {
     "MinuteOfHour" => "MinuteOfHour",
     "NotNullError.Reason" => "NotNullErrorReason",
     "NullError.Reason" => "NullErrorReason",
+    "OrderError.Reason" => "OrderErrorReason",
     "ParseError.Reason" => "ParseErrorReason",
     "PermissionError.Reason" => "PermissionErrorReason",
     "QuotaError.Reason" => "QuotaErrorReason",

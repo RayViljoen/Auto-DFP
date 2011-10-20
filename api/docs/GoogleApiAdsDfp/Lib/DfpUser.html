@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class DfpUser</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class DfpUser</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">User class for the DoubleClick for Publishers API to create SOAP clients to  the available API services.</p>
+		<p class="notes">
+			Located in <a class="field" href="_Ads---Dfp---Lib---DfpUser.php.html">/Ads/Dfp/Lib/DfpUser.php</a> (line <span class="field">40</span>)
+		</p>
+		
+				
+		<pre><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html">AdsUser</a>
+   |
+   --DfpUser</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																				
+												<div class="method-definition">
+											<span class="method-result">DfpUser</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$authenticationIniPath</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$password</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$applicationName</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$networkCode</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$settingsIniPath</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$authToken</span> = <span class="var-default">NULL</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$oauthInfo</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetApplicationName" title="details" class="method-name">GetApplicationName</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetAuthToken" title="details" class="method-name">GetAuthToken</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetClientLibraryIdentifier" title="details" class="method-name">GetClientLibraryIdentifier</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetEmail" title="details" class="method-name">GetEmail</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetNetworkCode" title="details" class="method-name">GetNetworkCode</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetOAuthScope" title="details" class="method-name">GetOAuthScope</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#GetPassword" title="details" class="method-name">GetPassword</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">SoapClient</span>
+										<a href="#GetService" title="details" class="method-name">GetService</a>
+											(<span class="var-type">$serviceName</span>&nbsp;<span class="var-name">$serviceName</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$version</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$serviceFactory</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#RegenerateAuthToken" title="details" class="method-name">RegenerateAuthToken</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#SetAuthToken" title="details" class="method-name">SetAuthToken</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$authToken</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#SetClientLibraryApplicationName" title="details" class="method-name">SetClientLibraryApplicationName</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$applicationName</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#SetEmail" title="details" class="method-name">SetEmail</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#SetNetworkCode" title="details" class="method-name">SetNetworkCode</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$networkCode</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#SetPassword" title="details" class="method-name">SetPassword</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$password</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#__call" title="details" class="method-name">__call</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$arguments</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">96</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The DfpUser constructor.</p>
+<p class="description"><p>The DfpUser class can be configured in one of two ways:  <ol><li>Using an authenitcation INI file</li><li>Using supplied credentials</li></ol></p><p>If an authentication INI file is provided and successfully loaded, those  values will be used unless a corresponding parameter overwrites it.  If the authentication INI file is not provided (e.g. it is <var>NULL</var>)  the class will attempt to load the default authentication file at the path  of &quot;../auth.ini&quot; relative to this file's directory. Any corresponding  parameter, which is not <var>NULL</var> will however, overwrite any  parameter loaded from the default INI.</p><p>Likewise, if a custom settings INI file is not provided, the default  settings INI file will be loaded from the path of &quot;../settings.ini&quot;  relative to this file's directory.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">DfpUser</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$authenticationIniPath</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$password</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$applicationName</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$networkCode</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$settingsIniPath</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$authToken</span> = <span class="var-default">NULL</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$oauthInfo</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$authenticationIniPath</span><span class="var-description">: the absolute path to the      authentication INI or relative to the current directory (cwd). If      <var>NULL</var>, the default authentication INI file will attempt to be      loaded</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$email</span><span class="var-description">: the email of the user (required header). Will      overwrite the email entry loaded from any INI file</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$password</span><span class="var-description">: the password of the user (required header). Will      overwrite the password entry loaded from any INI file</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$applicationName</span><span class="var-description">: the application name (required header). Will      be prepended with the library name and version. Will also overwrite the      applicationName entry in any INI file</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$networkCode</span><span class="var-description">: the network code the user belongs to      (optional header). Can be left <var>NULL</var> if the user only belongs      to one network. Will overwrite the networkCode entry in any INI      file</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$settingsIniPath</span><span class="var-description">: the path to the settings INI file. If      <var>NULL</var>, the default settings INI file will be loaded</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$authToken</span><span class="var-description">: the authToken to use for requests</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$oauthInfo</span><span class="var-description">: the OAuth information to use for requests</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#method__construct">AdsUser::__construct()</a></dt>
+						<dd>Constructor for AdsUser.</dd>
+					</dl>
+			
+	</div>
+<a name="methodGetApplicationName" id="GetApplicationName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetApplicationName</span> (line <span class="line-number">223</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the application name for this library.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the application name</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetApplicationName
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodGetAuthToken" id="GetAuthToken"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetAuthToken</span> (line <span class="line-number">187</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the authentication token.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the auth token</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetAuthToken
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodGetClientLibraryIdentifier" id="GetClientLibraryIdentifier"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetClientLibraryIdentifier</span> (line <span class="line-number">273</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the client library identifier used for user-agent fields.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> a unique client library identifier</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetClientLibraryIdentifier
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetClientLibraryIdentifier">AdsUser::GetClientLibraryIdentifier()</a></dt>
+						<dd>Gets the client library identifier used for user-agent fields.</dd>
+					</dl>
+			
+	</div>
+<a name="methodGetEmail" id="GetEmail"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetEmail</span> (line <span class="line-number">241</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the email address of the user login.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the user login email</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetEmail
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodGetNetworkCode" id="GetNetworkCode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetNetworkCode</span> (line <span class="line-number">207</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the code for the network that this user belongs to.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the network code</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetNetworkCode
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodGetOAuthScope" id="GetOAuthScope"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetOAuthScope</span> (line <span class="line-number">310</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the OAuth scope for this user.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the OAuth scope to use when requesting the token</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetOAuthScope
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$server</span><span class="var-description">: the DFP API server that requests will be made to</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetOAuthScope">AdsUser::GetOAuthScope()</a></dt>
+						<dd>Gets the OAuth scope for this user.</dd>
+					</dl>
+			
+	</div>
+<a name="methodGetPassword" id="GetPassword"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetPassword</span> (line <span class="line-number">257</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the password for this user.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the password for this user</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetPassword
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodGetService" id="GetService"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetService</span> (line <span class="line-number">149</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the service by its service name.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the instantiated service</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">SoapClient</span>
+		<span class="method-name">
+			GetService
+		</span>
+					(<span class="var-type">$serviceName</span>&nbsp;<span class="var-name">$serviceName</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$version</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$serviceFactory</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$version</span><span class="var-description">: the version of the service to get. If      <var>NULL</var>, then the default version will be used</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$server</span><span class="var-description">: the server to make the request to. If      <var>NULL</var>, then the default server will be used</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../GoogleApiAdsCommon/Lib/SoapClientFactory.html">SoapClientFactory</a></span>
+				<span class="var-name">$serviceFactory</span><span class="var-description">: the factory to create the client.      If <var>NULL</var>, then the built-in SOAP client factory will be used</span>			</li>
+					<li>
+				<span class="var-type">$serviceName</span>
+				<span class="var-name">$serviceName</span><span class="var-description">: the service name</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodRegenerateAuthToken" id="RegenerateAuthToken"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">RegenerateAuthToken</span> (line <span class="line-number">172</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Regenerates the authentication token and sets it for this user.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the newly generated auth token</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			RegenerateAuthToken
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$server</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$server</span><span class="var-description">: the sever to retrieve the token from</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodSetAuthToken" id="SetAuthToken"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">SetAuthToken</span> (line <span class="line-number">199</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the authentication token.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			SetAuthToken
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$authToken</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$authToken</span><span class="var-description">: the auth token to set</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodSetClientLibraryApplicationName" id="SetClientLibraryApplicationName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">SetClientLibraryApplicationName</span> (line <span class="line-number">232</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the application name for this library.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			SetClientLibraryApplicationName
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$applicationName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$applicationName</span><span class="var-description">: the application name. Will be prepended      with the library name and version.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodSetEmail" id="SetEmail"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">SetEmail</span> (line <span class="line-number">249</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the email address of the user login.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			SetEmail
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$email</span><span class="var-description">: the user login email</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodSetNetworkCode" id="SetNetworkCode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">SetNetworkCode</span> (line <span class="line-number">215</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the code for the network that this user belongs to.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			SetNetworkCode
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$networkCode</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$networkCode</span><span class="var-description">: the network code</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodSetPassword" id="SetPassword"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">SetPassword</span> (line <span class="line-number">265</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the password for this user.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			SetPassword
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$password</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$password</span><span class="var-description">: the password for this user</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__call" id="__call"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__call</span> (line <span class="line-number">325</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Handles calls to undefined methods.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the result of the correct method call, or nothing if there      is no correct method</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			__call
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$arguments</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: the name of the method being called</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$arguments</span><span class="var-description">: the arguments passed to the method</span>			</li>
+				</ul>
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html">AdsUser</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#method__construct">AdsUser::__construct()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetAuthServer">AdsUser::GetAuthServer()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetAuthVarValue">AdsUser::GetAuthVarValue()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetClientLibraryIdentifier">AdsUser::GetClientLibraryIdentifier()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetDefaultServer">AdsUser::GetDefaultServer()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetDefaultVersion">AdsUser::GetDefaultVersion()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetHeaderNames">AdsUser::GetHeaderNames()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetHeaderValue">AdsUser::GetHeaderValue()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetLogsDirectory">AdsUser::GetLogsDirectory()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetOAuthAuthorizationUrl">AdsUser::GetOAuthAuthorizationUrl()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetOAuthHandler">AdsUser::GetOAuthHandler()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetOAuthInfo">AdsUser::GetOAuthInfo()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetOAuthScope">AdsUser::GetOAuthScope()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetServiceSoapClient">AdsUser::GetServiceSoapClient()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetSoapCompressionLevel">AdsUser::GetSoapCompressionLevel()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodGetWsdlCacheType">AdsUser::GetWsdlCacheType()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodInitLogs">AdsUser::InitLogs()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodIsSoapCompressionEnabled">AdsUser::IsSoapCompressionEnabled()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodLoadSettings">AdsUser::LoadSettings()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodLogAll">AdsUser::LogAll()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodLogDefaults">AdsUser::LogDefaults()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodLogErrors">AdsUser::LogErrors()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodRequestOAuthToken">AdsUser::RequestOAuthToken()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodSetDefaultServer">AdsUser::SetDefaultServer()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodSetDefaultVersion">AdsUser::SetDefaultVersion()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodSetHeaderValue">AdsUser::SetHeaderValue()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodSetOAuthHandler">AdsUser::SetOAuthHandler()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodSetOAuthInfo">AdsUser::SetOAuthInfo()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodUpgradeOAuthToken">AdsUser::UpgradeOAuthToken()</a></span><br>
+													<span class="method-name"><a href="../../GoogleApiAdsCommon/Lib/AdsUser.html#methodValidateOAuthInfo">AdsUser::ValidateOAuthInfo()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

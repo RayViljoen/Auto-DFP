@@ -24,7 +24,6 @@
 
 #dfp.wrap{
 	padding-top: 15px;
-	max-width:850px;
 }
 
 .dfp_logo{
@@ -33,7 +32,7 @@
 }
 
 .wrap h2{
-	padding: 30px 0 25px;
+	padding: 30px 0 50px;
 }
 
 .wrap h2 a{
@@ -154,7 +153,9 @@ p.submit{
 }
 
 .inventory{
-	padding-top:30px;
+	overflow: auto;
+	display: block;
+	margin: 0 0 15px;
 }
 
 #dfpAddNew,
@@ -309,10 +310,27 @@ text-align: center;
 /*-------------- SETTINGS PAGE -------------- */
 
 .settings{
-	display:none;
-	margin: 0 0 0 15px;
-	width: 815px;
-	height:400px;
+/*	display:none;
+*/	margin: 0 15px 15px;
+	overflow: auto;
+	padding: 0 10px;
 	background:#F0F0F0;
 }
 
+.settings h3{
+	margin: 0;
+	font-size: 2em;
+	font-weight: 100;
+	color: #777;
+	padding: 15px 0 30px;
+
+}
+
+.settings label{
+	padding: 15px;
+	float: left;
+	clear: left;
+}
+.settings label input{
+	margin-right: 15px;
+}

@@ -237,8 +237,7 @@ class ApplicationException {
 
 if (!class_exists("Authentication", FALSE)) {
 /**
- * {@code Authentication} represents the authentication protocols that can be
- * used.
+ * A representation of the authentication protocols that can be used.
  * @package GoogleApiAdsDfp
  * @subpackage v201104
  */
@@ -1543,7 +1542,10 @@ class LineItemSummary {
 
 if (!class_exists("DfpLocation", FALSE)) {
 /**
- * A {@link Location} represents a geographical entity that can be targeted.
+ * A {@link Location} represents a geographical entity that can be targeted. If
+ * a location type is not available because of the API version you are using,
+ * the location will be represented as just the base class, otherwise it will be
+ * sub-classed correctly.
  * @package GoogleApiAdsDfp
  * @subpackage v201104
  */
@@ -1820,6 +1822,45 @@ class DfpOAuth extends Authentication {
     if(get_parent_class('DfpOAuth')) parent::__construct();
     $this->parameters = $parameters;
     $this->AuthenticationType = $AuthenticationType;
+  }
+}}
+
+if (!class_exists("OrderError", FALSE)) {
+/**
+ * Lists all errors associated with orders.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201104
+ */
+class OrderError extends ApiError {
+  /**
+   * @access public
+   * @var tnsOrderErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201104";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "OrderError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('OrderError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
   }
 }}
 
@@ -2726,8 +2767,8 @@ if (!class_exists("AdUnitCodeErrorReason", FALSE)) {
 /**
  * For {@link AdUnit#adUnitCode}, only alpha-numeric characters,
  * underscores, hyphens, periods, asterisks, double quotes, back slashes,
- * forward slashes, commas, exclamations, left angle brackets, and colons
- * are allowed.
+ * forward slashes, exclamations, left angle brackets, colons and
+ * parentheses are allowed.
  * @package GoogleApiAdsDfp
  * @subpackage v201104
  */
@@ -3437,6 +3478,34 @@ class NullErrorReason {
   }
 }}
 
+if (!class_exists("OrderErrorReason", FALSE)) {
+/**
+ * The reasons for the target error.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201104
+ */
+class OrderErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201104";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "OrderError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('OrderErrorReason')) parent::__construct();
+  }
+}}
+
 if (!class_exists("ParseErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
@@ -3581,7 +3650,7 @@ class RegExErrorReason {
 
 if (!class_exists("RequiredCollectionErrorReason", FALSE)) {
 /**
- * 
+ * A required collection is missing.
  * @package GoogleApiAdsDfp
  * @subpackage v201104
  */
@@ -4451,6 +4520,7 @@ class ForecastService extends DfpSoapClient {
     "Money" => "Money",
     "NotNullError" => "NotNullError",
     "NullError" => "NullError",
+    "OrderError" => "OrderError",
     "ParseError" => "ParseError",
     "PermissionError" => "PermissionError",
     "QuotaError" => "QuotaError",
@@ -4498,6 +4568,7 @@ class ForecastService extends DfpSoapClient {
     "MinuteOfHour" => "MinuteOfHour",
     "NotNullError.Reason" => "NotNullErrorReason",
     "NullError.Reason" => "NullErrorReason",
+    "OrderError.Reason" => "OrderErrorReason",
     "ParseError.Reason" => "ParseErrorReason",
     "PermissionError.Reason" => "PermissionErrorReason",
     "QuotaError.Reason" => "QuotaErrorReason",

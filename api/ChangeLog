@@ -1,3 +1,9 @@
+2.8.0:
+- Added support, tests, and examples for v201108.
+- Added support for Date conversions in DateTimeUtils.
+- Made DfpDateTime conversions timezone aware.
+- Fixed tests so that they work correctly against production.
+
 2.7.0:
 - Added support, tests, and examples for v201107.
 - Replaced Get*Servce() methods with a single GetService() method. Maintained

@@ -237,8 +237,7 @@ class ApplicationException {
 
 if (!class_exists("Authentication", FALSE)) {
 /**
- * {@code Authentication} represents the authentication protocols that can be
- * used.
+ * A representation of the authentication protocols that can be used.
  * @package GoogleApiAdsDfp
  * @subpackage v201104
  */
@@ -1386,6 +1385,45 @@ class RangeError extends ApiError {
   }
 }}
 
+if (!class_exists("RequiredCollectionError", FALSE)) {
+/**
+ * A list of all errors to be used for validating sizes of collections.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201104
+ */
+class RequiredCollectionError extends ApiError {
+  /**
+   * @access public
+   * @var tnsRequiredCollectionErrorReason
+   */
+  public $reason;
+
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201104";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RequiredCollectionError";
+  }
+
+  public function __construct($reason = NULL, $fieldPath = NULL, $trigger = NULL, $errorString = NULL, $ApiErrorType = NULL) {
+    if(get_parent_class('RequiredCollectionError')) parent::__construct();
+    $this->reason = $reason;
+    $this->fieldPath = $fieldPath;
+    $this->trigger = $trigger;
+    $this->errorString = $errorString;
+    $this->ApiErrorType = $ApiErrorType;
+  }
+}}
+
 if (!class_exists("RequiredError", FALSE)) {
 /**
  * Errors due to missing required field.
@@ -2505,6 +2543,34 @@ class RangeErrorReason {
   }
 }}
 
+if (!class_exists("RequiredCollectionErrorReason", FALSE)) {
+/**
+ * A required collection is missing.
+ * @package GoogleApiAdsDfp
+ * @subpackage v201104
+ */
+class RequiredCollectionErrorReason {
+  /**
+   * Gets the namesapce of this class
+   * @return the namespace of this class
+   */
+  public function getNamespace() {
+    return "https://www.google.com/apis/ads/publisher/v201104";
+  }
+
+  /**
+   * Gets the xsi:type name of this class
+   * @return the xsi:type name of this class
+   */
+  public function getXsiTypeName() {
+    return "RequiredCollectionError.Reason";
+  }
+
+  public function __construct() {
+    if(get_parent_class('RequiredCollectionErrorReason')) parent::__construct();
+  }
+}}
+
 if (!class_exists("RequiredErrorReason", FALSE)) {
 /**
  * The reasons for the target error.
@@ -3529,6 +3595,7 @@ class OrderService extends DfpSoapClient {
     "PublisherQueryLanguageSyntaxError" => "PublisherQueryLanguageSyntaxError",
     "QuotaError" => "QuotaError",
     "RangeError" => "RangeError",
+    "RequiredCollectionError" => "RequiredCollectionError",
     "RequiredError" => "RequiredError",
     "ResumeAndOverbookOrders" => "ResumeAndOverbookOrders",
     "ResumeOrders" => "ResumeOrders",
@@ -3563,6 +3630,7 @@ class OrderService extends DfpSoapClient {
     "PublisherQueryLanguageSyntaxError.Reason" => "PublisherQueryLanguageSyntaxErrorReason",
     "QuotaError.Reason" => "QuotaErrorReason",
     "RangeError.Reason" => "RangeErrorReason",
+    "RequiredCollectionError.Reason" => "RequiredCollectionErrorReason",
     "RequiredError.Reason" => "RequiredErrorReason",
     "ServerError.Reason" => "ServerErrorReason",
     "StatementError.Reason" => "StatementErrorReason",

@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs for page OrderService.php</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="file-name">/Ads/Dfp/v201103/OrderService.php</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-classes">Classes</a>
+			|							<a href="#sec-includes">Includes</a>
+												</div>
+	<div class="info-box-body">	
+		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Contains all client objects for the OrderService service.</p>
+<p class="description"><p>PHP version 5</p><p>Copyright 2011, Google Inc. All Rights Reserved.</p><p>Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);  you may not use this file except in compliance with the License.  You may obtain a copy of the License at</p><p>http://www.apache.org/licenses/LICENSE-2.0</p><p>Unless required by applicable law or agreed to in writing, software  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the License for the specific language governing permissions and  limitations under the License.</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Eric Koleda &lt;<a href="mailto:eric.koleda@google.com">eric.koleda@google.com</a>&gt;</li>
+				<li><span class="field">copyright:</span> 2011, Google Inc. All Rights Reserved.</li>
+				<li><span class="field">license:</span> <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License,
+             Version 2.0</a></li>
+			</ul>
+		
+			</div>
+</div>
+		
+	<a name="sec-classes"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Classes</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Classes</span>
+			|							<a href="#sec-includes">Includes</a>
+																		</div>
+		<div class="info-box-body">	
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The API error base class that provides details about an error that occurred while processing a service request.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors related to the usage of API versions.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Base class for exceptions.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A representation of the authentication protocols that can be used.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											An error for an exception that occurred when authenticating.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The credentials for the {@code ClientLogin} API authentication protocol.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A place for common errors that can be used across services.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a date.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a date combined with the time of day.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors that can result from a forecast request.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Indicates that a server-side error has occured. {@code InternalApiError}s  are generally not the result of an invalid request or message sent by the  client.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/InvalidEmailError.html">InvalidEmailError</a>
+					</td>
+					<td>
+											Caused by supplying a value for an email attribute that is not a valid  email address.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents a money amount.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Caused by supplying a null value for an attribute that cannot be null.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The credentials for the {@code OAuth} authentication protocol.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/OrderAction.html">OrderAction</a>
+					</td>
+					<td>
+											Represents the actions that can be performed on <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/OrderActionError.html">OrderActionError</a>
+					</td>
+					<td>
+											Lists all errors associated with performing actions on <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a>
+					</td>
+					<td>
+											An {@code Order} represents a grouping of individual <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>  objects, each of which fulfill an ad request from a particular advertiser.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Lists all errors associated with orders.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/OrderPage.html">OrderPage</a>
+					</td>
+					<td>
+											Captures a page of <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Lists errors related to parsing.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/PauseOrders.html">PauseOrders</a>
+					</td>
+					<td>
+											The action used for pausing <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> objects. All <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>  objects within the order will be paused as well.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors related to incorrect permission.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											An error that occurs while executing a PQL query contained in  a <a href="../../GoogleApiAdsDfp/v201103/Statement.html">Statement</a> object.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											An error that occurs while parsing a PQL query contained in a  <a href="../../GoogleApiAdsDfp/v201103/Statement.html">Statement</a> object.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Describes a client-side error on which a user is attempting  to perform an action to which they have no quota remaining.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A list of all errors associated with the Range constraint.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A list of all errors to be used for validating sizes of collections.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors due to missing required field.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/ResumeOrders.html">ResumeOrders</a>
+					</td>
+					<td>
+											The action used for resuming <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> objects. All <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>  objects within the order will resume as well.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/RetractOrders.html">RetractOrders</a>
+					</td>
+					<td>
+											The action used for retracting <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors related to the server.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents the SOAP request header used by API requests.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents the SOAP request header used by API responses.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Captures the {@code WHERE}, {@code ORDER BY} and {@code LIMIT} clauses of a PQL query. Statements are typically used to retrieve objects of a predefined domain type, which makes SELECT clause unnecessary.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											An error that occurs while parsing <a href="../../GoogleApiAdsDfp/v201103/Statement.html">Statement</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Errors for Strings which do not meet given length constraints.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											This represents an entry in a map with a key of type String  and value of type Value.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/SubmitOrdersForApproval.html">SubmitOrdersForApproval</a>
+					</td>
+					<td>
+											The action used for submitting <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> objects for approval.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/SubmitOrdersForApprovalAndOverbook.html">SubmitOrdersForApprovalAndOverbook</a>
+					</td>
+					<td>
+											The action used for submitting and overbooking <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> objects for approval.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											An error for a field which is an invalid type.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/UnarchiveOrders.html">UnarchiveOrders</a>
+					</td>
+					<td>
+											The action used for unarchiving <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											An error for a field which must satisfy a uniqueness constraint
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Represents the result of performing an action on objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											{@code Value} represents a value.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Indicates that the operation is not allowed in the version the request  was made in.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The SOAP message contains a request header with an ambiguous definition  of the authentication header fields. This means either the {@code authToken} and {@code oAuthToken} fields were both null or both were  specified. Exactly one value should be specified with each request.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Describes reasons for common errors
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Reason why a forecast could not be retrieved.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The single reason for the internal API error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/InvalidEmailErrorReason.html">InvalidEmailErrorReason</a>
+					</td>
+					<td>
+											Describes reasons for an email to be invalid.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/OrderActionErrorReason.html">OrderActionErrorReason</a>
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/OrderStatus.html">OrderStatus</a>
+					</td>
+					<td>
+											Describes the order statuses.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Describes reasons for permission errors.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The number of requests made per second is too high and has exceeded the  allowable limit. Please wait before trying your request again. If you see  this error often, try increasing the wait time between requests.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A required collection is missing.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											The reasons for the target error.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Describes reasons for server errors
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											A bind variable has not been bound to a value.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/createOrder.html">createOrder</a>
+					</td>
+					<td>
+											Creates a new <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/createOrderResponse.html">createOrderResponse</a>
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/createOrders.html">createOrders</a>
+					</td>
+					<td>
+											Creates new <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/createOrdersResponse.html">createOrdersResponse</a>
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/getOrder.html">getOrder</a>
+					</td>
+					<td>
+											Returns the <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> uniquely identified by the given ID.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/getOrderResponse.html">getOrderResponse</a>
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/getOrdersByStatement.html">getOrdersByStatement</a>
+					</td>
+					<td>
+											Gets an <a href="../../GoogleApiAdsDfp/v201103/OrderPage.html">OrderPage</a> of <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> objects that satisfy the given  query. The following fields are supported for filtering:
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/getOrdersByStatementResponse.html">getOrdersByStatementResponse</a>
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/performOrderAction.html">performOrderAction</a>
+					</td>
+					<td>
+											Performs actions on <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> objects that match the given  query.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/performOrderActionResponse.html">performOrderActionResponse</a>
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/updateOrder.html">updateOrder</a>
+					</td>
+					<td>
+											Updates the specified <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a>.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/updateOrderResponse.html">updateOrderResponse</a>
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/updateOrders.html">updateOrders</a>
+					</td>
+					<td>
+											Updates the specified <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/updateOrdersResponse.html">updateOrdersResponse</a>
+					</td>
+					<td>
+											
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Exception class for holding a list of service errors.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/ApproveOrders.html">ApproveOrders</a>
+					</td>
+					<td>
+											The action used for approving <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> objects. All <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>  objects within the order will be approved as well.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/ArchiveOrders.html">ArchiveOrders</a>
+					</td>
+					<td>
+											The action used for archiving <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Contains a boolean value.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/DisapproveOrders.html">DisapproveOrders</a>
+					</td>
+					<td>
+											The action used for disapproving <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> objects. All <a href="../../GoogleApiAdsDfp/v201103/LineItem.html">LineItem</a>  objects within the order will be disapproved as well.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Contains a numeric value.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/ResumeAndOverbookOrders.html">ResumeAndOverbookOrders</a>
+					</td>
+					<td>
+											The action used for resuming and overbooking <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						
+					</td>
+					<td>
+											Contains a string value.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/ApproveAndOverbookOrders.html">ApproveAndOverbookOrders</a>
+					</td>
+					<td>
+											The action used for approving and overbooking <a href="../../GoogleApiAdsDfp/v201103/Order.html">Order</a> objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../../GoogleApiAdsDfp/v201103/OrderService.html">OrderService</a>
+					</td>
+					<td>
+											OrderService
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+	<a name="sec-includes"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Includes</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-classes">Classes</a>
+				|						<span class="disabled">Includes</span>
+														</div>
+		<div class="info-box-body">	
+			<a name="_dirname(__FILE__)_/__/Lib/DfpSoapClient_php"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="include-title">
+			<span class="include-type">require_once</span>
+			(<span class="include-name">dirname(__FILE__)."/../Lib/DfpSoapClient.php"</span>)
+			(line <span class="line-number">31</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Required classes. *</p>
+	
+</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	<p class="notes" id="credit">
+		Documentation generated by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

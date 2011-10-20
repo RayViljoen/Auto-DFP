@@ -1842,7 +1842,10 @@ class LineItemSummary {
 
 if (!class_exists("DfpLocation", FALSE)) {
 /**
- * A {@link Location} represents a geographical entity that can be targeted.
+ * A {@link Location} represents a geographical entity that can be targeted. If
+ * a location type is not available because of the API version you are using,
+ * the location will be represented as just the base class, otherwise it will be
+ * sub-classed correctly.
  * @package GoogleApiAdsDfp
  * @subpackage v201107
  */
